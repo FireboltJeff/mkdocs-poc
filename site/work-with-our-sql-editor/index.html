@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/work-with-our-sql-editor/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Working with the SQL workspace - Firebolt docs process</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#working-with-the-sql-workspace" class="nav-link">Working with the SQL workspace</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#opening-a-sql-workspace" class="nav-link">Opening a SQL workspace</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#quick-tour" class="nav-link">Quick tour</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#editing-sql-scripts" class="nav-link">Editing SQL scripts</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#saving-and-managing-scripts" class="nav-link">Saving and managing scripts</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-scripts-and-working-with-results" class="nav-link">Running scripts and working with results</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="working-with-the-sql-workspace">Working with the SQL workspace</h1>
+<p>The Firebolt Manager has a SQL workspace that you use to edit, run, and save SQL scripts and view query results. Each database in Firebolt has a SQL workspace. When you open the SQL workspace for a database, you see the saved scripts and state for that particular database.</p>
+<h2 id="opening-a-sql-workspace">Opening a SQL workspace</h2>
+<p>You can launch the SQL workspace for a database either from the left navigation pane or from the databases list.</p>
+<p><strong>To start the SQL workspace for the last database you worked with</strong></p>
+<ol>
+<li>
+<p>Choose the <strong>&gt;_</strong> icon from the left navigation pane.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-select-editor-from-nav.png" /></p>
+<p>The workspace for the database that you last worked with opens, and the database is selected from the list.
+2. To switch to the workspace for a different database, choose it from the <strong>Select a database</strong> list.</p>
+</li>
+</ol>
+<p><strong>To start the SQL workspace from the Databases list</strong></p>
+<ul>
+<li>
+<p>From the Databases list, hover over the <strong>Database name</strong> and then choose the <strong>&gt;_</strong> icon.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-select-editor-from-db.png" /></p>
+</li>
+</ul>
+<h2 id="quick-tour">Quick tour</h2>
+<p>The SQL workspace is organized into three panes.</p>
+<ul>
+<li>The left pane is the workspace navigation pane. Use it to navigate to different databases and to open different scripts in your database.</li>
+<li>The center pane is the SQL editor. Use it to edit scripts, save them, and run scripts. When you run a script, results are shown in the bottom part of the pane.</li>
+<li>The right pane is an object viewer that shows you the tables, views, and indexes in your database. You must start an engine before objects are visible. You can select an object to view its attributes. For example, you can select a table from the list of tables to view columns and data types.</li>
+</ul>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-select-editor-quicktour.png" /></p>
+<h2 id="editing-sql-scripts">Editing SQL scripts</h2>
+<p>The SQL editor uses tabs to help you organize your SQL scripts. You can switch tabs to work with different scripts and run them. You can have multiple query statements on the same tab. Each statement must be terminated by a semi-colon (<code>;</code>).</p>
+<h3 id="using-auto-complete">Using auto-complete</h3>
+<p>As you enter your code in a script tab, Firebolt suggests keywords and object names. Press the tab key to quickly add the first suggestion in the list to your script, or use arrow keys to select a different item from the list and then press the tab key.</p>
+<h3 id="using-keyboard-shortcuts">Using keyboard shortcuts</h3>
+<p>You can click the keyboard icon to view available keyboard shortcuts, or you can view a full list on our <a href="keyboard-shortcuts-for-sql-workspace/">keyboard shortcuts page</a>. You can also select an item from the list to perform that action.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-select-editor-keyboard-shortcuts (1) (1) (6) (7) (8) (8) (4) (9).png" /></p>
+<h3 id="using-query-templates">Using query templates</h3>
+<p>Query templates are available for common tasks, such as creating fact or dimension tables. Place the cursor in the editor where you want to insert code, choose the *<em>*</em> icon, and then select a query template from the list.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-select-editor-templates.png" /></p>
+<h3 id="using-the-create-external-table-template-to-import-data">Using the CREATE EXTERNAL TABLE template to import data</h3>
+<p>To create an external table, which is the first step for ingesting data into Firebolt, choose the <strong>Import Data</strong> button from the object pane or choose the download icon and then choose <strong>Import data</strong> as shown in the example below.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-import-data.png" /></p>
+<p>Firebolt creates a new tab with a <code>CREATE EXTERNAL TABLE</code> statement.</p>
+<h2 id="saving-and-managing-scripts">Saving and managing scripts</h2>
+<p>Choose the vertical ellipses on the script tab to select options for saving a script, duplicating a script to a new tab, exporting a script to a file, and closing the script tab. Although scripts are saved automatically in this way, we recommend that you save your script from time to time and before closing your editor.</p>
+<p>Firebolt uses cookies in your client to save the state of unsaved scripts automatically. A script is lost and can't be recovered if you close a script tab or clear your browser cache before saving. We recommend that you save scripts immediately when you start working. Saved scripts are saved to Firebolt automatically as you work.</p>
+<p><strong>To save a script</strong></p>
+<ol>
+<li>
+<p>Choose the vertical ellipses next to the script name and then select <strong>Save script</strong>.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-save-script (1).png" />
+2.  Type a new name for the script and then press ENTER.</p>
+<p>The script appears in the <strong>Database scripts</strong> list.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-select-editor-db-scripts-list (1).png" /></p>
+</li>
+</ol>
+<p><strong>To rename a script</strong></p>
+<ul>
+<li>Double-click the script name, type a new name, and then press ENTER.</li>
+</ul>
+<p>When you rename an unsaved script, Firebolt saves it.</p>
+<p><strong>To export a script and download it as a .sql file</strong></p>
+<ul>
+<li>
+<p>Choose the vertical ellipses next to the script name and then choose <strong>Export script</strong>.</p>
+<p><img alt="" src="../.gitbook/assets/Screen_Shot_2021-05-04_at_18_42_02.png" /></p>
+<p>Firebolt downloads the file to your browser's default download directory using the file pattern <em>Yourscriptname</em><strong>.sql</strong>.</p>
+</li>
+</ul>
+<p><strong>To import a script from a file</strong></p>
+<ol>
+<li>
+<p>Choose the arrow icon and then choose <strong>Import script</strong>.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-import-script.png" />
+2.  Browse your computer for a file and select it, or drag and drop a file to upload it.</p>
+<p>Firebolt creates a new tab with the contents of the script you imported.</p>
+</li>
+</ol>
+<h2 id="running-scripts-and-working-with-results">Running scripts and working with results</h2>
+<p>At the bottom of each script tab, you can choose <strong>Run script</strong> to execute SQL statements. SQL statements can only run on running engines. If an engine isn't running, you can select it from the list and then choose the <strong>Start</strong> button for that engine. For more information about engines, see <a href="../working-with-engines/">Working with engines</a>.</p>
+<p>You can run all statements in a script or select snippets of SQL to run.</p>
+<p><strong>To run all SQL statements in a script</strong></p>
+<ul>
+<li>Position the cursor anywhere in the script editor and then choose <strong>Run script</strong>. All SQL statements must be terminated by a semi-colon (<code>;</code>) or an error occurs.</li>
+</ul>
+<p><strong>To run a snippet of SQL as a statement</strong></p>
+<ul>
+<li>Select the SQL code you want to run as a statement and then choose <strong>Run script</strong>. Behind the scenes, Firebolt automatically appends a semi-colon to the selected SQL code so it can run as a statement.</li>
+</ul>
+<h3 id="viewing-results">Viewing results</h3>
+<p>After you run a script or query statement, results appear below the script editor, along with statistics about query execution.</p>
+<p><img alt="" src="../.gitbook/assets/Workspace_statistics.PNG" /></p>
+<p>When running a query, Firebolt provides several statistics to help you understand and monitor the performance. These statistics can be viewed in the SQL workspace, just above the query results table.</p>
+<p><img alt="" src="../.gitbook/assets/table_hot_query_run (1).png" /></p>
+<p>From left to right, these icons represent the following:</p>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../.gitbook/assets/Row_count.png" /></td>
+<td><strong>Row count</strong></td>
+<td>The total number of rows returned by a query.</td>
+</tr>
+<tr>
+<td><img alt="" src="../.gitbook/assets/Elapsed_time.png" /></td>
+<td><strong>Elapsed Time</strong></td>
+<td>The total time needed to complete a query.</td>
+</tr>
+<tr>
+<td><img alt="" src="../.gitbook/assets/Scanned_bytes.png" /></td>
+<td><strong>Scanned Bytes</strong></td>
+<td>The total amount of bytes scanned to complete a query. This includes scanned memory in the engine cache as well as the F3 storage.</td>
+</tr>
+<tr>
+<td><img alt="" src="../.gitbook/assets/Rows_Second.png" /></td>
+<td><strong>Rows / Second</strong></td>
+<td>The number of rows scanned per second.</td>
+</tr>
+<tr>
+<td><img alt="" src="../.gitbook/assets/Warm_data.png" /></td>
+<td><strong>Warm data</strong></td>
+<td>A percentage showing how much of the total data used to run a query was loaded from the engine’s cache.</td>
+</tr>
+</tbody>
+</table>
+<p>Warm data can be scanned very quickly. In contrast, “cold data” is slower to access because it’s being loaded from the F3 remote storage.</p>
+<p>A high percentage indicates data is read from the engine’s cache, which accelerates query response times. A low percentage indicates that query performance could be improved by<a href="../concepts/get-instant-query-response-time/"> configuring indexes</a> or by <a href="../working-with-engines/tuning-engine-performance/">changing the spec of your engine</a> to have a bigger cache.</p>
+<h3 id="viewing-query-statistics-with-results">Viewing query statistics with results</h3>
+<p>While viewing query results, you can choose to view a selection of prepared statistics to help you investigate data characteristics and identify anomalies more quickly.</p>
+<p>To view query statistics, choose the expansion arrow to the left of a result table header row.</p>
+<p><img alt="" src="../.gitbook/assets/column_statistics.png" /></p>
+<p>Each column expands to show statistics on a new row located just below the header. The statistics shown in each cell depend on the column’s <a href="../general-reference/data-types/">data type</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Data type</th>
+<th>Statistics displayed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Numeric</strong></td>
+<td>The statistics cell displays MIN, MAX, and MEDIAN values for that column. Each data field displays a horizontal data bar to indicate where that value lies in the range of values for that column. For a column with all positive numbers, the bar starts on the left at 0 and extends to the right toward 100% of maximum. If numbers are all negative, the data bar starts on the right at 0 and extends left to 100% of minimum. For mixed positive and negative numbers, the bar starts in the center and extends left and right toward minimum and maximum respectively.</td>
+</tr>
+<tr>
+<td><strong>String</strong></td>
+<td>The statistics cell displays the most frequent values by percentage. If no single value is more frequent, the cell displays the number of unique values.</td>
+</tr>
+<tr>
+<td><strong>Date</strong></td>
+<td>The statistics cell displays the most frequent values by percentage. If no single value is more frequent, the cell displays the number of unique values.</td>
+</tr>
+<tr>
+<td><strong>Array</strong></td>
+<td>The statistics cell displays the percentage of empty, not empty, and NULL values.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="viewing-more-result-statistics">Viewing more result statistics</h3>
+<p>You can view additional statistics and visualizations by selecting the expand icon that appears when you mouse over the bottom right of the statistics row cell. This opens up a side panel with a dashboard of more statistics detailing the selected column.</p>
+<p><img alt="" src="../.gitbook/assets/2021-09-09_12-25-02.png" /></p>
+<h3 id="viewing-multi-statement-script-results">Viewing multi-statement script results</h3>
+<p>When you run a script that has multiple SQL statements with result sets (<code>SELECT</code> statements), each result is shown on a separate line with statistics about statement execution. The first statement that ran is numbered 1 and at the bottom of the list.</p>
+<p>To view the results table for a result set, choose the table icon corresponding to the numbered result set you want to view, or choose the expansion arrow next to the <strong>Statement</strong> and then choose <strong>Open table</strong> as shown in the example below.</p>
+<p><img alt="" src="../.gitbook/assets/work-with-our-sql-editor-multi-select-query-results (1).png" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/work-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Keyboard shortcuts for SQL workspace - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#keyboard-shortcuts-for-sql-workspace" class="nav-link">Keyboard shortcuts for SQL workspace</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="keyboard-shortcuts-for-sql-workspace">Keyboard shortcuts for SQL workspace</h1>
+<p>Firebolt supports the following keyboard shortcuts in the SQL workspace.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Keyboard shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">selectall</td>
+<td align="left">Ctrl-A</td>
+</tr>
+<tr>
+<td align="left">gotoline</td>
+<td align="left">Ctrl-L</td>
+</tr>
+<tr>
+<td align="left">findnext</td>
+<td align="left">Ctrl-K</td>
+</tr>
+<tr>
+<td align="left">findprevious</td>
+<td align="left">Ctrl-Shift-K</td>
+</tr>
+<tr>
+<td align="left">selectOrFindNext</td>
+<td align="left">Alt-K</td>
+</tr>
+<tr>
+<td align="left">selectOrFindPrevious</td>
+<td align="left">Alt-Shift-K</td>
+</tr>
+<tr>
+<td align="left">find</td>
+<td align="left">Ctrl-F</td>
+</tr>
+<tr>
+<td align="left">selecttostart</td>
+<td align="left">Ctrl-Shift-Home</td>
+</tr>
+<tr>
+<td align="left">gotostart</td>
+<td align="left">Ctrl-Home</td>
+</tr>
+<tr>
+<td align="left">selectup</td>
+<td align="left">Shift-Up</td>
+</tr>
+<tr>
+<td align="left">golineup</td>
+<td align="left">Up</td>
+</tr>
+<tr>
+<td align="left">selecttoend</td>
+<td align="left">Ctrl-Shift-End</td>
+</tr>
+<tr>
+<td align="left">gotoend</td>
+<td align="left">Ctrl-End</td>
+</tr>
+<tr>
+<td align="left">selectdown</td>
+<td align="left">Shift-Down</td>
+</tr>
+<tr>
+<td align="left">golinedown</td>
+<td align="left">Down</td>
+</tr>
+<tr>
+<td align="left">selectwordleft</td>
+<td align="left">Ctrl-Shift-Left</td>
+</tr>
+<tr>
+<td align="left">gotowordleft</td>
+<td align="left">Ctrl-Left</td>
+</tr>
+<tr>
+<td align="left">selecttolinestart</td>
+<td align="left">Alt-Shift-Left</td>
+</tr>
+<tr>
+<td align="left">gotolinestart</td>
+<td align="left">Alt-Left | Home</td>
+</tr>
+<tr>
+<td align="left">selectleft</td>
+<td align="left">Shift-Left</td>
+</tr>
+<tr>
+<td align="left">gotoleft</td>
+<td align="left">Left</td>
+</tr>
+<tr>
+<td align="left">selectwordright</td>
+<td align="left">Ctrl-Shift-Right</td>
+</tr>
+<tr>
+<td align="left">gotowordright</td>
+<td align="left">Ctrl-Right</td>
+</tr>
+<tr>
+<td align="left">selecttolineend</td>
+<td align="left">Alt-Shift-Right</td>
+</tr>
+<tr>
+<td align="left">gotolineend</td>
+<td align="left">Alt-Right | End</td>
+</tr>
+<tr>
+<td align="left">selectright</td>
+<td align="left">Shift-Right</td>
+</tr>
+<tr>
+<td align="left">gotoright</td>
+<td align="left">Right</td>
+</tr>
+<tr>
+<td align="left">selectpagedown</td>
+<td align="left">Shift-Pagedown</td>
+</tr>
+<tr>
+<td align="left">gotopagedown</td>
+<td align="left">Pagedown</td>
+</tr>
+<tr>
+<td align="left">selectpageup</td>
+<td align="left">Shift-Pageup</td>
+</tr>
+<tr>
+<td align="left">gotopageup</td>
+<td align="left">Pageup</td>
+</tr>
+<tr>
+<td align="left">scrollup</td>
+<td align="left">Ctrl-Up</td>
+</tr>
+<tr>
+<td align="left">scrolldown</td>
+<td align="left">Ctrl-Down</td>
+</tr>
+<tr>
+<td align="left">selectlinestart</td>
+<td align="left">Shift-Home</td>
+</tr>
+<tr>
+<td align="left">selectlineend</td>
+<td align="left">Shift-End</td>
+</tr>
+<tr>
+<td align="left">removeline</td>
+<td align="left">Ctrl-D</td>
+</tr>
+<tr>
+<td align="left">duplicateSelection</td>
+<td align="left">Ctrl-Shift-D</td>
+</tr>
+<tr>
+<td align="left">togglecomment</td>
+<td align="left">Ctrl-/</td>
+</tr>
+<tr>
+<td align="left">modifyNumberUp</td>
+<td align="left">Ctrl-Shift-Up</td>
+</tr>
+<tr>
+<td align="left">modifyNumberDown</td>
+<td align="left">Ctrl-Shift-Down</td>
+</tr>
+<tr>
+<td align="left">replace</td>
+<td align="left">Ctrl-H</td>
+</tr>
+<tr>
+<td align="left">undo</td>
+<td align="left">Ctrl-Z</td>
+</tr>
+<tr>
+<td align="left">copylinesup</td>
+<td align="left">Alt-Shift-Up</td>
+</tr>
+<tr>
+<td align="left">movelinesup</td>
+<td align="left">Alt-Up</td>
+</tr>
+<tr>
+<td align="left">copylinesdown</td>
+<td align="left">Alt-Shift-Down</td>
+</tr>
+<tr>
+<td align="left">movelinesdown</td>
+<td align="left">Alt-Down</td>
+</tr>
+<tr>
+<td align="left">del</td>
+<td align="left">Delete</td>
+</tr>
+<tr>
+<td align="left">backspace</td>
+<td align="left">Shift-Backspace | Backspace</td>
+</tr>
+<tr>
+<td align="left">cut_or_delete</td>
+<td align="left">Shift-Delete</td>
+</tr>
+<tr>
+<td align="left">removetolinestart</td>
+<td align="left">Alt-Backspace</td>
+</tr>
+<tr>
+<td align="left">removetolineend</td>
+<td align="left">Alt-Delete</td>
+</tr>
+<tr>
+<td align="left">removetolinestarthard</td>
+<td align="left">Ctrl-Shift-Backspace</td>
+</tr>
+<tr>
+<td align="left">removetolineendhard</td>
+<td align="left">Ctrl-Shift-Delete</td>
+</tr>
+<tr>
+<td align="left">removewordleft</td>
+<td align="left">Ctrl-Backspace</td>
+</tr>
+<tr>
+<td align="left">removewordright</td>
+<td align="left">Ctrl-Delete</td>
+</tr>
+<tr>
+<td align="left">indent</td>
+<td align="left">Tab</td>
+</tr>
+<tr>
+<td align="left">blockindent</td>
+<td align="left">Ctrl-]</td>
+</tr>
+<tr>
+<td align="left">touppercase</td>
+<td align="left">Ctrl-U</td>
+</tr>
+<tr>
+<td align="left">tolowercase</td>
+<td align="left">Ctrl-Shift-U</td>
+</tr>
+<tr>
+<td align="left">expandtoline</td>
+<td align="left">Ctrl-Shift-L</td>
+</tr>
+<tr>
+<td align="left">addCursorAbove</td>
+<td align="left">Ctrl-Alt-Up</td>
+</tr>
+<tr>
+<td align="left">addCursorBelow</td>
+<td align="left">Ctrl-Alt-Down</td>
+</tr>
+<tr>
+<td align="left">addCursorAboveSkipCurrent</td>
+<td align="left">Ctrl-Alt-Shift-Up</td>
+</tr>
+<tr>
+<td align="left">addCursorBelowSkipCurrent</td>
+<td align="left">Ctrl-Alt-Shift-Down</td>
+</tr>
+<tr>
+<td align="left">selectMoreBefore</td>
+<td align="left">Ctrl-Alt-Left</td>
+</tr>
+<tr>
+<td align="left">selectMoreAfter</td>
+<td align="left">Ctrl-Alt-Right</td>
+</tr>
+<tr>
+<td align="left">selectNextBefore</td>
+<td align="left">Ctrl-Alt-Shift-Left</td>
+</tr>
+<tr>
+<td align="left">selectNextAfter</td>
+<td align="left">Ctrl-Alt-Shift-Right</td>
+</tr>
+<tr>
+<td align="left">findAll</td>
+<td align="left">Ctrl-Alt-K</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

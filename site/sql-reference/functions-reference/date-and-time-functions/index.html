@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-reference/functions-reference/date-and-time-functions/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Date and time functions - Firebolt docs process</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#date-and-time-functions" class="nav-link">Date and time functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#current_date" class="nav-link">CURRENT_DATE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#date_add" class="nav-link">DATE_ADD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#date_diff" class="nav-link">DATE_DIFF</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#date_format" class="nav-link">DATE_FORMAT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#date_trunc" class="nav-link">DATE_TRUNC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#extract" class="nav-link">EXTRACT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#from_unixtime" class="nav-link">FROM_UNIXTIME</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#now" class="nav-link">NOW</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#timezone" class="nav-link">TIMEZONE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_day_of_week" class="nav-link">TO_DAY_OF_WEEK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_day_of_year" class="nav-link">TO_DAY_OF_YEAR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_hour" class="nav-link">TO_HOUR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_minute" class="nav-link">TO_MINUTE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_month" class="nav-link">TO_MONTH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_quarter" class="nav-link">TO_QUARTER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_second" class="nav-link">TO_SECOND</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_string" class="nav-link">TO_STRING</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_week" class="nav-link">TO_WEEK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_year" class="nav-link">TO_YEAR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="date-and-time-functions">Date and time functions</h1>
+<p>This page describes the date and time functions and <a href="./#date-format-expressions">format expressions</a> supported in Firebolt.</p>
+<h2 id="current_date">CURRENT_DATE</h2>
+<p>Returns the current year, month and day as a <code>DATE</code> value, formatted as YYYY-MM-DD.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​CURRENT_DATE()​​
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    CURRENT_DATE();
+</code></pre>
+<p><strong>Returns:</strong> <code>2021-11-04</code></p>
+<h2 id="date_add">DATE_ADD</h2>
+<p>Calculates a new <code>DATE</code>or <code>TIMESTAMP</code> by adding or subtracting a specified number of time units from an indicated expression.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​DATE_ADD('&lt;unit&gt;', &lt;interval&gt;, &lt;date_expr&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;unit&gt;</code></td>
+<td>A unit of time. This can be any of the following: <code>SECOND</code></td>
+</tr>
+<tr>
+<td><code>&lt;interval&gt;</code></td>
+<td>The number of times to increase the ​<code>&lt;date_expr&gt;​​</code> by the time unit specified by <code>&lt;unit&gt;</code>. This can be a negative number.</td>
+</tr>
+<tr>
+<td><code>&lt;date_expr&gt;</code></td>
+<td>An expression that evaluates to a <code>DATE</code> or <code>TIMESTAMP</code> value.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>The example below uses a table <code>date_test</code> with the columns and values below.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>sale_date</td>
+</tr>
+<tr>
+<td>a</td>
+<td>2012-05-01</td>
+</tr>
+<tr>
+<td>b</td>
+<td>2021-08-30</td>
+</tr>
+<tr>
+<td>c</td>
+<td>1999-12-31</td>
+</tr>
+</tbody>
+</table>
+<p>This example below adds 15 weeks to the <code>sale_date</code> column.</p>
+<pre><code class="language-sql">SELECT
+    Category,
+    DATE_ADD('WEEK', 15, sale_date)
+FROM
+    date_test
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<pre><code>+---+------------+
+| a | 2012-08-14 |
+| b | 2021-12-13 |
+| c | 2000-04-14 |
++---+------------+
+</code></pre>
+<p>This example below subtracts 6 months from a given start date string. This string representation of a date first needs to be transformed to <code>DATE</code>type using the <code>CAST</code>function.</p>
+<pre><code>SELECT
+    DATE_ADD('MONTH', -6, CAST ('2021-11-04' AS DATE));
+</code></pre>
+<p><strong>Returns</strong>: <code>2021-05-04</code></p>
+<h2 id="date_diff">DATE_DIFF</h2>
+<p>Calculates the difference between ​​<code>start_date</code>​​ and ​<code>end_date</code>​​ by the indicated ​unit​​.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​DATE_DIFF('&lt;unit&gt;', &lt;start_date&gt;, &lt;end_date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;unit&gt;</code></td>
+<td>A unit of time. This can be any of the following: <code>SECOND</code></td>
+</tr>
+<tr>
+<td><code>&lt;start_date&gt;</code></td>
+<td>An expression that evaluates to a <code>DATE</code> or <code>TIMESTAMP</code> value.</td>
+</tr>
+<tr>
+<td><code>&lt;end_date&gt;</code></td>
+<td>An expression that evaluates to a <code>DATE</code> or <code>TIMESTAMP</code> value.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>The example below uses a table <code>date_test</code> with the columns and values below.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>sale_date</td>
+<td>sale_datetime</td>
+</tr>
+<tr>
+<td>a</td>
+<td>2012-05-01</td>
+<td>2017-06-15 09:34:21</td>
+</tr>
+<tr>
+<td>b</td>
+<td>2021-08-30</td>
+<td>2014-01-15 12:14:46</td>
+</tr>
+<tr>
+<td>c</td>
+<td>1999-12-31</td>
+<td>1999-09-15 11:33:21</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT
+    Category,
+    DATE_DIFF('YEAR', sale_date, sale_datetime) AS year_difference
+FROM
+    date_test
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<pre><code>+----------+-----------------+
+| Category | year_difference |
+| a        | 5               |
+| b        | -7              |
+| c        | 0               |
++----------+-----------------+
+</code></pre>
+<p>This example below finds the number of days difference between two date strings. The strings first need to be transformed to <code>TIMESTAMP</code> type using the <code>CAST</code>function.</p>
+<pre><code class="language-sql">SELECT
+    DATE_DIFF(
+        'day',
+        CAST('2020/08/31 10:00:00' AS TIMESTAMP),
+        CAST('2020/08/31 11:00:00' AS TIMESTAMP)
+    );
+</code></pre>
+<p><strong>Returns</strong>: <code>0</code></p>
+<h2 id="date_format">DATE_FORMAT</h2>
+<p>Formats a ​<code>DATE</code> ​​or ​<code>DATETIME</code> ​​according to the given format expression.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​DATE_FORMAT(&lt;date&gt;, '&lt;format&gt;')​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>The date to be formatted.</td>
+</tr>
+<tr>
+<td><code>&lt;format&gt;</code></td>
+<td>The format to be used for the output using the syntax shown. The reference table below lists allowed expressions and provides example output of each expression for a given date and time.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Expression for \<format></th>
+<th>Description</th>
+<th>Expression output for Tuesday the 2nd of April, 1975 at 12:24:48:13 past midnight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%C</code></td>
+<td>The year divided by 100 and truncated to integer (00-99)</td>
+<td><code>19</code></td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>Day of the month, zero-padded (01-31)</td>
+<td><code>02</code></td>
+</tr>
+<tr>
+<td><code>%D</code></td>
+<td>Short MM/DD/YY date, equivalent to %m/%d/%y</td>
+<td><code>04/02/75</code></td>
+</tr>
+<tr>
+<td><code>%e</code></td>
+<td>Day of the month, space-padded ( 1-31)</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>%F</code></td>
+<td>Short YYYY-MM-DD date, equivalent to %Y-%m-%d</td>
+<td><code>1975-04-02</code></td>
+</tr>
+<tr>
+<td><code>%H</code></td>
+<td>The hour in 24h format (00-23)</td>
+<td><code>00</code></td>
+</tr>
+<tr>
+<td><code>%I</code></td>
+<td>The hour in 12h format (01-12)</td>
+<td><code>12</code></td>
+</tr>
+<tr>
+<td><code>%j</code></td>
+<td>Day of the year (001-366)</td>
+<td><code>112</code></td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>Month as a decimal number (01-12)</td>
+<td><code>04</code></td>
+</tr>
+<tr>
+<td><code>%M</code></td>
+<td>Minute (00-59)</td>
+<td><code>24</code></td>
+</tr>
+<tr>
+<td><code>%n</code></td>
+<td>New-line character (‘’) in order to add a new line in the converted format.</td>
+<td><p>For example, <code>%Y%n%m</code> returns<br><code>1975</code></p><p><code>04</code></p></td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>AM or PM designation</td>
+<td><code>PM</code></td>
+</tr>
+<tr>
+<td><code>%R</code></td>
+<td>24-hour HH:MM time, equivalent to %H:%M</td>
+<td><code>00:24</code></td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>The second (00-59)</td>
+<td><code>48</code></td>
+</tr>
+<tr>
+<td><code>%T</code></td>
+<td>ISO 8601 time format (HH:MM:SS), equivalent to %H:%M:%S</td>
+<td><code>00:24:48</code></td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>ISO 8601 weekday as number with Monday as 1 (1-7)</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>%V</code></td>
+<td>ISO 8601 week number (01-53)</td>
+<td><code>17</code></td>
+</tr>
+<tr>
+<td><code>%w</code></td>
+<td>weekday as a decimal number with Sunday as 0 (0-6)</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>%y</code></td>
+<td>Year, last two digits (00-99)</td>
+<td><code>75</code></td>
+</tr>
+<tr>
+<td><code>%Y</code></td>
+<td>Year</td>
+<td><code>1975</code></td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>Escape character to use a <code>%</code> sign</td>
+<td><code>%</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The examples below use a table <code>date_test</code> with the columns and values below. The following examples use these <code>TIMESTAMP</code> values to demonstrate the various <code>DATE_FORMAT</code> expressions.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>sale_datetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>2017-06-15 09:34:21</td>
+</tr>
+<tr>
+<td>b</td>
+<td>2014-01-15 12:14:46</td>
+</tr>
+<tr>
+<td>c</td>
+<td>1999-09-15 11:33:21</td>
+</tr>
+</tbody>
+</table>
+<p>The example below shows output for <code>&lt;format&gt;</code> expressions %C, %d, %D, %e, %F, %H, %I</p>
+<pre><code class="language-sql">SELECT
+    Category,
+    DATE_FORMAT(sale_datetime, '%C') AS C,
+    DATE_FORMAT(sale_datetime, '%d') AS d,
+    DATE_FORMAT(sale_datetime, '%D') AS D,
+    DATE_FORMAT(sale_datetime, '%e') AS e,
+    DATE_FORMAT(sale_datetime, '%F') AS F,
+    DATE_FORMAT(sale_datetime, '%H') AS H,
+    DATE_FORMAT(sale_datetime, '%I') AS I
+FROM
+    date_test
+ORDER BY Category
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+----------+---------------------+----+----+----------+----+------------+----+----+
+| Category | sale_datetime       | C  | d  | D        | e  | F          | H  | I  |
+| a        | 2017-06-15 09:34:21 | 20 | 15 | 06/15/17 | 15 | 2017-06-15 | 09 | 09 |
+| b        | 2014-01-15 12:14:46 | 20 | 15 | 01/15/14 | 15 | 2014-01-15 | 12 | 12 |
+| c        | 1999-09-15 11:33:21 | 19 | 15 | 09/15/99 | 15 | 1999-09-15 | 11 | 11 |
++----------+---------------------+----+----+----------+----+------------+----+----+
+</code></pre>
+<p>The example below shows output for <code>&lt;format&gt;</code> expressions %j, %m, %M, %p, %R, %S</p>
+<pre><code>SELECT
+    Category,
+    sale_datetime,
+    DATE_FORMAT(sale_datetime, '%j') AS j,
+    DATE_FORMAT(sale_datetime, '%m') AS m,
+    DATE_FORMAT(sale_datetime, '%M') AS M,
+    DATE_FORMAT(sale_datetime, '%p') AS p,
+    DATE_FORMAT(sale_datetime, '%R') AS R,
+    DATE_FORMAT(sale_datetime, '%S') AS S
+FROM
+    date_test
+ORDER BY Category
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+----------+---------------------+-----+----+----+----+-------+----+
+| Category | sale_datetime       | j   | m  | M  | p  | R     | S  |
+| a        | 2017-06-15 09:34:21 | 166 | 06 | 34 | AM | 09:34 | 21 |
+| b        | 2014-01-15 12:14:46 | 015 | 01 | 14 | PM | 12:14 | 46 |
+| c        | 1999-09-15 11:33:21 | 258 | 09 | 33 | AM | 11:33 | 21 |
++----------+---------------------+-----+----+----+----+-------+----+
+</code></pre>
+<p>The example below shows output for <code>&lt;format&gt;</code> expressions %T, %u, %V, %w, %y, %Y, %%</p>
+<pre><code>SELECT
+    Category,
+    sale_datetime,
+    DATE_FORMAT(sale_datetime, '%T') AS T,
+    DATE_FORMAT(sale_datetime, '%u') AS u,
+    DATE_FORMAT(sale_datetime, '%V') AS V,
+    DATE_FORMAT(sale_datetime, '%w') AS w,
+    DATE_FORMAT(sale_datetime, '%y') AS y,
+    DATE_FORMAT(sale_datetime, '%Y') AS Y,
+    DATE_FORMAT(sale_datetime, '%%') AS percent
+FROM
+    date_test
+ORDER BY Category
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+----------+---------------------+----------+---+----+---+----+------+---------+
+| Category | sale_datetime       | T        | u | V  | w | y  | Y    | percent |
+| a        | 2017-06-15 09:34:21 | 09:34:21 | 4 | 24 | 4 | 17 | 2017 | %       |
+| b        | 2014-01-15 12:14:46 | 12:14:46 | 3 | 03 | 3 | 14 | 2014 | %       |
+| c        | 1999-09-15 11:33:21 | 11:33:21 | 3 | 37 | 3 | 99 | 1999 | %       |
++----------+---------------------+----------+---+----+---+----+------+---------+
+</code></pre>
+<h2 id="date_trunc">DATE_TRUNC</h2>
+<p>Truncate a given date to a specified position.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​DATE_TRUNC('&lt;precision&gt;', &lt;date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;precision&gt;</code></td>
+<td>The time unit for the returned value to be expressed. ​ This can be any of the following: <code>SECOND</code></td>
+</tr>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>The date to be truncated. This can be any expression that evaluates to a <code>DATE</code> or <code>TIMESTAMP</code> value.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The example below uses a table <code>date_test</code> with the columns and values below.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>sale_datetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>2017-06-15 09:34:21</td>
+</tr>
+<tr>
+<td>b</td>
+<td>2014-01-15 12:14:46</td>
+</tr>
+<tr>
+<td>c</td>
+<td>1999-09-15 11:33:21</td>
+</tr>
+</tbody>
+</table>
+<pre><code>SELECT
+    Category,
+    sale_datetime,
+    DATE_TRUNC('MINUTE', sale_datetime) AS MINUTE,
+    DATE_TRUNC('HOUR', sale_datetime) AS HOUR,
+    DATE_TRUNC('DAY', sale_datetime) AS DAY
+FROM
+    date_test
+ORDER BY Category
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<pre><code>+----------+---------------------+---------------------+---------------------+---------------------+
+| Category | sale_datetime       | MINUTE              | HOUR                | DAY                 |
+| a        | 2017-06-15 09:34:21 | 2017-06-15 09:34:00 | 2017-06-15 09:00:00 | 2017-06-15 00:00:00 |
+| b        | 2014-01-15 12:14:46 | 2014-01-15 12:14:00 | 2014-01-15 12:00:00 | 2014-01-15 00:00:00 |
+| c        | 1999-09-15 11:33:21 | 1999-09-15 11:33:00 | 1999-09-15 11:00:00 | 1999-09-15 00:00:00 |
++----------+---------------------+---------------------+---------------------+---------------------+
+</code></pre>
+<h2 id="extract">EXTRACT</h2>
+<p>Retrieves subfields such as year or hour from date/time values.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​EXTRACT(&lt;field&gt; FROM &lt;source&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;field&gt;</code></td>
+<td>Supported fields: <code>DAY</code>, <code>DOW, MONTH</code>, <code>WEEK</code>, <code>QUARTER</code>, <code>YEAR</code>, <code>HOUR</code>, <code>MINUTE</code>, <code>SECOND</code>, <code>EPOCH</code></td>
+</tr>
+<tr>
+<td><code>&lt;source&gt;</code></td>
+<td>A value expression of type timestamp.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>This example below extracts the year from the timestamp. The string date first need to be transformed to <code>TIMESTAMP</code> type using the <code>CAST</code>function.</p>
+<pre><code>SELECT
+    EXTRACT(
+        YEAR
+        FROM
+            CAST('2020-01-01 10:00:00' AS TIMESTAMP)
+    )
+</code></pre>
+<p><strong>Returns</strong>: <code>2020</code></p>
+<h2 id="from_unixtime">FROM_UNIXTIME</h2>
+<p>Convert Unix time (<code>LONG</code> in epoch seconds) to <code>DATETIME</code> (YYYY-MM-DD HH:mm:ss).</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​FROM_UNIXTIME(&lt;unix_time&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;unix_time&gt;</code></td>
+<td>The UNIX epoch time that is to be converted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    FROM_UNIXTIME(1493971667);
+</code></pre>
+<p><strong>Returns</strong>: <code>2017-05-05 08:07:47</code></p>
+<h2 id="now">NOW</h2>
+<p>Returns the current date and time.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​NOW()​​
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code>SELECT 
+    NOW()
+</code></pre>
+<p><strong>Returns</strong>: <code>2021-11-04 20:42:54</code></p>
+<h2 id="timezone">TIMEZONE</h2>
+<p>Returns the current timezone of the request execution</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TIMEZONE()​​
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code>SELECT 
+    TIMEZONE()
+</code></pre>
+<p><strong>Returns</strong>: <code>Etc/UTC</code></p>
+<h2 id="to_day_of_week">TO_DAY_OF_WEEK</h2>
+<p>Converts a date or timestamp to a number representing the day of the week (Monday is 1, and Sunday is 7).</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_DAY_OF_WEEK(&lt;date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>An expression that evaluates to a <code>DATE</code>or <code>TIMESTAMP</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>This example below finds the day of week number for April 22, 1975. The string first needs to be transformed to <code>DATE</code>type using the <code>CAST</code>function.</p>
+<pre><code class="language-sql">SELECT
+    TO_DAY_OF_WEEK(CAST('1975/04/22' AS DATE)) as res;
+</code></pre>
+<p><strong>Returns</strong>: <code>2</code></p>
+<h2 id="to_day_of_year">TO_DAY_OF_YEAR</h2>
+<p>Converts a date or timestamp to a number containing the number for the day of the year.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_DAY_OF_YEAR(&lt;date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>An expression that evaluates to a <code>DATE</code>or <code>TIMESTAMP</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>This example below finds the day of the year number for April 22, 1975. The string first needs to be transformed to <code>DATE</code>type using the <code>CAST</code>function.</p>
+<pre><code class="language-sql">SELECT
+    TO_DAY_OF_YEAR(CAST('1975/04/22' AS DATE)) as res;
+</code></pre>
+<p><strong>Returns</strong>: <code>112</code></p>
+<h2 id="to_hour">TO_HOUR</h2>
+<p>Converts a date or timestamp to a number containing the hour.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_HOUR(&lt;timestamp&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;timestamp&gt;</code></td>
+<td>The timestamp to be converted into the number of the hour.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For Tuesday, April 22, 1975 at 12:20:05:</p>
+<pre><code class="language-sql">SELECT TO_HOUR(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) as res;
+</code></pre>
+<p>Returns: <code>12</code></p>
+<h2 id="to_minute">TO_MINUTE</h2>
+<p>Converts a timestamp (any date format we support) to a number containing the minute.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_MINUTE(&lt;timestamp&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;timestamp&gt;</code></td>
+<td>The timestamp to be converted into the number of the minute.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For Tuesday, April 22, 1975 at 12:20:05:</p>
+<pre><code class="language-sql">SELECT TO_MINUTE(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) as res;
+</code></pre>
+<p><strong>Returns:</strong> <code>20</code></p>
+<h2 id="to_month">TO_MONTH</h2>
+<p>Converts a date or timestamp (any date format we support) to a number containing the month.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_MONTH(&lt;date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>The date or timestamp to be converted into the number of the month.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For Tuesday, April 22, 1975:</p>
+<pre><code class="language-sql">SELECT TO_MONTH(CAST('1975/04/22' AS DATE)) as res;
+</code></pre>
+<p><strong>Returns:</strong> 4</p>
+<h2 id="to_quarter">TO_QUARTER</h2>
+<p>Converts a date or timestamp (any date format we support) to a number containing the quarter.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_QUARTER(&lt;date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>The date or timestamp to be converted into the number of the quarter.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For Tuesday, April 22, 1975:</p>
+<pre><code class="language-sql">SELECT TO_QUARTER(CAST('1975/04/22' AS DATE)) as res;
+</code></pre>
+<p><strong>Returns:</strong><code>2</code></p>
+<h2 id="to_second">TO_SECOND</h2>
+<p>Converts a timestamp (any date format we support) to a number containing the second.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_SECOND(&lt;timestamp&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;timestamp&gt;</code></td>
+<td>The timestamp to be converted into the number of the second.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For Tuesday, April 22, 1975 at 12:20:05:</p>
+<pre><code class="language-sql">SELECT TO_SECOND(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) as res;
+</code></pre>
+<p><strong>Returns: </strong><code>5</code></p>
+<h2 id="to_string">TO_STRING</h2>
+<p>Converts a date into a STRING. The date is any <a href="../../../general-reference/data-types/">date data type​​</a>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">TO_STRING(&lt;date&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>The date to be converted to a string.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>This que<strong>r</strong>y returns today's date and the current time.</p>
+<pre><code class="language-sql">SELECT TO_STRING(NOW());
+</code></pre>
+<p><strong>Returns</strong>: ​ <code>2022-10-10 22:22:33</code></p>
+<h2 id="to_week">TO_WEEK</h2>
+<p>Converts a date or timestamp (any date format we support) to a number containing the week.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_WEEK(&lt;date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>The date or timestamp to be converted into the number of the week.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For Tuesday, April 22, 1975:</p>
+<pre><code class="language-sql">SELECT TO_WEEK(CAST('1975/04/22' AS DATE)) as res;
+</code></pre>
+<p><strong>Returns: </strong><code>16</code></p>
+<h2 id="to_year">TO_YEAR</h2>
+<p>Converts a date or timestamp (any date format we support) to a number containing the year.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_YEAR(&lt;date&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;date&gt;</code></td>
+<td>The date or timestamp to be converted into the number of the year.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For Tuesday, April 22, 1975:</p>
+<pre><code class="language-sql">SELECT TO_YEAR(CAST('1975/04/22' AS DATE)) as res;
+</code></pre>
+<p><strong>Returns: </strong><code>1975</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

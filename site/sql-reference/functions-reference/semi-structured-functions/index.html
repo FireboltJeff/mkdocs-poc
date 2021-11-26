@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-reference/functions-reference/semi-structured-functions/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Semi-structured data functions - Firebolt docs process</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#semi-structured-data-functions" class="nav-link">Semi-structured data functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="semi-structured-data-functions">Semi-structured data functions</h1>
+<p>Firebolt supports loading and manipulating semi-structured data such as JSON. This, and similar formats (e.g. Avro, Parquet) can contain compound types such as arrays, maps, and structs. Firebolt uses its native <code>ARRAY</code> type to model and query such semi-structured data.</p>
+<p>The raw JSON input can be transformed into Firebolt's arrays during ingestion, or stored as a plain <code>TEXT</code> column. In both cases,<a href="json-functions/"> JSON functions</a> will be used to transform the nested, compound JSON types to Firebolt arrays, while <a href="array-functions/">array functions</a>, including Aggregate Array Functions, will be used to manipulate and query the semi-structured data.</p>
+<ul>
+<li><a href="array-functions/">Array functions</a> - used for the manipulation and querying of array typed columns, such as <a href="array-functions/#transform">transformation</a>, <a href="array-functions/#filter">filtering</a>, and <a href="array-functions/#array_unnest">un-nesting</a> - an operation that converts the array to a regular column.</li>
+<li><a href="aggregate-array-functions/">Aggregate array functions</a> - these functions work on array-typed columns, but instead of being applied row by row, they combine the results or all the array belonging to the groups defined by the <code>GROUP BY</code> clause.</li>
+<li><a href="json-functions/">JSON functions</a> - these function extract and transform raw JSON into Firebolt native types, or JSON sub-objects. They are used either during the ELT process or applied to columns storing JSON objects as plain <code>TEXT</code>         </li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/concepts/get-instant-query-response-time/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Using indexes for faster queries - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#using-indexes-for-faster-queries" class="nav-link">Using indexes for faster queries</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#primary-indexes" class="nav-link">Primary indexes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#get-sub-second-query-response-time-using-aggregating-indexes" class="nav-link">Get sub-second query response time using aggregating indexes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#accelerate-joins-using-join-indexes" class="nav-link">Accelerate joins using join indexes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="using-indexes-for-faster-queries">Using indexes for faster queries</h1>
+<p>Firebolt incorporates several building blocks that enable accelerate query response times.</p>
+<p>Those building blocks are called indexes. Using them wisely not only guarantees fast query response times but will also reduce down your cloud bill.</p>
+<p><strong>In this topic:</strong></p>
+<ol>
+<li><a href="./#primary-indexes">Primary indexes as the first line of performance accelerator</a> </li>
+<li><a href="./#get-sub-second-query-response-time-using-aggregating-indexes">Get sub-second query response time using aggregating indexes</a></li>
+<li><a href="./#accelerate-joins-using-join-indexes">Accelerate queries using join indexes</a></li>
+</ol>
+<h2 id="primary-indexes">Primary indexes</h2>
+<p>The primary indexes are the main sort key of the table. They will be built with the table using the <a href="../../sql-reference/commands/ddl-commands/#create-fact-dimension-table">CREATE FACT/DIMENSION TABLE syntax</a> and will be used as the main tool for data pruning and data distribution.</p>
+<p>By using the primary index, Firebolt will read ranges of data from each F3 file. This will reduce the I/O needed to be read, and increase performance dramatically.</p>
+<h3 id="how-to-choose-your-primary-index">How to choose your Primary index</h3>
+<p>The columns we set in the primary index and their order is a key factor for the index success. Make sure to put the main queries filter columns, in the order that filter the most.</p>
+<ul>
+<li>In partitioned tables, the partition key column will be the first line of data distribution. The primary index will be used in each partition as the second level of sort/distribution. </li>
+<li>If you have a use case of a star schema, and you use <a href="../../sql-reference/commands/ddl-commands/#create-join-index">join indexes</a> on your dimension tables, we recommend adding the dimension join key as the first column in the primary index.    </li>
+</ul>
+<h2 id="get-sub-second-query-response-time-using-aggregating-indexes">Get sub-second query response time using aggregating indexes</h2>
+<p>Firebolt incorporates many building blocks to guarantee fast query response times. One of these building blocks is a type of index called an <a href="../../sql-reference/commands/ddl-commands/#create-and-generate-aggregating-index">aggregating index</a>.</p>
+<p>The aggregating index enables you to take a subset of a table's columns and configure aggregations on top of those columns. Many aggregations are supported from the simple <code>sum</code>, <code>max</code>, <code>min</code> to more complex ones such as <code>count</code> and <code>count (distinct)</code>. The index is automatically updated and aggregating as new data streams into the table without having to scan the entire table every time since the index is stateful and consistent.</p>
+<p>The index is configured per table so when the table is queried, Firebolt's query optimizer searches the table's indexes for the index (or indexes) which has the potential for providing the most optimized query response time. When using the index - Instead of calculating the aggregation on the entire table and scanning all the rows, the aggregation is already pre-calculated in the aggregating index. No need to scan the entire table to perform the calculation.</p>
+<h3 id="when-to-use-aggregating-indexes">When to use aggregating indexes</h3>
+<p>You should consider using aggregating indexes as a best practice in Firebolt to speed up dashboards, reports, or any type of workload that is highly repetitive in your queries and contains aggregations. Not only does it speed up queries dramatically, but it also helps reduce compute costs because the CPU doesn’t need to work as hard to scan as much data. This means that once indexes are set up, you can often reduce your cluster size (and thus pay less on compute), while still enjoying fast query performance.</p>
+<h3 id="how-many-aggregating-indexes-can-i-create">How many aggregating indexes can I create?</h3>
+<p>You can create as many aggregating indexes as you like. Since the indexes are compressed and relatively small compared to the table they are configured on - you have nothing to worry about increasing your cloud bill. In fact, when using aggregating indexes your cloud bill will drop significantly since you will probably be able to reduce your cluster size and maybe also use an engine with a cheaper spec.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>To configure an aggregating index, first, you need to <a href="../../sql-reference/commands/ddl-commands/#create-fact-dimension-table">create a Fact table</a>.</p>
+<h3 id="create-and-generate-an-aggregating-index">Create and generate an aggregating index</h3>
+<p>Use the <a href="../../sql-reference/commands/ddl-commands/#create-an-aggregating-index-on-a-populated-table">CREATE &amp; GENERATE AGGERGATING INDEX syntax</a> to create and generate an aggregating index that includes the keys and the functions per parameter that you usually query.</p>
+<p><strong>Example: Implementing an aggregating index for common queries</strong></p>
+<p>To create an index, we need to first create a fact table. We'll call ours <em>fact_orders</em>.</p>
+<pre><code class="language-sql">CREATE FACT TABLE fact_orders
+(
+    order_id LONG,
+    product_id LONG,
+    store_id LONG,
+    client_id LONG,
+    order_date DATE,
+    order_total DOUBLE,
+    order_item_count INT
+)
+PRIMARY INDEX store_id, product_id, order_id;
+</code></pre>
+<p>From this table, let's assume we typically run queries that calculate the <code>SUM(order_total), SUM(order_item_count)</code>,<code>AVG(order_item_count)</code>, and <code>COUNT(DISTINCT client_id),</code> grouped by different combinations of the <code>store_id</code> and <code>product_id</code> columns.</p>
+<p>To help us accelerate our queries, we'll create an aggregating index and populate it as follows:</p>
+<pre><code class="language-sql">CREATE AND GENERATE AGGREGATING INDEX agg_fact_orders ON fact_orders 
+(
+  store_id, 
+  product_id, 
+  SUM(order_total), 
+  SUM(order_item_count),
+  AVG(order_item_count),
+  COUNT(DISTINCT client_id)
+);
+</code></pre>
+<p>From now on, every query for data from the <em>fact_orders</em> table that combines any of these fields and aggregations will now benefit from the aggregating index. Instead of performing a full query scan and perform each aggregation - the engine uses the aggregating index which already has the required aggregating pre-calculated providing a sub-second query response time.</p>
+<p>The order of the fields is important. Firebolt will create the primary index on the aggregating index as an optimization to filter it best. The primary index will be built base on the index fields, in the order as they were written. In our example, the primary index will be in the following order: <code>store_id</code>, <code>product_id</code>. Make sure to write first those you mostly filter by in your query <a href="../../sql-reference/commands/query-syntax/#where">WHERE clause</a>.</p>
+<h2 id="accelerate-joins-using-join-indexes">Accelerate joins using join indexes</h2>
+<p>Firebolt supports accelerating your joins by creating join indexes. Queries with joins might be resource-consuming and if not done efficiently - joins can take a significant amount of time to complete which makes them unusable to the user. Using Firebolt’s join indexing saves time searching data in the disk and loading it into memory. It’s already there, indexed by the required join key, and waits to be queried.</p>
+<h3 id="when-to-use-join-index">When to use join index</h3>
+<p>You should consider implementing join indexes as best practice in Firebolt to speed up any query which performs a join with a dimension table. This reduces the additional overhead of performing the join to the minimum with the benefit of fast query response times while keeping your cloud bill low.</p>
+<h3 id="create-join-index">Create join index</h3>
+<p>Configuring the join index is being done using the <a href="../../sql-reference/commands/ddl-commands/#create-join-index">CREATE JOIN INDEX syntax</a>.</p>
+<p><strong>Example:</strong></p>
+<p>Assuming we have the following tables:</p>
+<ol>
+<li>A fact table <code>my_fact</code> with a column named <code>id</code> and some additional columns.</li>
+<li>A dimension table <code>my_dimension</code> with a column named <code>id</code> and some additional columns.</li>
+</ol>
+<p>We want to run the following query:</p>
+<pre><code class="language-sql">select * from my_fact left join my_dimension_table on (my_fact.id = my_dimension_table.id)
+</code></pre>
+<p>Let's create the following join index:</p>
+<pre><code class="language-sql">CREATE JOIN INDEX IF NOT EXISTS my_join_index ON my_dimension_table
+( 
+  id 
+)
+</code></pre>
+<p>The query optimizer uses <code>my_join_index</code> instead of performing the join in runtime. This instantly reduces both CPU and memory overhead while achieving super-fast query response time.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

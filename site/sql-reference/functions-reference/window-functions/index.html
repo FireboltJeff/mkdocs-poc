@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-reference/functions-reference/window-functions/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Window Functions - Firebolt docs process</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#window-functions" class="nav-link">Window Functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#avg" class="nav-link">AVG</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#count" class="nav-link">COUNT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#dense_rank" class="nav-link">DENSE_RANK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lag" class="nav-link">LAG</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lead" class="nav-link">LEAD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#min" class="nav-link">MIN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#max" class="nav-link">MAX</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#rank" class="nav-link">RANK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#row_number" class="nav-link">ROW_NUMBER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sum" class="nav-link">SUM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="window-functions">Window Functions</h1>
+<p>A window function performs a calculation across a set of table rows. Unlike regular aggregate functions, the use of a window function does not cause rows to become grouped into a single output row but allows the rows to retain their separate identities.</p>
+<p>Window functions are identified by the <code>OVER()</code> syntax.</p>
+<p>To narrow down the window dataset into individual groups, use the <code>PARTITION BY</code> clause. In case this clause is not used, a single window is being created.</p>
+<p>This page describes the window functions supported in Firebolt.</p>
+<h2 id="avg">AVG</h2>
+<p>Returns the average value within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">AVG( &lt;val&gt; ) OVER ( [ PARTITION BY &lt;exp&gt; ] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>An expression used for the <code>AVG()</code>function.</td>
+</tr>
+<tr>
+<td><code>&lt;expr&gt;</code></td>
+<td>An expression used for the partition by clause.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The example below is querying test scores for students in various grade levels. Unlike a regular <code>AVG()</code> aggregation, the window function allows us to see how each student individually compares to the average test score for their grade level.</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    Test_score,
+    AVG(Test_score) OVER (PARTITION BY Grade_level) AS average_for_grade
+FROM
+    class_test 
+</code></pre>
+<p><strong>Results</strong></p>
+<pre><code>' +------------+-------------+------------+-------------------------+
+' | First_name | Grade_level | Test_score |    average_for_grade    |
+' +------------+-------------+------------+-------------------------+
+' | Frank      |           9 |         76 | 81.33333333333333       |
+' | Humphrey   |           9 |         90 | 81.33333333333333       |
+' | Iris       |           9 |         79 | 81.33333333333333       |
+' | Sammy      |           9 |         85 | 81.33333333333333       |
+' | Peter      |           9 |         80 | 81.33333333333333       |
+' | Jojo       |           9 |         78 | 81.33333333333333       |
+' | Brunhilda  |          12 |         92 | 89                      |
+' | Franco     |          12 |         94 | 89                      |
+' | Thomas     |          12 |         66 | 89                      |
+' | Gary       |          12 |        100 | 89                      |
+' | Charles    |          12 |         93 | 89                      |
+' | Jesse      |          12 |         89 | 89                      |
+' | Roseanna   |          11 |         94 | 73                      |
+' | Carol      |          11 |         52 | 73                      |
+' | Wanda      |          11 |         73 | 73                      |
+' | Shangxiu   |          11 |         76 | 73                      |
+' | Larry      |          11 |         68 | 73                      |
+' | Otis       |          11 |         75 | 73                      |
+' | Deborah    |          10 |         78 | 68.2                    |
+' | Yolinda    |          10 |         30 | 68.2                    |
+' | Albert     |          10 |         59 | 68.2                    |
+' | Mary       |          10 |         85 | 68.2                    |
+' | Shawn      |          10 |         89 | 68.2                    |
+' +------------+-------------+------------+-------------------------+
+</code></pre>
+<h2 id="count">COUNT</h2>
+<p>Count the number of values within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">COUNT( &lt;val&gt; ) OVER ( [ PARTITION BY &lt;exp&gt; ] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>An expression used for the <code>COUNT()</code> function.</td>
+</tr>
+<tr>
+<td><code>&lt;expr&gt;</code></td>
+<td>An expression used for the <code>PARTITION BY</code> clause</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>This example below generates a count of how many students are in each grade level while leaving each student as an independent row.</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    COUNT(First_name) OVER (PARTITION BY Grade_level) AS count_of_students
+FROM
+    class_test
+</code></pre>
+<p><strong>Results</strong></p>
+<pre><code>+------------+-------------+-------------------+
+| First_name | Grade_level | count_of_students |
++------------+-------------+-------------------+
+| Frank      |           9 |                 6 |
+| Humphrey   |           9 |                 6 |
+| Iris       |           9 |                 6 |
+| Sammy      |           9 |                 6 |
+| Peter      |           9 |                 6 |
+| Jojo       |           9 |                 6 |
+| Brunhilda  |          12 |                 6 |
+| Franco     |          12 |                 6 |
+| Thomas     |          12 |                 6 |
+| Gary       |          12 |                 6 |
+| Charles    |          12 |                 6 |
+| Jesse      |          12 |                 6 |
+| Roseanna   |          11 |                 6 |
+| Carol      |          11 |                 6 |
+| Wanda      |          11 |                 6 |
+| Shangxiu   |          11 |                 6 |
+| Larry      |          11 |                 6 |
+| Otis       |          11 |                 6 |
+| Deborah    |          10 |                 5 |
+| Yolinda    |          10 |                 5 |
+| Albert     |          10 |                 5 |
+| Mary       |          10 |                 5 |
+| Shawn      |          10 |                 5 |
++------------+-------------+-------------------+
+</code></pre>
+<h2 id="dense_rank">DENSE_RANK</h2>
+<p>Rank the current row within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DENSE_RANK() OVER ([PARTITION BY &lt;val&gt;] ORDER BY &lt;exp&gt; [ASC|DESC] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>The expression used for the <code>PARTITION BY</code> clause.</td>
+</tr>
+<tr>
+<td>\<exp></td>
+<td>The expression used in the ORDER BY clause. This parameter determines what value will be ranked.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In this example below, students are ranked based on their test scores for their grade level.</p>
+<pre><code>SELECT
+    First_name,
+    Grade_level,
+    Test_score,
+    DENSE_RANK() OVER (PARTITION BY Grade_level ORDER BY Test_score DESC ) AS Rank_in_class
+FROM
+    class_test
+</code></pre>
+<p><strong>Returns: </strong></p>
+<pre><code>+------------+-------------+------------+---------------+
+| First_name | Grade_level | Test_score | Rank_in_class |
++------------+-------------+------------+---------------+
+| Frank      |           9 |         76 |             6 |
+| Humphrey   |           9 |         90 |             1 |
+| Iris       |           9 |         79 |             4 |
+| Sammy      |           9 |         85 |             2 |
+| Peter      |           9 |         80 |             3 |
+| Jojo       |           9 |         78 |             5 |
+| Deborah    |          10 |         78 |             3 |
+| Yolinda    |          10 |         30 |             5 |
+| Albert     |          10 |         59 |             4 |
+| Mary       |          10 |         85 |             2 |
+| Shawn      |          10 |         89 |             1 |
+| Roseanna   |          11 |         94 |             1 |
+| Carol      |          11 |         52 |             6 |
+| Wanda      |          11 |         73 |             4 |
+| Shangxiu   |          11 |         76 |             2 |
+| Larry      |          11 |         68 |             5 |
+| Otis       |          11 |         75 |             3 |
+| Brunhilda  |          12 |         92 |             4 |
+| Franco     |          12 |         94 |             2 |
+| Thomas     |          12 |         66 |             6 |
+| Gary       |          12 |        100 |             1 |
+| Charles    |          12 |         93 |             3 |
+| Jesse      |          12 |         89 |             5 |
++------------+-------------+------------+---------------+
+</code></pre>
+<h2 id="lag">LAG</h2>
+<p>Returns the value of the input expression at the given offset before the current row within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LAG ( &lt;exp&gt; [, &lt;offset&gt; [, &lt;default&gt; ]] ) 
+    OVER ( [ PARTITION BY &lt;exp&gt; ] ORDER BY &lt;exp&gt; [ { ASC | DESC } ] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Any valid expression that will be returned based on the <code>LAG</code> <code>&lt;offset&gt;.</code></td>
+</tr>
+<tr>
+<td><code>&lt;expr&gt;</code></td>
+<td>The expression used for the <code>PARTITION BY</code> clause.</td>
+</tr>
+<tr>
+<td><code>&lt;offset&gt;</code></td>
+<td>The number of rows backward from the current row from which to obtain a value. A negative number will act as <code>LEAD()</code></td>
+</tr>
+<tr>
+<td><code>&lt;default&gt;</code></td>
+<td>The expression to return when the offset goes out of the bounds of the window. Must be a literal <code>INT</code>. The default is NULL.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In the example below, the <code>LAG</code>function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the <code>LAG</code>function returns <code>NULL</code>.</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    LAG(First_name, 1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_left,
+    LAG(First_name, -1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_right
+FROM
+    class_test
+</code></pre>
+<p><strong>Returns: </strong></p>
+<pre><code>+------------+-------------+-------------+--------------+
+| First_name | Grade_level | To_the_left | To_the_right |
++------------+-------------+-------------+--------------+
+| Frank      |           9 | NULL        | Humphrey     |
+| Humphrey   |           9 | Frank       | Iris         |
+| Iris       |           9 | Humphrey    | Jojo         |
+| Sammy      |           9 | Peter       | NULL         |
+| Peter      |           9 | Jojo        | Sammy        |
+| Jojo       |           9 | Iris        | Peter        |
+| Brunhilda  |          12 | NULL        | Charles      |
+| Franco     |          12 | Charles     | Gary         |
+| Thomas     |          12 | Jesse       | NULL         |
+| Gary       |          12 | Franco      | Jesse        |
+| Charles    |          12 | Brunhilda   | Franco       |
+| Jesse      |          12 | Gary        | Thomas       |
+| Roseanna   |          11 | Otis        | Shangxiu     |
+| Carol      |          11 | NULL        | Larry        |
+| Wanda      |          11 | Shangxiu    | NULL         |
+| Shangxiu   |          11 | Roseanna    | Wanda        |
+| Larry      |          11 | Carol       | Otis         |
+| Otis       |          11 | Larry       | Roseanna     |
+| Deborah    |          10 | Albert      | Mary         |
+| Yolinda    |          10 | Shawn       | NULL         |
+| Albert     |          10 | NULL        | Deborah      |
+| Mary       |          10 | Deborah     | Shawn        |
+| Shawn      |          10 | Mary        | Yolinda      |
++------------+-------------+-------------+--------------+
+</code></pre>
+<h2 id="lead">LEAD</h2>
+<p>Returns values from the row after the current row within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LEAD ( &lt;val&gt; [, &lt;offset&gt; [, &lt;default&gt; ] ) 
+    OVER ( [ PARTITION BY &lt;exp&gt; ] ORDER BY &lt;exp&gt; [ { ASC | DESC } ] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Any valid expression that will be returned based on the <code>LEAD</code> <code>&lt;offset&gt;.</code></td>
+</tr>
+<tr>
+<td><code>&lt;expr&gt;</code></td>
+<td>The expression used for the <code>PARTITION BY</code> clause.</td>
+</tr>
+<tr>
+<td><code>&lt;offset&gt;</code></td>
+<td>The number of rows forward from the current row from which to obtain a value.</td>
+</tr>
+<tr>
+<td><code>&lt;default&gt;</code></td>
+<td>The expression to return when the offset goes out of the bounds of the window. Supports any expression whose type is compatible with expression. The default is NULL.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In the example below, the <code>LEAD</code>function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the <code>LEAD</code>function returns <code>NULL</code>.</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    LEAD(First_name, -1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_left,
+    LEAD(First_name, 1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_right
+FROM
+    class_test; 
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+------------+-------------+-------------+--------------+
+| First_name | Grade_level | To_the_left | To_the_right |
++------------+-------------+-------------+--------------+
+| Frank      |           9 | NULL        | Humphrey     |
+| Humphrey   |           9 | Frank       | Iris         |
+| Iris       |           9 | Humphrey    | Jojo         |
+| Sammy      |           9 | Peter       | NULL         |
+| Peter      |           9 | Jojo        | Sammy        |
+| Jojo       |           9 | Iris        | Peter        |
+| Brunhilda  |          12 | NULL        | Charles      |
+| Franco     |          12 | Charles     | Gary         |
+| Thomas     |          12 | Jesse       | NULL         |
+| Gary       |          12 | Franco      | Jesse        |
+| Charles    |          12 | Brunhilda   | Franco       |
+| Jesse      |          12 | Gary        | Thomas       |
+| Roseanna   |          11 | Otis        | Shangxiu     |
+| Carol      |          11 | NULL        | Larry        |
+| Wanda      |          11 | Shangxiu    | NULL         |
+| Shangxiu   |          11 | Roseanna    | Wanda        |
+| Larry      |          11 | Carol       | Otis         |
+| Otis       |          11 | Larry       | Roseanna     |
+| Deborah    |          10 | Albert      | Mary         |
+| Yolinda    |          10 | Shawn       | NULL         |
+| Albert     |          10 | NULL        | Deborah      |
+| Mary       |          10 | Deborah     | Shawn        |
+| Shawn      |          10 | Mary        | Yolinda      |
++------------+-------------+-------------+--------------+
+</code></pre>
+<h2 id="min">MIN</h2>
+<p>Returns the minimum value within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">MIN( &lt;exp&gt; ) OVER ( [ PARTITION BY &lt;exp&gt; ] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td><p>An expression used for the <code>MIN </code>function.<br></p></td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>An expression used for the <code>PARTITION BY</code> clause.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The example below queries test scores for students in various grade levels. Unlike a regular <code>MIN()</code> aggregation, the window function allows us to see how each student individually compares to the lowest test score for their grade level.&#x20;</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    Test_score,
+    MIN(Test_score) OVER (PARTITION BY Grade_level) AS Lowest_score
+FROM
+    class_test
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+------------+-------------+------------+--------------+
+| First_name | Grade_level | Test_score | Lowest_score |
++------------+-------------+------------+--------------+
+| Frank      |           9 |         76 |           76 |
+| Humphrey   |           9 |         90 |           76 |
+| Iris       |           9 |         79 |           76 |
+| Sammy      |           9 |         85 |           76 |
+| Peter      |           9 |         80 |           76 |
+| Jojo       |           9 |         78 |           76 |
+| Brunhilda  |          12 |         92 |           66 |
+| Franco     |          12 |         94 |           66 |
+| Thomas     |          12 |         66 |           66 |
+| Gary       |          12 |        100 |           66 |
+| Charles    |          12 |         93 |           66 |
+| Jesse      |          12 |         89 |           66 |
+| Roseanna   |          11 |         94 |           52 |
+| Carol      |          11 |         52 |           52 |
+| Wanda      |          11 |         73 |           52 |
+| Shangxiu   |          11 |         76 |           52 |
+| Larry      |          11 |         68 |           52 |
+| Otis       |          11 |         75 |           52 |
+| Deborah    |          10 |         78 |           30 |
+| Yolinda    |          10 |         30 |           30 |
+| Albert     |          10 |         59 |           30 |
+| Mary       |          10 |         85 |           30 |
+| Shawn      |          10 |         89 |           30 |
++------------+-------------+------------+--------------+
+</code></pre>
+<h2 id="max">MAX</h2>
+<p>Returns the maximum value within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">MAX( &lt;exp&gt; ) OVER ( [ PARTITION BY &lt;exp&gt; ] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>An expression used for the <code>MAX</code>function.</td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>An expression used for the <code>PARTITION BY</code> clause.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The example below queries test scores for students in various grade levels. Unlike a regular <code>MAX()</code> aggregation, the window function allows us to see how each student individually compares to the highest test score for their grade level.&#x20;</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    Test_score,
+    MAX(Test_score) OVER (PARTITION BY Grade_level) AS Highest_score
+FROM
+    class_test
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+------------+-------------+------------+---------------+
+| First_name | Grade_level | Test_score | Highest_score |
++------------+-------------+------------+---------------+
+| Frank      |           9 |         76 |            90 |
+| Humphrey   |           9 |         90 |            90 |
+| Iris       |           9 |         79 |            90 |
+| Sammy      |           9 |         85 |            90 |
+| Peter      |           9 |         80 |            90 |
+| Jojo       |           9 |         78 |            90 |
+| Brunhilda  |          12 |         92 |           100 |
+| Franco     |          12 |         94 |           100 |
+| Thomas     |          12 |         66 |           100 |
+| Gary       |          12 |        100 |           100 |
+| Charles    |          12 |         93 |           100 |
+| Jesse      |          12 |         89 |           100 |
+| Roseanna   |          11 |         94 |            94 |
+| Carol      |          11 |         52 |            94 |
+| Wanda      |          11 |         73 |            94 |
+| Shangxiu   |          11 |         76 |            94 |
+| Larry      |          11 |         68 |            94 |
+| Otis       |          11 |         75 |            94 |
+| Deborah    |          10 |         78 |            89 |
+| Yolinda    |          10 |         30 |            89 |
+| Albert     |          10 |         59 |            89 |
+| Mary       |          10 |         85 |            89 |
+| Shawn      |          10 |         89 |            89 |
++------------+-------------+------------+---------------+
+</code></pre>
+<h2 id="rank">RANK</h2>
+<p>Rank the current row within the requested window with gaps.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">RANK() OVER ([PARTITION BY &lt;exp&gt;] ORDER BY &lt;exp&gt; [ASC|DESC] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>The expression used for the <code>PARTITION BY</code> clause.</td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>The expression used in the <code>ORDER BY</code> clause. This parameter determines what value will be ranked.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In this example below, students are ranked based on their test scores for their grade level.</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    Test_score,
+    RANK() OVER (PARTITION BY Grade_level ORDER BY Test_score DESC ) AS Rank_in_class
+FROM
+    class_test
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code class="language-sql">+------------+-------------+------------+---------------+
+| First_name | Grade_level | Test_score | Rank_in_class |
++------------+-------------+------------+---------------+
+| Frank      |           9 |         76 |             6 |
+| Humphrey   |           9 |         90 |             1 |
+| Iris       |           9 |         79 |             4 |
+| Sammy      |           9 |         85 |             2 |
+| Peter      |           9 |         80 |             3 |
+| Jojo       |           9 |         78 |             5 |
+| Brunhilda  |          12 |         92 |             4 |
+| Franco     |          12 |         94 |             2 |
+| Thomas     |          12 |         66 |             6 |
+| Gary       |          12 |        100 |             1 |
+| Charles    |          12 |         93 |             3 |
+| Jesse      |          12 |         89 |             5 |
+| Roseanna   |          11 |         94 |             1 |
+| Carol      |          11 |         52 |             6 |
+| Wanda      |          11 |         73 |             4 |
+| Shangxiu   |          11 |         76 |             2 |
+| Larry      |          11 |         68 |             5 |
+| Otis       |          11 |         75 |             3 |
+| Deborah    |          10 |         78 |             3 |
+| Yolinda    |          10 |         30 |             5 |
+| Albert     |          10 |         59 |             4 |
+| Mary       |          10 |         85 |             2 |
+| Shawn      |          10 |         89 |             1 |
++------------+-------------+------------+---------------+
+</code></pre>
+<h2 id="row_number">ROW_NUMBER</h2>
+<p>Returns a unique row number for each row within the requested window.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ROW_NUMBER() OVER ([PARTITION BY &lt;exp&gt;] ORDER BY &lt;exp&gt; [ASC|DESC] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Desccription</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>The expression used for the <code>PARTITION BY</code> clause.</td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>The expression used in the <code>ORDER BY</code> clause. This parameter determines what value will be used for <code>ROW_NUMBER</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In this example below, students in each grade level are<strong> </strong>assigned a unique number.</p>
+<pre><code class="language-sql">SELECT
+    First_name,
+    Grade_level,
+    ROW_NUMBER() OVER (PARTITION BY Grade_level ORDER BY Grade_level ASC ) AS Student_No
+FROM
+    class_test
+</code></pre>
+<p><strong>Returns: </strong></p>
+<pre><code>+------------+-------------+------------+
+| First_name | Grade_level | Student_No |
++------------+-------------+------------+
+| Frank      |           9 |          1 |
+| Humphrey   |           9 |          2 |
+| Iris       |           9 |          3 |
+| Sammy      |           9 |          4 |
+| Peter      |           9 |          5 |
+| Jojo       |           9 |          6 |
+| Brunhilda  |          12 |          1 |
+| Franco     |          12 |          2 |
+| Thomas     |          12 |          3 |
+| Gary       |          12 |          4 |
+| Charles    |          12 |          5 |
+| Jesse      |          12 |          6 |
+| Roseanna   |          11 |          1 |
+| Carol      |          11 |          2 |
+| Wanda      |          11 |          3 |
+| Shangxiu   |          11 |          4 |
+| Larry      |          11 |          5 |
+| Otis       |          11 |          6 |
+| Deborah    |          10 |          1 |
+| Yolinda    |          10 |          2 |
+| Albert     |          10 |          3 |
+| Mary       |          10 |          4 |
+| Shawn      |          10 |          5 |
++------------+-------------+------------+
+</code></pre>
+<h2 id="sum">SUM</h2>
+<p>Calculate the sum of the values within the requested window.</p>
+<p>The SUM function works with numeric values and ignores <code>NULL</code>values.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SUM( &lt;val&gt; ) OVER ( [ PARTITION BY &lt;expr&gt; ] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>The expression used for the <code>SUM</code>function</td>
+</tr>
+<tr>
+<td><code>&lt;expr&gt;</code></td>
+<td>An expression used for the <code>PARTITION BY</code> clause</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The example below shows how many vaccinated students are in the same grade level for each student.&#x20;</p>
+<pre><code class="language-sql">SELECT
+    First_name, 
+    SUM(Vaccinated) OVER (PARTITION BY Grade_level ) AS Vaccinated_Students
+FROM
+    class_test
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+------------+---------------------+
+| First_name | Vaccinated_Students |
++------------+---------------------+
+| Frank      |                   5 |
+| Humphrey   |                   5 |
+| Iris       |                   5 |
+| Sammy      |                   5 |
+| Peter      |                   5 |
+| Jojo       |                   5 |
+| Brunhilda  |                   5 |
+| Franco     |                   5 |
+| Thomas     |                   5 |
+| Gary       |                   5 |
+| Charles    |                   5 |
+| Jesse      |                   5 |
+| Roseanna   |                   4 |
+| Carol      |                   4 |
+| Wanda      |                   4 |
+| Shangxiu   |                   4 |
+| Larry      |                   4 |
+| Otis       |                   4 |
+| Deborah    |                   4 |
+| Yolinda    |                   4 |
+| Albert     |                   4 |
+| Mary       |                   4 |
+| Shawn      |                   4 |
++------------+---------------------+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

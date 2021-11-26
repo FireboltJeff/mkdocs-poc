@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/general-reference/data-types/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Data types - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#data-types" class="nav-link">Data types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="data-types">Data types</h1>
+<p>The following table describes all available data types in Firebolt:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Category</strong></td>
+<td><strong>Type</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td><strong>Numeric</strong></td>
+<td><code>INT</code></td>
+<td><p>A whole number ranging from -2,147,483,648 to 2,147,483,647. <code>INT</code> data types require 4 bytes of storage.</p><p>Synonym for <code>INTEGER</code>.</p></td>
+</tr>
+<tr>
+<td></td>
+<td><code>INTEGER</code></td>
+<td>Synonym for <code>INT</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>BIGINT</code></td>
+<td><p>A whole number ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. BIGINT data types require 8 bytes of storage.</p><p>Synonym for <code>LONG</code></p></td>
+</tr>
+<tr>
+<td></td>
+<td><code>LONG</code></td>
+<td>Synonym for <code>BIGINT</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>FLOAT</code></td>
+<td>A floating-point number that has six decimal-digit precision. Decimal (fixed point) types are not supported. <code>FLOAT</code> data types require 4 bytes of storage.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>DOUBLE</code></td>
+<td><p>A floating-point number that has 15 decimal-digit precision. Decimal (fixed point) types are not supported. <code>DOUBLE</code> data types require 8 bytes.</p><p>Synonym for <code>DOUBLE PRECISION</code></p></td>
+</tr>
+<tr>
+<td></td>
+<td><code>DOUBLE PRECISION</code></td>
+<td>Synonym for <code>DOUBLE</code></td>
+</tr>
+<tr>
+<td><strong>String</strong></td>
+<td><code>VARCHAR</code></td>
+<td><p>A string of an arbitrary length that can contain any number of bytes, including null bytes. Useful for arbitrary-length string columns.</p><p>Firebolt supports UTF-8 escape sequences.</p><p>Synonym for <code>TEXT</code>, <code>STRING</code></p></td>
+</tr>
+<tr>
+<td></td>
+<td><code>TEXT</code></td>
+<td>Synonym for <code>VARCHAR</code>, <code>STRING</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>STRING</code></td>
+<td>Synonym for <code>VARCHAR</code>, <code>TEXT</code></td>
+</tr>
+<tr>
+<td><strong>Date &amp; Time</strong></td>
+<td><code>DATE</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>DATE</code> (cont.)</td>
+<td><p>A year, month and day in the  format '<em>YYYY</em>-<em>MM</em>-<em>DD'.</em> This value is stored as a 4-byte unsigned Unix timestamp. The minimum <code>DATE</code> value is<code>1970-02-01</code>. The maximum <code>DATE</code> value is <code>2105-12-31</code>. It does not specify a time zone.</p><p></p><p>Arithmetic operations can be executed on <code>DATE</code> values. The examples below show the addition and subtraction of integers.<br><br><code>CAST(‘2019-07-31' AS DATE) + 4</code><br>Returns <code>2019-08-04</code><br></p><p><code>CAST(‘2019-07-31' AS DATE) - 4</code><br>Returns <code>2019-07-27</code></p><p><strong></strong></p><p><strong>Caution</strong></p><p>Arithmetic, conditional, and comparative operations are not supported on date values outside the supported range. These operations return inaccurate results because they are based on the minimum and maximum dates in the range rather than the actual dates provided or expected to be returned.<br><br>The arithmetic operations in the examples below return inaccurate results as shown because the dates returned are outside the supported range.<br><br><code>CAST ('1970-02-02' AS DATE) - 365</code><br>Returns <code>1970-01-31</code><br><br><code>CAST ('2105-02-012' AS DATE) + 365</code><br>Returns <code>2105-12-31</code><br></p><p>If you work with dates outside the supported range, we recommend that you use a string datatype such as <code>TEXT</code>. For example, the following query returns all rows with the date <code>1921-12-31</code>.</p><p></p><p><code>SELECT <em></code><br><code>FROM</code><br><code>tab1text</code></p><p><code>WHERE</code><br><code>date_as_text = '1921-12-31';</code></p><p><code></code></p><p>The example below selects all rows where the <code>date_as_text</code> column specifies a date after <code>1921-12-31</code>.<br><br><code>SELECT </em></code><br><code>FROM</code><br><code>tab1text</code><br><code>WHERE</code><br><code>date_as_text &gt; '1921-12-31';</code><br><br>The example below generates a count of how many rows in <code>date_as_text</code> are from each month of the year. It uses <a href="../sql-reference/functions-reference/string-functions.md#substr"><code>SUBSTR</code></a> to extract the month value from the date string, and then it groups the count by month.<br><br><code>SELECT COUNT(*), SUBSTR(date_as_text,6,2)</code><br><code>FROM</code><br><code>tab1text</code><br><code>GROUP BY</code><br><code>SUBSTR(date_as_text,6,2);</code></p></td>
+</tr>
+<tr>
+<td></td>
+<td><code>TIMESTAMP</code></td>
+<td><p>A year, month, day, hour, minute and second in the format '<em>YYYY-MM-DD hh:mm:ss'</em>. This value is stored as an unsigned Unix timestamp with 4 bytes. </p><p></p><p>Same range as <code>DATE</code> type.</p><p>Minimal value: 0000-00-00 00:00:00.</p><p></p><p>To change the default time zone in Firebolt:</p><p><code>SET DEFAULT_TIMEZONE = "Pacific Standard Time"</code></p><p></p><p>This is a synonym for <code>DATETIME</code></p></td>
+</tr>
+<tr>
+<td></td>
+<td><code>DATETIME</code></td>
+<td>Synonym for <code>TIMESTAMP</code></td>
+</tr>
+<tr>
+<td><strong>Boolean</strong></td>
+<td><code>BOOLEAN</code></td>
+<td>Accepts the following values: <code>true</code>, <code>false</code>, <code>1</code>, <code>0</code>. Stores the values as 1/0 respectively.</td>
+</tr>
+<tr>
+<td><strong>Semi-Structured</strong></td>
+<td><code>ARRAY</code></td>
+<td><p>Represents dense or sparse arrays. An array can contain all data types including nested arrays (array with arrays).</p><p>A column whose type is ARRAY cannot be nullable, however the elements of an ARRAY can. Therefore the following is an illegal declaration:</p><p><code>nullArray ARRAY(INT) NULL</code></p><p>But this one is valid:</p><p><code>nullElements ARRAY(INT NULL)</code></p></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

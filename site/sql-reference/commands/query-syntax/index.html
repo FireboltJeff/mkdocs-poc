@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-reference/commands/query-syntax/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Query syntax - Firebolt docs process</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#query-syntax" class="nav-link">Query syntax</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#with" class="nav-link">WITH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#from" class="nav-link">FROM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#where" class="nav-link">WHERE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#group-by" class="nav-link">GROUP BY</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#having" class="nav-link">HAVING</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#union-all" class="nav-link">UNION [ALL]</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#order-by" class="nav-link">ORDER BY</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#limit" class="nav-link">LIMIT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#limit_distinct" class="nav-link">LIMIT_DISTINCT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#offset" class="nav-link">OFFSET</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="query-syntax">Query syntax</h1>
+<p>Firebolt supports performing standard <code>SELECT</code> statements with the following syntax:</p>
+<pre><code class="language-sql">[ WITH &lt;with_query&gt; [, ...n] ]
+SELECT [ DISTINCT ] {&lt;select_expr&gt; [, ...]}
+    [ FROM &lt;from_item&gt; [, ...] ]
+    [ WHERE &lt;condition&gt; ]
+    [ GROUP BY &lt;grouping_element&gt; [, ...] ]
+    [ HAVING &lt;condition&gt; [, ...] ]
+    [ UNION &lt;select_expr&gt; [ ...n]
+    [ ORDER BY &lt;expression&gt; [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...] ]
+    [ LIMIT &lt;count&gt; ]
+    [ OFFSET &lt;start&gt; ]
+</code></pre>
+<h4 id="notice">Notice</h4>
+<p>Multiple queries should be separated by a semicolon (;).</p>
+<h2 id="with">WITH</h2>
+<p>The <code>WITH</code> clause is used for sub-query refactoring so that you can specify subqueries and then reference them as part of the main query. This simplifies the hierarchy of the main query, enabling you to avoid using multiple nested sub-queries.</p>
+<p>In order to reference the data from the <code>WITH</code> clause, a name must be specified for it. This name is then treated as a temporary relation table during query execution.</p>
+<p>Each subquery can comprise a <code>SELECT</code>, <code>TABLE</code>, <code>VALUES</code>, <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>statement. The <code>WITH</code>clause is the only clause that precedes the main query.</p>
+<p>The primary query and the queries included in the <code>WITH</code> clause are all executed at the same time; <code>WITH</code> queries are evaluated only once every time the main query is executed, even if the clause is referred to by the main query more than once.</p>
+<p>When using the <code>WITH</code>clause as part of a DML command, it must include a <code>RETURNING</code> clause as well, without which the main query cannot reference the WITH clause.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">WITH &lt;subquery_table_name&gt; [ &lt;column_name&gt; [, ...n] ] AS &lt;subquery&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;subquery_table_name&gt;</code></td>
+<td>A unique name for a temp table</td>
+</tr>
+<tr>
+<td><code>&lt;column_name&gt;</code></td>
+<td>An optional list of one or more column names. Columns should be separated by commas.</td>
+</tr>
+<tr>
+<td><code>&lt;subquery&gt;</code></td>
+<td>Any query statement</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The following example retrieves all customers from the "EMEA" region, having the results of the <code>WITH</code> query in the temporary table <code>emea_customrs</code>.</p>
+<p>The results of the main query then list the <code>customer_name</code> and <code>contact_details</code>for those customers, sorted by name.</p>
+<pre><code class="language-sql">WITH emea_customrs AS (
+    SELECT
+        *
+    FROM
+        customers
+    WHERE
+        region = 'EMEA'
+)
+SELECT
+    customer_name,
+    contact_details
+FROM
+    emea_customrs
+ORDER BY
+    customer_name
+</code></pre>
+<h2 id="from">FROM</h2>
+<p>Use the <code>FROM</code> clause to list the tables and any relevant join information and functions necessary for running the query.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">FROM &lt;from_item&gt; [, ...n]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;from_item&gt;</code></td>
+<td>Indicates the table or tables from which the data is to be retrieved.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In the following example, the query retrieves all entries from the <code>customers</code> table for which the <code>region</code> value is "EMEA".</p>
+<pre><code class="language-sql">SELECT
+    *
+FROM
+    customers
+WHERE
+    region = 'EMEA'
+</code></pre>
+<h3 id="join">JOIN</h3>
+<p>A <code>JOIN</code> operation combines rows from two data sources (tables/views) and creates a new combined row that can be used in the query.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">FROM &lt;from_item&gt; [ NATURAL ] &lt;join_type&gt; &lt;from_item&gt; [ ON &lt;join_condition&gt; ]
+</code></pre>
+<p><code>JOIN</code>types:</p>
+<ul>
+<li><code>[ INNER ] JOIN</code></li>
+<li><code>LEFT [ OUTER ] JOIN</code></li>
+<li><code>RIGHT [ OUTER ] JOIN</code></li>
+<li><code>FULL [ OUTER ] JOIN</code></li>
+<li><code>CROSS JOIN</code></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT
+    *
+FROM
+    customers c
+    JOIN orders o ON c.cust_key = o.cust_key;
+</code></pre>
+<h3 id="unnest">UNNEST</h3>
+<p>Should be used when a table contains an array typed column in order to create a new table that contains a column with each array element of the array column, alongside duplicating the values of the other columns per each array element.</p>
+<p>An <code>UNNEST</code> operation is equivalent to performing a <code>JOIN</code> with an array. The purpose is similar to the <a href="../../functions-reference/semi-structured-functions/array-functions/#array_unnest">ARRAY_UNNEST</a> function, but the <code>UNNEST</code> clause functionality is much broader.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">FROM &lt;from_item&gt; UNNEST &lt;expr&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Valid values and syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;from_item&gt;</code></td>
+<td>The table containing the array column that you want to use to create a new table</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;expr&gt;</code></td>
+<td><p>Indicates the array or array column to unnest from.</p><p>Can be either an array literal or an array typed column.</p></td>
+<td>Any valid array literal or column name</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The example is based on the following table:</p>
+<pre><code class="language-sql">CREATE FACT TABLE table_with_arrays
+(
+    product TEXT,
+    cost ARRAY(INT)
+) PRIMARY INDEX name;
+</code></pre>
+<p>Assume the table was populated and contains the following values:</p>
+<table>
+<thead>
+<tr>
+<th>product</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apple</td>
+<td>[2,5]</td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>[3,6,7]</td>
+</tr>
+</tbody>
+</table>
+<p>The following query with <code>UNNEST</code>:</p>
+<pre><code class="language-sql">SELECT
+    product,
+    COST
+FROM
+    table_with_arrays UNNEST COST
+    JOIN orders o ON c.cust_key = o.cust_key;
+</code></pre>
+<p>Returns the following result:</p>
+<table>
+<thead>
+<tr>
+<th>product</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apple</td>
+<td>2</td>
+</tr>
+<tr>
+<td>apple</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="where">WHERE</h2>
+<p>Use the <code>WHERE</code> clause to define conditions for the query in order to filter the query results. When included, the <code>WHERE</code> clause always follows the <code>FROM</code> clause as part of a command such as <code>SELECT</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">WHERE &lt;condition&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Valid values and syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;condition&gt;</code></td>
+<td>Indicates the conditions of the query.</td>
+<td>Any valid boolean expression.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In the following example, the query retrieves all entries from the <code>customers</code> table for which the <code>region</code> value is "EMEA".</p>
+<pre><code class="language-sql">SELECT
+    *
+FROM
+    customers
+WHERE
+    region = 'EMEA'
+</code></pre>
+<p>The following query retrieves users who registered after August 30, 2020 from the users' table:</p>
+<pre><code class="language-sql">SELECT
+    user_id,
+    city,
+    country
+FROM
+    users
+WHERE
+    registration_date &gt;= TO_DATE('2020-08-30');
+</code></pre>
+<p>The following query retrieves users who registered after August 30 2020 and made a purchase:</p>
+<pre><code class="language-sql">SELECT
+    user_id,
+    city,
+SELECT
+    user_id,
+    city,
+    country
+FROM
+    users
+WHERE
+    registration_date &gt;= TO_DATE('2020-08-30')
+    AND user_id IN (
+        SELECT
+            user_id
+        FROM
+            purchases
+    )
+</code></pre>
+<h2 id="group-by">GROUP BY</h2>
+<p>The <code>GROUP BY</code> clause indicates by what column or columns the results of the query should be grouped. <code>GROUP BY</code> is usually used in conjunction with aggregations, such as <code>SUM</code>, <code>COUNT</code>, <code>MIN</code>, etc. Grouping elements can include column names, the position of columns as specified in the <code>SELECT</code> expression, or other expressions used in the query.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">GROUP BY &lt;grouping_element&gt; [, ...n]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;grouping_element&gt;</code></td>
+<td><p>Indicates the condition by which the results should be grouped.</p><p>The number of <code>&#x3C;grouping_elements&gt;</code> must match the number of columns specified in the <code>SELECT</code> statement, not counting aggregations.</p></td>
+</tr>
+</tbody>
+</table>
+<p>In the following example, the results that are retrieved are grouped by the <code>product_name</code> and then by the <code>product_id</code> columns.</p>
+<pre><code class="language-sql">SELECT
+    product_name,
+    product_id,
+    sum(total_sales)
+FROM
+    purchases
+GROUP BY
+    product_name,
+    product_id
+</code></pre>
+<p>You can get similar results by specifying the column positions.</p>
+<pre><code class="language-sql">SELECT
+    product_name,
+    product_id,
+    SUM(total_sales)
+FROM
+    purchases
+GROUP BY
+    1,
+    2
+</code></pre>
+<p>Other expressions can also be used, such as a <code>CASE</code> statement:</p>
+<pre><code class="language-sql">SELECT
+    product_name,
+    SUM(price),
+    CASE
+        WHEN price &gt; 500 THEN &quot;High value&quot;
+        WHEN price &lt; 500 THEN &quot;Low value&quot;
+    END AS price_text
+FROM
+    purchases
+GROUP BY
+    product_name,
+    price_text;
+</code></pre>
+<h2 id="having">HAVING</h2>
+<p>The <code>HAVING</code> clause is used in conjunction with the <code>GROUP BY</code> clause, and is computed after computing the <code>GROUP BY</code> clause and aggregate functions. <code>HAVING</code> is used to further eliminate groups that don't satisfy the <code>&lt;condition&gt;</code> by filtering the <code>GROUP BY</code> results.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">HAVING &lt;condition&gt; [, ...n]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;condition&gt;</code></td>
+<td>Indicates the boolean condition by which the results should be filtered.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="union-all">UNION [ALL]</h2>
+<p>The <code>UNION</code> operator combines the results of two or more <code>SELECT</code> statements into a single query.</p>
+<ul>
+<li><code>UNION</code> combines with duplicate elimination.</li>
+<li><code>UNION ALL</code> combines without duplicate elimination.</li>
+</ul>
+<p>When including multiple clauses, the same number of columns must be selected by all participating <code>SELECT</code> statements. Data types of all column parameters must be the same. Multiple clauses are processed left to right; use parentheses to define an explicit order for processing.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">&lt;select_expr1&gt; UNION [ALL] &lt;select_expr2&gt; [ ...n]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;select_expr1&gt;</code></td>
+<td>A <code>SELECT</code>statement.</td>
+</tr>
+<tr>
+<td><code>&lt;select_expr2&gt;</code></td>
+<td>A second <code>SELECT</code> statement to be combined with the first.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="order-by">ORDER BY</h2>
+<p>The <code>ORDER BY</code> clause sorts a result set by one or more output expressions. <code>ORDER BY</code> is evaluated as the last step after any <code>GROUP BY</code> or <code>HAVING</code> clause. <code>ASC</code> and <code>DESC</code> determine whether results are sorted in ascending or descending order. When the clause contains multiple expressions, the result set is sorted according to the first expression. Then the second expression is applied to rows that have matching values from the first expression, and so on.</p>
+<p>The default null ordering is <code>NULLS LAST</code>, regardless of ascending or descending sort order.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ORDER BY &lt;expression&gt; [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;expression&gt;</code></td>
+<td>Each expression may specify output columns from <code>SELECT</code> or an ordinal number for an output column by position, starting at one.</td>
+</tr>
+<tr>
+<td><code>[ ASC \| DESC ]</code></td>
+<td>Indicates whether the sort should be in ascending or descending order.</td>
+</tr>
+<tr>
+<td><code>[ NULLS FIRST \| NULLS LAST]</code></td>
+<td><p>Indicates whether null values should be included at the beginning or end of the result.</p><p>The default null ordering is <code>NULLS LAST</code>, regardless of ascending or descending sort order.</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="limit">LIMIT</h2>
+<p>The <code>LIMIT</code> clause restricts the number of rows that are included in the result set.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIMIT &lt;count&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Valid values and syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;count&gt;</code></td>
+<td>Indicates the number of rows that should be returned</td>
+<td>An integer</td>
+</tr>
+</tbody>
+</table>
+<h2 id="limit_distinct">LIMIT_DISTINCT</h2>
+<p>The <code>LIMIT_DISTINCT</code> clause selects a defined number of rows to return for each distinct value as specified by the expression.</p>
+<p>Returned values will not be grouped together unless you use an <code>ORDER BY</code> statement. <code>LIMIT_DISTINCT</code> does not preclude also using a <code>LIMIT</code> clause.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LIMIT_DISTINCT &lt;returned_values&gt; [OFFSET &lt;offset_value&gt;] BY &lt;expr&gt; [, &lt;expr2&gt; [,...n]]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;returned_values&gt;</code></td>
+<td>The number of rows to return for each distinct value, as defined by the <code>expr</code></td>
+</tr>
+<tr>
+<td><code>&lt;offset_value&gt;</code></td>
+<td><p>The number of rows that should be skipped from the beginning of the block before returning rows for <code>&#x3C;returned_values&gt;</code>. </p><p></p><p>If the <code>&#x3C;offset_value&gt;</code> exceeds the number of rows in the data block, no rows are returned. The <code>&#x3C;offset_value&gt;</code> is restricted to be greater than 0.</p></td>
+</tr>
+<tr>
+<td><code>&lt;expr&gt; [, &lt;expr2&gt; [,...n]]</code></td>
+<td>The expression(s) to define the distinct value that will be limited by <code>LIMIT_DISTINCT</code>. Multiple expressions can be used.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>To demonstrate the <code>LIMIT_DISTINCT</code> clause, we will create an example table of students called <code>class_test</code>: <strong> </strong></p>
+<pre><code>CREATE DIMENSION TABLE IF NOT EXISTS class_test3
+    (
+        First_name      TEXT,
+        Last_name       TEXT,
+        Teacher         TEXT,
+        Grade_level     INT
+    );
+
+INSERT INTO class_test3
+    VALUES
+        ('Sammy','Sardine','Roberts', 12),
+        ('Carol','Catnip','Roberts', 10),
+        ('Thomas','Tinderbox','Roberts', 10),
+        ('Deborah','Donut','Roberts', 9),
+        ('Humphrey','Hoagie','Roberts', 11),
+        ('Frank','Falafel', 'Chamberpot', 11),
+        ('Peter','Patchouli', 'Chamberpot', 11),
+        ('Albert','Applesauce','Chamberpot', 11),
+        ('Gary','Garnish', 'Chamberpot', 12),
+        ('Roseanna','Rotisserie','Chamberpot', 12),
+        ('Jesse','Jelloshot','Chamberpot', 12),
+        ('Mary','Marblecake','Diddlysquat', 9),
+        ('Iris','Icecream','Diddlysquat', 9),
+        ('Larry','Lardbelly','Diddlysquat', 9),
+        ('Charles','Cokebottle','Diddlysquat', 10),
+        ('Brunhilda','Breadknife','Diddlysquat', 10),
+        ('Franco','Frenchdip','Rosebottom', 11),
+        ('Yolinda','Yogurt','Rosebottom', 11),
+        ('Jojo','Jujubee','Rosebottom', 11),
+        ('Shangxiu','Shadytree','Rosebottom', 12),
+        ('Otis','Oatmeal','Rosebottom', 12),
+        ('Wanda','Waterfall','Rosebottom', 10),
+        ('Shawn','Sharpshooter','Rosebottom', 10)
+</code></pre>
+<p>The example below uses LIMIT_DISTINCT to get a subset of each teacher's students. For each teacher, only two students are included in the query results.&#x20;</p>
+<pre><code class="language-sql">SELECT
+    Teacher,
+    Student_Firstname,
+    Student_Lastname
+FROM
+    class_test
+ORDER BY
+    Teacher
+LIMIT_DISTINCT 2 BY
+    Teacher;
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+--------------------------------------------+
+| Teacher,Student_Firstname,Student_Lastname |
++--------------------------------------------+
+| Chamberpot,Peter,Patchouli                 |
+| Chamberpot,Roseanna,Rotisserie             |
+| Diddlysquat,Mary,Marblecake                |
+| Diddlysquat,Larry,Lardbelly                |
+| Roberts,Carol,Catnip                       |
+| Roberts,Sammy,Sardine                      |
+| Rosebottom,Wanda,Waterfall                 |
+| Rosebottom,Shawn,Sharpshooter              |
++--------------------------------------------+
+</code></pre>
+<p><code>LIMIT_DISTINCT</code> can also include multiple expressions to limit for distinct values. The example below returns a subset of each teacher's students in each grade level.&#x20;</p>
+<pre><code class="language-sql">SELECT
+    Teacher,
+    Grade_level,
+    First_name,
+    Last_name
+FROM
+    class_test3
+ORDER BY
+    Teacher
+LIMIT_DISTINCT 1 BY
+    Teacher,
+    Grade_level;
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+----------------------------------------------------------+
+| Teacher,Grade_level, Student_Firstname, Student_Lastname |
++----------------------------------------------------------+
+| Chamberpot,11,Peter,Patchouli                            |
+| Chamberpot,12,Gary,Garnish                               |
+| Diddlysquat,9,Mary,Marblecake                            |
+| Diddlysquat,10,Charles,Cokebottle                        |
+| Roberts,12,Sammy,Sardine                                 |
+| Roberts,11,Humphrey,Hoagie                               |
+| Roberts,10,Carol,Catnip                                  |
+| Roberts,9,Deborah,Donut                                  |
+| Rosebottom,12,Otis,Oatmeal                               |
+| Rosebottom,10,Shawn,Sharpshooter                         |
+| Rosebottom,11,Jojo,Jujubee                               |
++----------------------------------------------------------+
+</code></pre>
+<h2 id="offset">OFFSET</h2>
+<p>The <code>OFFSET</code> clause omits a specified number of rows from the beginning of the result set. When used with <code>LIMIT</code>, it specifies the row number after which the limited rows are returned. When used with <code>FETCH</code>, only the number of rows specified by the <code>&lt;fetch_count&gt;</code> are returned after the <code>OFFSET</code></p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">[ LIMIT &lt;limit_number&gt; ] OFFSET &lt;offset_number&gt; [ FETCH &lt;fetch_count&gt;]  
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Valid values and syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;limit_number&gt;</code></td>
+<td>Indicates the number of rows to be returned</td>
+<td>An integer</td>
+</tr>
+<tr>
+<td><code>&lt;offset_number&gt;</code></td>
+<td>Indicates the start row number</td>
+<td>An integer</td>
+</tr>
+<tr>
+<td><code>&lt;fetch_count&gt;</code></td>
+<td>Fetch with count specifies the number of rows to fetch from the offset</td>
+<td>An integer</td>
+</tr>
+</tbody>
+</table>
+<p>In the following example, we will retrieve 3 rows, starting from the 2nd row.</p>
+<pre><code class="language-sql">SELECT
+    product_name,
+    product_id
+FROM
+    purchases
+ORDER BY
+    1
+LIMIT
+    3 OFFSET 1;
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

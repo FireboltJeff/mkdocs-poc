@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/loading-data/configuring-aws-role-to-access-amazon-s3/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Using AWS roles to access Amazon S3 - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#using-aws-roles-to-access-amazon-s3" class="nav-link">Using AWS roles to access Amazon S3</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#step-1-create-an-iam-permissions-policy" class="nav-link">Step 1: Create an IAM permissions policy </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-2-create-the-iam-role" class="nav-link">Step 2: Create the IAM role </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-3-increase-the-max-session-duration-for-your-aws-role" class="nav-link">Step 3: Increase the max session duration for your AWS role </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-4-use-the-aws-role-for-loading-your-data-into-firebolt" class="nav-link">Step 4: Use the AWS Role for loading your data into Firebolt</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="using-aws-roles-to-access-amazon-s3">Using AWS roles to access Amazon S3</h1>
+<p>Firebolt uses AWS Identity and Access Management (IAM) permissions to load data from Amazon S3 into Firebolt. This requires you to set up permissions using the AWS Management Console. This topic provides instructions for setting up AWS IAM permissions.</p>
+<ul>
+<li><a href="./#Step-1:-Creating-an-IAM-policy">Create an IAM policy</a></li>
+<li><a href="./#Step-2:-Create-the-IAM-role-in-AWS">Create the IAM role</a></li>
+<li><a href="./#Step-3:-Set-the-max-session-duration-for-your-AWS-Role">Increase the max session duration of your role</a></li>
+<li><a href="./#step-4-use-the-aws-role-for-loading-your-data-into-firebolt">Use the role to load your data into Firebolt</a></li>
+</ul>
+<h2 id="step-1-create-an-iam-permissions-policy">Step 1: Create an IAM permissions policy <a id="Step-1:-Creating-an-IAM-policy"></a></h2>
+<ol>
+<li>Log in to the <a href="https://console.aws.amazon.com/iam/home#/home">AWS Identity and Access Management (IAM) Console</a>.</li>
+<li>From the left navigation panel, choose <strong>Account settings</strong>.</li>
+<li>Under <strong>Security Token Service (STS),</strong> in the <strong>Endpoints</strong> list, find the <strong>Region name</strong> where your account is located. If the status is <strong>Inactive</strong>, choose <strong>Activate</strong>.</li>
+<li>Choose <strong>Policies</strong> from the left navigation panel.</li>
+<li>Click <strong>Create Policy.</strong></li>
+<li>Click the <strong>JSON</strong> tab.</li>
+<li>Add a policy document that will allow Firebolt to access the S3 bucket and folder.</li>
+</ol>
+<p>The following policy (in JSON format) provides Firebolt with the required permissions to unload data using a single bucket and folder path. Copy and paste the text into the policy editor (make sure to replace <code>&lt;bucket&gt;</code> and <code>&lt;prefix&gt;</code> with the actual bucket name and path prefix).</p>
+<p><code>javascript
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "s3:GetObject",
+                  "s3:GetObjectVersion"
+              ],
+              "Resource": "arn:aws:s3:::&lt;bucket&gt;/&lt;prefix&gt;/*"
+          },
+          {
+              "Effect": "Allow",
+              "Action": "s3:GetBucketLocation",
+              "Resource": "arn:aws:s3:::&lt;bucket&gt;"
+          },
+          {
+              "Effect": "Allow",
+              "Action": "s3:ListBucket",
+              "Resource": "arn:aws:s3:::&lt;bucket&gt;",
+              "Condition": {
+                  "StringLike": {
+                      "s3:prefix": [
+                          "&lt;prefix&gt;/*"
+                      ]
+                  }
+              }
+          }
+      ]
+   }</code></p>
+<ul>
+<li>If you encounter the following error: <code>Access Denied (Status Code: 403; Error Code: AccessDenied)</code> - try to remove the following condition from the IAM policy:</li>
+</ul>
+<p><code>javascript
+              "Condition": {
+                  "StringLike": {
+                      "s3:prefix": [
+                          "&lt;prefix&gt;/*"
+                      ]
+                  }
+              }</code></p>
+<ol>
+<li>Choose <strong>Review policy</strong>, enter the policy <strong>Name</strong> (for example, <em>firebolt-s3-access</em>), enter an optional <strong>Description</strong>, and then choose <strong>Create policy</strong>.</li>
+</ol>
+<p>Setting the <code>s3:prefix</code> condition key to <code>*</code> grants access to all prefixes in the specified bucket for the action to which it applies.</p>
+<h2 id="step-2-create-the-iam-role">Step 2: Create the IAM role <a id="Step-2:-Create-the-IAM-role-in-AWS"></a></h2>
+<p>In the AWS Management Console, create an AWS IAM role. The IAM role will assume the permissions you defined in step 1 to access the S3 locations where your data files are saved.</p>
+<ol>
+<li>Log in to the <a href="https://console.aws.amazon.com/iam/home#/home">AWS Identity and Access Management (IAM) Console</a>.</li>
+<li>From the left navigation panel, choose <strong>Roles</strong>, and then choose <strong>Create role</strong>.</li>
+</ol>
+<p><img alt="" src="../.gitbook/assets/create_role.png" /></p>
+<ol>
+<li>Select <strong>Another AWS account</strong> as the trusted entity type.</li>
+<li>In the <strong>Account ID</strong> field, enter your Firebolt <strong>AWS Account ID</strong>. Users with Account Admin privileges can view this value in the <a href="https://app.firebolt.io/account-info">Account &amp; Billing window</a>.</li>
+<li>If you select <strong>Require external ID</strong>, enter a value of your choosing and make a note of it.</li>
+<li>Choose <strong>Next</strong>.</li>
+<li>Begin typing the name of the policy you created in <a href="./#Step-1:-Creating-an-IAM-policy">step 1</a> in the search box, select it from the list, and then choose <strong>Next</strong>.</li>
+<li>Enter a <strong>Name</strong> and optional <strong>Description</strong> for the role, and then choose <strong>Create role</strong>.</li>
+</ol>
+<p>You have now created an IAM permissions policy, an IAM role for Firebolt access, and attached the permissions policy to the role.</p>
+<ol>
+<li>Record the <strong>Role ARN</strong> listed on the role summary page.</li>
+</ol>
+<h2 id="step-3-increase-the-max-session-duration-for-your-aws-role">Step 3: Increase the max session duration for your AWS role <a id="Step-3:-Set-the-max-session-duration-for-your-AWS-Role"></a></h2>
+<ol>
+<li>Log in to the <a href="https://console.aws.amazon.com/iam/home#/home">AWS Identity and Access Management (IAM) Console</a>.</li>
+<li>From the left navigation panel, choose <strong>Roles</strong>.</li>
+<li>Begin typing the name of the role that you created in <a href="./#Step-2:-Create-the-IAM-role-in-AWS">step 2</a> and then select it from the list.</li>
+<li>In the summary section, locate the <strong>Maximum session duration</strong> field. Click <strong>Edit</strong></li>
+<li>Choose <em>12 hours</em> from the list, and then click <strong>Save changes.</strong></li>
+</ol>
+<p><img alt="" src="../.gitbook/assets/set_max_session_duration.png" /></p>
+<h2 id="step-4-use-the-aws-role-for-loading-your-data-into-firebolt">Step 4: Use the AWS Role for loading your data into Firebolt</h2>
+<p>Loading your data into Firebolt begins by creating an external table - full syntax can be found <a href="../../sql-reference/commands/ddl-commands/#create-external-table">here</a>.<br />
+Make sure to specify both the role's ARN and the external ID you've recorded during <a href="./#Step-2:-Create-the-IAM-role-in-AWS">step 2</a> in the external table's <a href="../../sql-reference/commands/ddl-commands/#credentials">CREDENTIALS</a> specifier.</p>
+<p>Keep on reading in our <a href="../">getting started tutorial</a> for the full data load flow.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

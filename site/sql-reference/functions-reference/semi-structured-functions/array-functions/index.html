@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-reference/functions-reference/semi-structured-functions/array-functions/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Array Functions - Firebolt docs process</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#array-functions" class="nav-link">Array Functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#all_match" class="nav-link">ALL_MATCH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#any_match" class="nav-link">ANY_MATCH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_concat" class="nav-link">ARRAY_CONCAT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_count" class="nav-link">ARRAY_COUNT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_count_global" class="nav-link">ARRAY_COUNT_GLOBAL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_cumulative_sum" class="nav-link">ARRAY_CUMULATIVE_SUM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_distinct" class="nav-link">ARRAY_DISTINCT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_fill" class="nav-link">ARRAY_FILL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_first" class="nav-link">ARRAY_FIRST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_first_index" class="nav-link">ARRAY_FIRST_INDEX</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_intersect" class="nav-link">ARRAY_INTERSECT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_join" class="nav-link">ARRAY_JOIN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_max" class="nav-link">ARRAY_MAX</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_min" class="nav-link">ARRAY_MIN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_replace_backwards" class="nav-link">ARRAY_REPLACE_BACKWARDS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_reverse" class="nav-link">ARRAY_REVERSE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_sort" class="nav-link">ARRAY_SORT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_sum" class="nav-link">ARRAY_SUM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_uniq" class="nav-link">ARRAY_UNIQ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#array_unnest" class="nav-link">ARRAY_UNNEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contains" class="nav-link">CONTAINS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#element_at" class="nav-link">ELEMENT_AT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#filter" class="nav-link">FILTER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#flatten" class="nav-link">FLATTEN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#index_of" class="nav-link">INDEX_OF</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#length" class="nav-link">LENGTH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#nest" class="nav-link">NEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reduce" class="nav-link">REDUCE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#slice" class="nav-link">SLICE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#transform" class="nav-link">TRANSFORM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="array-functions">Array Functions</h1>
+<p>This page describes the functions for working with arrays.</p>
+<h2 id="all_match">ALL_MATCH</h2>
+<p>Returns <code>1</code> if all elements of an array match the results of the function provided in the <code>&lt;func&gt;</code> parameter, otherwise returns <code>0</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ALL_MATCH(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be matched with the function. The array cannot be empty.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code class="language-sql">SELECT 
+    ALL_MATCH(x -&gt; x &gt; 0, [1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>1</code></p>
+<pre><code>SELECT 
+    ALL_MATCH(x -&gt; x &gt; 10, [1,2,3,9]) AS res;
+</code></pre>
+<p>**Returns: **<code>0</code></p>
+<h2 id="any_match">ANY_MATCH</h2>
+<p>Returns <code>1</code> if at least one of the elements of an array matches the results of the function provided in the <code>&lt;func&gt;</code> parameter. Otherwise returns <code>0</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​ANY_MATCH(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be matched with the function. The array cannot be empty</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code class="language-sql">SELECT 
+    ANY_MATCH(x -&gt; x &gt; 3, [1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>1</code></p>
+<pre><code>SELECT
+    ANY_MATCH(x -&gt; x = 10, [ 1, 2, 3, 9 ]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>0</code></p>
+<h2 id="array_concat">ARRAY_CONCAT</h2>
+<p>Combines one or more arrays that are passed as arguments.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_CONCAT(&lt;arr1&gt; [, ...n])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt; [, ...n]</code></td>
+<td>The arrays to be combined. If only one array is given, an identical array is returned.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT
+    ARRAY_CONCAT([ 1, 2, 3, 4 ], [ 5, 6, 7, 8 ]) AS res;
+</code></pre>
+<h2 id="array_count">ARRAY_COUNT</h2>
+<p>Returns the number of elements in the <code>&lt;arr&gt;</code> array that match a specified function <code>&lt;func&gt;</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_COUNT(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>Optional. A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array. If <code>&lt;func&gt;</code> is not included, <code>ARRAY_COUNT</code> will return a count of all elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>An array of elements</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>The example below searches through the array for any elements that are greater than 3. Only one number that matches this criteria is found, so the function returns <code>1</code></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_COUNT(x -&gt; x &gt; 3, [1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>1</code></p>
+<p>In this example below, there is no <code>&lt;func&gt;</code> criteria provided in the <code>ARRAY_COUNT</code> function. This means the function will count all of the elements in the given array.</p>
+<pre><code>SELECT
+    ARRAY_COUNT([ 1, 2, 3, 9 ]) AS res;
+</code></pre>
+<p>**Returns: **<code>4</code></p>
+<h2 id="array_count_global">ARRAY_COUNT_GLOBAL</h2>
+<p>Returns the number of elements in the array typed column accumulated over all rows. As such it is an <em>aggregation function.</em></p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_COUNT_GLOBAL(&lt;arr_col&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr_col&gt;</code></td>
+<td>The array column over which the function will count the elements</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>For this example, we will create a table <code>array_test</code> as shown below.</p>
+<pre><code>CREATE DIMENSION TABLE array_test(
+    array_1 ARRAY(INT)
+    );
+
+INSERT INTO
+    array_test
+VALUES
+    ([ 1, 2, 3, 4 ]),
+    ([ 5, 0, 20 ]),
+    ([ 6, 2, 6 ]),
+    ([ 9, 10, 13 ]),
+    ([ 20, 13, 40 ]),
+    ([ 1 ]);
+</code></pre>
+<p>We can use <code>ARRAY_COUNT_GLOBAL</code> to learn how many total array elements are in all rows.</p>
+<pre><code>SELECT
+    ARRAY_COUNT_GLOBAL(array_1)
+FROM
+    array_test
+</code></pre>
+<p>**Returns: **<code>17</code></p>
+<p>If you want to count elements based on specific criteria, you can use the <a href="./#array_count"><code>ARRAY_COUNT</code></a> function with a <code>SUM</code> aggregation as demonstrated below.</p>
+<pre><code class="language-sql">SELECT
+    SUM(ARRAY_COUNT(x -&gt; x &gt; 3, array_1))
+FROM
+    array_test
+</code></pre>
+<p>**Returns: **<code>11</code></p>
+<h2 id="array_cumulative_sum">ARRAY_CUMULATIVE_SUM</h2>
+<p>Returns an array of partial sums of elements from the source array (a running sum). If the argument <code>&lt;func&gt;</code> is provided, the values of the array elements are converted by this function before summing.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_CUMULATIVE_SUM( [&lt;func&gt;,] arr)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>The function used to convert the array members.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array used for the sum calculations.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code class="language-sql">SELECT
+    ARRAY_CUMULATIVE_SUM(x -&gt; x + 1, [ 1, 2, 3, 9 ]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: 2,5,9,19</p>
+<pre><code class="language-sql">SELECT
+    ARRAY_CUMULATIVE_SUM([ 1, 2, 3, 9 ]) AS res
+</code></pre>
+<p><strong>Returns</strong>: 1,3,6,15</p>
+<h2 id="array_distinct">ARRAY_DISTINCT</h2>
+<p>Returns an array containing only the <em>unique</em> elements of the given array. In other words, if the given array contains multiple identical members, the returned array will include only a single member of that value.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_DISTINCT(&lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be analyzed for unique members.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT
+    ARRAY_DISTINCT([ 1, 1, 2, 2, 3, 4 ]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: 1,2,3,4</p>
+<h2 id="array_fill">ARRAY_FILL</h2>
+<p>This function scans through the given array <code>&lt;arr&gt;</code> from the first to the last element and replaces <code>arr[i]</code> with <code>arr[i - 1]</code> if the <code>&lt;func&gt;</code> returns <code>0</code>. The first element of the given array is not replaced.</p>
+<p>The lambda function <code>&lt;func&gt;</code> is mandatory.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_FILL(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be evaluated by the function.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_FILL(x -&gt; x &lt; 0,[1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: 1,1,1,1</p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_FILL(x -&gt; x &gt; 0,[1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: 1,2,3,9</p>
+<h2 id="array_first">ARRAY_FIRST</h2>
+<p>Returns the first element in the given array for which the given <code>&lt;func&gt;</code> function returns something other than <code>0</code>. The <code>&lt;func&gt;</code> argument must be included.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_FIRST(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array evaluated by the function.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT ARRAY_FIRST(x -&gt; x &gt; 2,[1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>3</code></p>
+<h2 id="array_first_index">ARRAY_FIRST_INDEX</h2>
+<p>Returns the index of the first element in the indicated array for which the given <code>&lt;func&gt;</code> function returns something other than <code>0</code>. Index counting starts at 1.</p>
+<p>The <code>&lt;func&gt;</code> argument must be included.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_FIRST_INDEX(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array evaluated by the function.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_FIRST_INDEX(x -&gt; x &gt; 2,[1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>3</code></p>
+<h2 id="array_intersect">ARRAY_INTERSECT</h2>
+<p>Evaluates all arrays that are provided as arguments and returns an array of any elements that are present in all the arrays. The order of the resulting array is the same as in the first array.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_INTERSECT(&lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>A series of arrays to be analyzed for mutual elements.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>In the example below, the only element that is shared between all three arrays is <code>3.</code></p>
+<pre><code class="language-sql">SELECT ARRAY_INTERSECT([1, 2, 3], [1, 3], [2, 3])
+</code></pre>
+<p><strong>Returns</strong>: <code>3</code></p>
+<h2 id="array_join">ARRAY_JOIN</h2>
+<p>Concatenates an array of <code>TEXT</code> elements using an optional delimiter. If no delimiter is provided, an empty string is used instead.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_JOIN(&lt;arr&gt;[, &lt;delimiter&gt;])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>An array of <code>TEXT</code> elements.</td>
+</tr>
+<tr>
+<td><code>&lt;delimiter&gt;</code></td>
+<td>The delimiter used for joining the array elements. If you omit this value, an empty string is being used as a delimiter.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>In the example below, the three elements are joined with no delimiter.</p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_JOIN(['1', '2', '3']) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>123</code></p>
+<p>In this example below, we are providing a comma delimiter.</p>
+<pre><code>SELECT 
+    ARRAY_JOIN(['a', 'b', 'c'], ',') AS res;
+</code></pre>
+<p>**Returns: **<code>a,b,c</code></p>
+<h2 id="array_max">ARRAY_MAX</h2>
+<p>Returns the maximum element in an array <code>&lt;arr&gt;</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_MAX(&lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array or array-type column to be checked</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_MAX([1,2,3,4]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>4</code></p>
+<h2 id="array_min">ARRAY_MIN</h2>
+<p>Returns the minimum element in <code>&lt;arr&gt;</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_MIN(&lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array or array-type column to be checked</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_MIN([1,2,3,4]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>1</code></p>
+<h2 id="array_replace_backwards">ARRAY_REPLACE_BACKWARDS</h2>
+<p>Scans an array <code>&lt;arr&gt;</code> from the last to the first element and replaces each of the elements in that array with <code>arr[i + 1]</code> if the <code>&lt;func&gt;</code> returns <code>0</code>. The last element of <code>&lt;arr&gt;</code> is not replaced.</p>
+<p>The <code>&lt;func&gt;</code> argument must be included.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_REPLACE_BACKWARDS(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be evaluated by the function.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_REPLACE_BACKWARDS(x -&gt; x &gt; 2,[1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>3,3,3,9</code></p>
+<h2 id="array_reverse">ARRAY_REVERSE</h2>
+<p>Returns an array of the same size as the original array, with the elements in reverse order.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_REVERSE(&lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be reversed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_REVERSE([1, 2, 3, 6]) AS res
+</code></pre>
+<p><strong>Returns</strong>: <code>6,3,2,1</code></p>
+<h2 id="array_sort">ARRAY_SORT</h2>
+<p>Returns the elements of <code>&lt;arr&gt;</code> in ascending order.</p>
+<p>If the argument <code>&lt;func&gt;</code> is provided, the sorting order is determined by the result of applying <code>&lt;func&gt;</code> on each element of <code>&lt;arr&gt;</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_SORT([&lt;func&gt;,] &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>An optional function to be used to determine the sort order.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be sorted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_SORT([4,1,3,2]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>1,2,3,4</code></p>
+<p>In this example below, the modulus operator is used to calculate the remainder on any odd numbers. Therefore <code>ARRAY_ SORT</code> puts the higher (odd) numbers last in the results.</p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_SORT(x -&gt; x % 2, [4,1,3,2]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>4,2,1,3</code></p>
+<h2 id="array_sum">ARRAY_SUM</h2>
+<p>Returns the sum of elements of <code>&lt;arr&gt;</code>. If the argument <code>&lt;func&gt;</code> is provided, the values of the array elements are converted by this function before summing.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_SUM([&lt;func&gt;,] &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A Lambda function with an <a href="../../../commands/operators/#arithmetic">arithmetic function</a> used to modify the array elements.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be used to calculate the function.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>This example below uses a function to first add 1 to all elements before calculating the sum:</p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_SUM(x -&gt; x + 1,[4,1,3,2]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>14</code></p>
+<p>In this example below, no function to change the array elements is given.</p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_SUM([4,1,3,2]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>10</code></p>
+<h2 id="array_uniq">ARRAY_UNIQ</h2>
+<p>If one argument is passed, returns the number of different elements in the array. If multiple arguments are passed, returns the number of different tuples of elements at corresponding positions in multiple arrays.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_UNIQ(&lt;arr&gt; [, ...n])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt; [, ...n]</code></td>
+<td>The array or arrays to be analyzed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    ARRAY_UNIQ([1, 2, 4, 5]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>4</code></p>
+<p><strong>Example: Using multiple arrays</strong></p>
+<p>When using multiple arrays, <code>ARRAY_UNIQ</code> evaluates all the elements at a specific index as tuples for counting the unique values.&#x20;</p>
+<p>For example, two arrays [1,1,1,1] and [1,1,1,2] would be evaluated as individual tuples (1,1), (1,1), (1,1), and (1,2). There are 2 unique tuples, so <code>ARRAY_UNIQ</code> would return a value of 2.</p>
+<pre><code>SELECT 
+    ARRAY_UNIQ
+        (
+        [1,1,1,1], 
+        [1,1,1,2]
+        ) 
+        AS res;
+</code></pre>
+<p><strong>Returns: </strong><code>2</code></p>
+<p>In the example below, there are three different strings across all of the elements of the given arrays. However, there are only two unique tuples, ('apple', 'pie') and ('apple', 'jack').&#x20;</p>
+<pre><code>SELECT 
+    ARRAY_UNIQ
+        (
+        ['apple','apple','apple','apple'], 
+        ['pie','pie','jack','jack']
+        ) 
+        AS res;
+</code></pre>
+<p><strong>Returns: </strong><code>2</code></p>
+<h2 id="array_unnest">ARRAY_UNNEST</h2>
+<p>This function "unfolds" a given array by creating a column result containing the individual members from the array's values.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ARRAY_UNNEST(&lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be unfolded.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT ARRAY_UNNEST([1,2,3,4]) AS res;
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contains">CONTAINS</h2>
+<p>Returns <code>1</code> if a specified argument is present in the array, or <code>0</code> otherwise.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CONTAINS(&lt;arr&gt;, &lt;arg&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be checked for the given element.</td>
+</tr>
+<tr>
+<td><code>&lt;arg&gt;</code></td>
+<td>The element to be searched for within the array.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code class="language-sql">SELECT CONTAINS([1, 2, 3], 3) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>1</code></p>
+<p><code>CONTAINS</code> returns a <code>0</code> result when single character or substring matches only part of a longer string.</p>
+<pre><code>SELECT 
+    CONTAINS(['a', 'b', 'cookie'], 'c') AS res;
+</code></pre>
+<p>**Returns: **<code>0</code></p>
+<h2 id="element_at">ELEMENT_AT</h2>
+<p>Returns the element at a location <code>&lt;index&gt;</code> from the given array. <code>&lt;index&gt;</code> must be any integer type. Indexes in an array begin at position <code>1</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ELEMENT_AT(&lt;arr&gt;, &lt;index&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array containing the index.</td>
+</tr>
+<tr>
+<td><code>&lt;index&gt;</code></td>
+<td><p>The index that is matched by the function.</p><p>Negative indexes are supported. If used, the function selects the corresponding element numbered from the end. For example, arr[-1] is the last item in the array.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    ELEMENT_AT([1,2,3,4],2) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>2</code></p>
+<h2 id="filter">FILTER</h2>
+<p>Returns an array containing the elements from <code>&lt;arr&gt;</code> for which the given Lambda function <code>&lt;func&gt;</code> returns something other than <code>0</code>.</p>
+<p>The function can receive one or more arrays as its arguments. If more than one array is provided the following conditions should be met:</p>
+<ol>
+<li>The number of arguments of the Lambda function must be equal to the number of arrays provided. If the condition isn't met - the query will not run and an error will be returned.</li>
+<li>All the provided arrays should be of the same length. If the condition isn't met a runtime error will occur.</li>
+</ol>
+<p>When multiple arrays are provided to the function, the function will evaluate the current elements from each array as its parameter. All of the elements at that index position must evaluate to true (or <code>1)</code> for this index to be included in the results. The elements that are returned are_ taken only from the first array provided._</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">FILTER(&lt;func&gt;, &lt;arr&gt; [, ...n] )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt; [, ...n]</code></td>
+<td>One or more arrays that will be evaluated by the function. Only the first array that is included will be filtered in the results.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>In the example below, there is only one array and function. Only one element matches the function criteria, and it is returned.</p>
+<pre><code>SELECT 
+    FILTER(x -&gt; x = 'a' ,['a','b','c','d'])
+</code></pre>
+<p><strong>Returns</strong>: <code>'a'</code></p>
+<p>In this example below, there are two arrays and two separate functions for evaluation. The <code>y</code> function searches the second array for all elements that are greater than 2. The elements in these positions are returned from the first array.</p>
+<pre><code class="language-sql">SELECT FILTER(x, y -&gt; y &gt; 2,['a','b','c','d'],[1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>['c', 'd']</code></p>
+<h2 id="flatten">FLATTEN</h2>
+<p>Converts an array of arrays into a flat array. That is, for every element that is an array, this function extracts its elements into the new array. The resulting flattened array contains all the elements from all source arrays.</p>
+<p>The function:</p>
+<ul>
+<li>Applies to any depth of nested arrays.</li>
+<li>Does not change arrays that are already flat.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">FLATTEN(&lt;arr_of_arrs&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr_of_arrs&gt;</code></td>
+<td>The array of arrays to be flattened.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT flatten([[[1,2]], [[2,3], [3,4]]])
+</code></pre>
+<p><strong>Returns</strong>: <code>(1, 2, 2, 3, 3, 4)</code></p>
+<h2 id="index_of">INDEX_OF</h2>
+<p>Returns the index position of the first occurrence of the element in the array (or <code>0</code> if not found).</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">INDEX_OF(&lt;arr&gt;, &lt;x&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be analyzed.</td>
+</tr>
+<tr>
+<td><code>&lt;x&gt;</code></td>
+<td>The element from the array that is to be matched.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    INDEX_OF([1, 3, 5, 7], 5) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>3</code></p>
+<h2 id="length">LENGTH</h2>
+<p>Returns the length (number of elements) of the given array.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LENGTH(&lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be checked for length.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    LENGTH([1, 2, 3, 4]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>4</code></p>
+<h2 id="nest">NEST</h2>
+<p>Takes a column as an argument, and returns an array of the values. In case the type of the column is nullable, the <code>NULL</code> values will be ignored.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​NEST(&lt;col&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;col&gt;</code></td>
+<td>The name of the column to be converted to an array.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>Assume we have the following <code>prices</code> table:</p>
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apple</td>
+<td>4</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>orange</td>
+<td>11</td>
+</tr>
+<tr>
+<td>kiwi</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>Running the following query:</p>
+<pre><code class="language-sql">SELECT 
+    NEST(price) as arr from prices;
+</code></pre>
+<p><strong>Returns</strong>: <code>[4,11,20]</code></p>
+<h2 id="reduce">REDUCE</h2>
+<p>Applies an aggregate function on the elements of the array and returns its result. The name of the aggregation function is passed as a string in single quotes - for example:<code>'max'</code>, <code>'sum'</code>. When using parametric aggregate functions, the parameter is indicated after the function name in parentheses '<code>&lt;func_name&gt;(&lt;parameter&gt;)</code>'.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REDUCE(&lt;agg_function&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;agg_function&gt;</code></td>
+<td>The name of an aggregate function which should be a constant string</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>Any number of array type columns as the parameters of the aggregation function.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    REDUCE('max', [1, 2, 3, 6]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>6</code></p>
+<h2 id="slice">SLICE</h2>
+<p>Returns a slice of the array based on the indicated offset and length.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SLICE(&lt;arr&gt;, &lt;offset&gt;[, &lt;length&gt;])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array of data to be sliced. Array elements set to <code>NULL</code> are handled as normal values. The numbering of the array items begins with <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>&lt;offset&gt;</code></td>
+<td>Indicates starting point of the array slice. A positive value indicates an offset on the left, and a negative value is an indent on the right.</td>
+</tr>
+<tr>
+<td><code>&lt;length&gt;</code></td>
+<td><p>The length of the required slice.</p><p>If you omit this value, the function returns the slice from the <code>&#x3C;offset&gt;</code> to the end of the array.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    SLICE([1, 2, NULL, 4, 5], 2, 3) AS res
+</code></pre>
+<p><strong>Returns</strong>: <code>2, null, 4</code></p>
+<h2 id="transform">TRANSFORM</h2>
+<p>Returns an array by applying <code>&lt;func&gt;</code> on each element of <code>&lt;arr&gt;</code>.</p>
+<p>The Lambda function <code>&lt;func&gt;</code> is mandatory.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">TRANSFORM(&lt;func&gt;, &lt;arr&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;func&gt;</code></td>
+<td>A <a href="../../../../concepts/working-with-semi-structured-data/working-with-arrays/#manipulating-arrays-with-lambda-functions">Lambda function</a> used to check elements in the array.</td>
+</tr>
+<tr>
+<td><code>&lt;arr&gt;</code></td>
+<td>The array to be transformed by the function.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SELECT 
+    TRANSFORM(x -&gt; x * 2,[1,2,3,9]) AS res;
+</code></pre>
+<p><strong>Returns</strong>: <code>2,4,6,18</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js" defer></script>
+        <script src="../../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

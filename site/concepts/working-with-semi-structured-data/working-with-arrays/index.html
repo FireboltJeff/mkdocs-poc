@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/concepts/working-with-semi-structured-data/working-with-arrays/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Working with arrays - Firebolt docs process</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#working-with-arrays" class="nav-link">Working with arrays</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#basic-functionality" class="nav-link">Basic Functionality</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#manipulating-arrays-with-lambda-functions" class="nav-link">Manipulating arrays with Lambda functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#unnest" class="nav-link">UNNEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="working-with-arrays">Working with arrays</h1>
+<p>In this section, we introduce the mechanisms which allow querying and manipulating arrays in a Firebolt warehouse. For a full reference see <a href="../../../sql-reference/functions-reference/semi-structured-functions/array-functions/">array functions</a> and <a href="../../../sql-reference/functions-reference/semi-structured-functions/aggregate-array-functions/">aggregate array functions</a>.</p>
+<p>Array types are declared using <code>ARRAY(&lt;type&gt;)</code> where <code>&lt;type&gt;</code> can be any Firebolt supported type, including array, thus, arrays can be arbitrarily nested. The innermost type (the scalar) can be nullable, however, array typed columns cannot be nullable.</p>
+<p>Array literals are also supported, so for example, the following is a valid SQL:</p>
+<pre><code class="language-sql">SELECT [1,2,3,4]
+</code></pre>
+<p>Throughout this page we will use the table presented in the <a href="./">overview page</a> and assume its name is <strong>visits</strong>, the relevant columns are presented here for convenience.</p>
+<table>
+<thead>
+<tr>
+<th align="left">id INT</th>
+<th align="left">tags ARRAY(TEXT)</th>
+<th align="left">agent_props_keys</th>
+<th align="left">agent_props_vals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">["summer-sale","sports"]</td>
+<td align="left">["agent", "platform", "resolution"]</td>
+<td align="left">["Mozilla/5.0", "Windows NT 6.1", "1024x4069"]</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">["gadgets","audio"]</td>
+<td align="left">["agent", "platform"]</td>
+<td align="left">["Safari", "iOS 14"]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="basic-functionality">Basic Functionality</h2>
+<p>There are several self-explanatory functions to work with arrays including <a href="../../../sql-reference/functions-reference/semi-structured-functions/array-functions/#length">LENGTH,</a> <a href="../../../sql-reference/functions-reference/semi-structured-functions/array-functions/#array_concat">ARRAY_CONCAT</a>, and <a href="../../../sql-reference/functions-reference/semi-structured-functions/array-functions/#flatten">FLATTEN</a>. See the respective reference for a full description. Here's a short example:</p>
+<pre><code class="language-sql">SELECT LENGTH(agent_prop_keys)
+FROM visits
+-- returns 3,2
+
+SELECT ARRAY_CONCAT(agent_props_keys, agent_props_vals)
+FROM visits
+-- returns [&quot;agent&quot;, &quot;platform&quot;, &quot;resolution&quot;, &quot;Mozilla/5.0&quot;, &quot;Windows NT 6.1&quot;, &quot;1024x4069&quot;]
+
+SELECT ARRAY_FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
+-- returns [1,2,3,4,5,2]
+</code></pre>
+<h2 id="manipulating-arrays-with-lambda-functions">Manipulating arrays with Lambda functions</h2>
+<p>Much of the power in Firebolt's array manipulation functionality comes from incorporating Lambda functions. These are expressions passed to functions applied to arrays and in turn, are being applied element by element. The results of the Lambda function interpreted according to the array function in use.</p>
+<p>The general form of array functions taking a Lambda as an argument is <code>ARRAY_FUNC(&lt;lambda-expression&gt;, arr[, arr1, arr2...])</code>, where the lambda expression is in the form <code>a1[, a2, a3...] -&gt; &lt;lambda-body&gt;</code> , and <code>arr</code>, <code>arr1</code>, <code>arr2</code>... are expressions evaluating to arrays. The variables a1, a2, ... are called the lambda arguments. The number of the lambda arguments must be equal to the number of arrays passed starting from the second argument of the array function. In addition, the lengths of all the arrays should be equal.</p>
+<p>We'll start with a simple example using a single array argument.</p>
+<pre><code class="language-sql">SELECT TRANSFORM(t -&gt; UPPER(t), tags) as up_tags
+FROM visits
+</code></pre>
+<p>Here, the function <a href="../../../sql-reference/functions-reference/semi-structured-functions/array-functions/#transform">TRANSFORM</a> will apply the lambda body - that is convert the element to upper-case - on each of the array elements and will result in:</p>
+<table>
+<thead>
+<tr>
+<th align="left">up_tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">["SUMMER_SALE", "SPORTS"]</td>
+</tr>
+<tr>
+<td align="left">["GADGETS", "AUDIO"]</td>
+</tr>
+</tbody>
+</table>
+<p>A common use case where multiple array arguments are provided is used in the context of two arrays representing a map. The function <a href="../../../sql-reference/functions-reference/semi-structured-functions/array-functions/#array_first">ARRAY_FIRST </a>returns the first element for which the lambda expression returns a result other than 0. The return value will always be taken from the first array argument provided, however, the lambda expression can compute its result based on all of the lambda arguments corresponding to elements of the array arguments.</p>
+<p>So if we want to find the value in <code>agent_props_vals</code> corresponding to the key <code>"platform"</code> in <code>agent_props_keys</code> the following query:</p>
+<pre><code class="language-sql">SELECT ARRAY_FIRST(v, k -&gt; k = 'platform', agent_props_vals, agent_props_keys)
+as platform
+FROM visits
+</code></pre>
+<p>Returns the desired results:</p>
+<table>
+<thead>
+<tr>
+<th align="left">platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">"Windows NT 6.1"</td>
+</tr>
+<tr>
+<td align="left">"iOS 14"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="unnest">UNNEST</h2>
+<p>Sometimes it is desirable to transform the nested array structure to a standard tabular format. This can be used to expose views to BI tools that cannot handle Firebolt array syntax, or the tabular format is more natural to query using standard SQL idioms. <code>UNNEST</code> serves these purposes.</p>
+<p><code>UNNEST</code> is part of the <a href="../../../sql-reference/commands/query-syntax/#from">FROM</a> clause and it resembles a <code>JOIN</code> sub-clause. Given an array typed column, it unfolds the element of the array and duplicates all other columns found in the <code>SELECT</code> clause per each array element.</p>
+<p>For example the following query:</p>
+<pre><code class="language-sql">SELECT id, tags
+FROM visits
+UNNEST(tags)
+</code></pre>
+<p>Will result in:</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">"summer-sale"</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">"sports"</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">"gadgets"</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">"audio"</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

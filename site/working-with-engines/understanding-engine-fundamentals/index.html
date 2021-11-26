@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/working-with-engines/understanding-engine-fundamentals/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Understanding engine fundamentals - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#understanding-engine-fundamentals" class="nav-link">Understanding engine fundamentals</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#how-engines-databases-and-scripts-work-together" class="nav-link">How engines, databases, and scripts work together</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#understanding-engine-properties" class="nav-link">Understanding engine properties</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#viewing-and-understanding-engine-states" class="nav-link">Viewing and understanding engine states</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="understanding-engine-fundamentals">Understanding engine fundamentals</h1>
+<p>Firebolt engines are attached to databases. Each engine provides isolated and assured compute and storage capacity that you can use for different workloads and queries.</p>
+<p>Engines are configurable and efficient. You can quickly set them up with the capabilities that you need, start them only when you need them, and configure them to stop automatically when not in use. Engine costs accrue only while an engine is running, so you can create as many engines as you like to compare cost and performance and to handle different aspects of your workload.</p>
+<h2 id="how-engines-databases-and-scripts-work-together">How engines, databases, and scripts work together</h2>
+<p>You can attach as many engines as you need to a database. One common database setup is to have two engines attached: one general purpose engine for data ingestion, and one analytics engine to execute queries. For more information, see <a href="./#engine-type">Engine type</a> below.</p>
+<p>A running engine is committed to executing SQL scripts, so an engine must be stopped for you to perform any action on it. You can create, edit, attach, start, stop, and delete stopped engines at any time during the life of a database.</p>
+<p>When you run a SQL script, you select the engine to use. For databases with multiple engines, you can select one as the default engine. You can run a script on one engine and then switch to a different engine to compare performance and cost. You can also write business logic in your applications outside Firebolt to start engines programmatically.</p>
+<h2 id="understanding-engine-properties">Understanding engine properties</h2>
+<p>Before you create or edit an engine, it’s helpful to understand the details of the engine properties listed below.</p>
+<h3 id="engine-name">Engine name</h3>
+<p>The engine name is how you identify the engine. DDL operations use it to identify the engine to act on. The engine name must be unique throughout your Firebolt account. Keep this in mind when creating an engine using DDL. When you create an engine using the Firebolt Manager, the database name is prepended automatically to the engine name to help ensure uniqueness.</p>
+<p>Engine names can be no longer than 63 characters and can contain letters, numbers, and the underscore character. Firebolt replaces underscores with dashes when the engine URL is formulated (see below). Other special characters and spaces are not supported.</p>
+<h3 id="region">Region</h3>
+<p>This is the AWS Region in which Firebolt creates the engine. After you create an engine, you can’t change its Region. An engine must be in the same Region as its database. When you create an engine using the Firebolt Manager, Firebolt automatically creates the engine in the same Region as the database. When you create an engine using DDL, make sure that you create it in the same Region as the database you will attach it to.</p>
+<h3 id="engine-endpoint">Engine endpoint</h3>
+<p>Each engine has an endpoint that you use when submitting operations to an engine using the Firebolt REST API. For example, you can use a <code>POST</code> command to submit a script to the engine's https URL to run the script. Each engine endpoint uses the engine name, your account name, and the AWS Region ID according to the pattern shown in the https example below.</p>
+<ul>
+<li><code>your-engine-name</code> is the name of your engine, with dashes replacing any underscore characters. For example, the engine name <code>YourDatabase_YourEngine</code> is represented as <code>yourdatabase-yourengine</code> in the URL.</li>
+<li><code>firebolt-account-name</code> is the name of your Firebolt account. For example, <code>YourAccount</code> is represented as <code>youraccount</code>.</li>
+<li><code>region-id</code> is the AWS Region identifier where the engine lives. For example, <code>us-east-1</code>.</li>
+</ul>
+<pre><code class="language-bash">https://your-engine-name.firebolt-account-name.region-id.app.firebolt.io
+</code></pre>
+<p>The example below shows an endpoint for an engine named <code>maindb_engine1</code> in the Region <code>us-east-1</code> within the Firebolt account <code>AnyCompany.</code></p>
+<pre><code class="language-bash">https://maindb-engine1.anycompany.us-east-1.app.firebolt.io
+</code></pre>
+<h3 id="engine-type">Engine type</h3>
+<p>Engines can be one of two <em>types</em>:</p>
+<ul>
+<li><strong>General purpose engines</strong> can do everything analytics engines do, but can also write data to Firebolt tables. They are designed for database creation, data ingestion, and extract, load, and transform (ELT) operations. </li>
+</ul>
+<p>Having more than one general purpose engine writing to a table can cause data inconsistency and errors. We strongly recommend creating only one general purpose engine per database.</p>
+<ul>
+<li><strong>Analytics engines</strong> are read-only and are designed for queries that do not ingest data. They can't write values. You can run as many analytics engines as you need at the same time.</li>
+</ul>
+<h3 id="engine-spec">Engine spec</h3>
+<p>When you choose an <em>engine spec</em>, you choose the instance type that is the foundation of the engine’s compute capabilities. Each instance has CPU, RAM, and storage characteristics along with a cost per hour (billed per second) for each instance. You can choose to build an engine on one of several instance types. Firebolt has pre-selected these instance types for characteristics that are best suited for Firebolt workloads.</p>
+<h3 id="scale">Scale</h3>
+<p><em>Scale</em> determines the number of nodes that the engine uses and can be an integer ranging from 1 to 128. Firebolt monitors the health of nodes on a continuous basis and automatically repairs nodes that report an unhealthy status. To help ensure uninterrupted operation of engines if a node becomes unhealthy, we recommend a scale of two or more.</p>
+<h3 id="warmup-method">Warmup method</h3>
+<p>This determines the behavior of the engine on startup. You have three options:</p>
+<ul>
+<li><strong>Minimal –</strong> The engine loads only join indexes at startup. Other indexes and data are loaded from Firebolt when a query that uses them first runs. This results in faster engine start times, but slower first queries.</li>
+<li><strong>Preload indexes –</strong> Default. The engine loads primary indexes and join indexes at startup, before the first queries run. First queries are faster than they are with minimal warmup, but engines take longer to start.</li>
+<li><strong>Preload all data</strong> – The engine loads all indexes and data at startup, before the first queries run. This results in the fastest queries with the slowest engine start times. Only use this option if the size of the database (as shown using the <code>SHOW DATABASES</code> SQL statement or in the Firebolt Manager) will not exceed the total amount of SSD storage available on the engine.</li>
+</ul>
+<h3 id="auto-stop-duration">Auto-stop duration</h3>
+<p>The period of inactivity, in minutes, after which an engine shuts down automatically to save cost. The default is 20 minutes. Using <code>CREATE ENGINE</code> and <code>ALTER ENGINE</code> SQL statements, you can specify auto-stop duration in one-minute increments. For more information, see <a href="../../sql-reference/commands/ddl-commands/#create-engine">CREATE ENGINE</a> and <a href="../../sql-reference/commands/ddl-commands/#alter-engine">ALTER ENGINE</a>. Using the Firebolt Manager, you can set the auto-stop duration to always on, 20 minutes, or 60 minutes.</p>
+<h2 id="viewing-and-understanding-engine-states">Viewing and understanding engine states</h2>
+<p>You can execute a <a href="../../sql-reference/commands/ddl-commands/#show">SHOW ENGINES</a> statement to list all engines in your Firebolt account and view engine status. You can also use the <strong>Databases</strong> list or the <strong>Engines</strong> list in the Firebolt Manager.</p>
+<ul>
+<li><strong>On -</strong> the engine is running queries or available to run queries. You cannot edit, delete, or attach a running engine.</li>
+<li><strong>Starting -</strong> the engine was started. It is provisioning resources, warming up, and will be ready to use shortly.</li>
+<li><strong>Stopped -</strong> the engine was stopped. It is not available to run queries. You can edit, delete, or attach engines in this state.</li>
+<li><strong>Stopping -</strong> the engine is shutting down. It is finishing query tasks in process and is not available for new queries.</li>
+<li><strong>Dropping -</strong> the engine is being deleted. It is finishing query tasks in process and is not available for new queries.</li>
+<li><strong>Repairing -</strong> at least one node is out of service. Firebolt is working on replacing nodes. The engine is not available to run queries while in this state. Firebolt engines go into repairing status if there is an infrastructure or software failure. When an engine is repairing, it stops any current query actions.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

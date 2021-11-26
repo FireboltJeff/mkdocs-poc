@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-functions-reference/string-functions/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>String functions - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#string-functions" class="nav-link">String functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#substr" class="nav-link">SUBSTR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#concat" class="nav-link">CONCAT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#replace" class="nav-link">REPLACE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#regexp_like" class="nav-link">REGEXP_LIKE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#strpos" class="nav-link">STRPOS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#trim" class="nav-link">TRIM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ltrim" class="nav-link">LTRIM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#rtrim" class="nav-link">RTRIM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#btrim" class="nav-link">BTRIM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lpad" class="nav-link">LPAD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#rpad" class="nav-link">RPAD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_date" class="nav-link">TO_DATE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_timestamp" class="nav-link">TO_TIMESTAMP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_unix_timestamp" class="nav-link">TO_UNIX_TIMESTAMP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#md5" class="nav-link">MD5</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#md5_number_upper64" class="nav-link">MD5_NUMBER_UPPER64</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#md5_number_lower64" class="nav-link">MD5_NUMBER_LOWER64</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#match" class="nav-link">MATCH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#match_any" class="nav-link">MATCH_ANY</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#split_part" class="nav-link">SPLIT_PART</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#to_unixtime" class="nav-link">TO_UNIXTIME</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#length" class="nav-link">LENGTH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#upper" class="nav-link">UPPER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lower" class="nav-link">LOWER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#uuid_generate_v4" class="nav-link">UUID_GENERATE_V4</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reverse" class="nav-link">REVERSE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#split" class="nav-link">SPLIT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#repeat" class="nav-link">REPEAT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="string-functions">String functions</h1>
+<p>This page describes the string functions supported in Firebolt.</p>
+<h2 id="substr">SUBSTR</h2>
+<p>Returns a substring starting with the byte from the ‘offset’ index and ‘length’ bytes long.<br />
+Character indexing starts from index 1 (as in standard SQL). The ‘offset’ and ‘length’ arguments must be constants.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SUBSTR(s, offset, length)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>s</code></td>
+<td align="left">The string to be offset.</td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">Count left to right the number of characters to offset from and not include in the results. 1 indicates starting with the first character.</td>
+</tr>
+<tr>
+<td align="left"><code>length</code></td>
+<td align="left">The total amount of characters included in the returned result.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage</strong> <strong>example</strong></p>
+<pre><code class="language-sql">SELECT SUBSTR('hello world', 1, 5);
+</code></pre>
+<p>The string is offset by 1 and so begins with "h". 5 indicates the resulting string should be only five characters long.</p>
+<p>Returns: hello</p>
+<h2 id="concat">CONCAT</h2>
+<p>Concatenates the strings listed in the arguments, without a separator.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CONCAT(s1,s2,…);
+</code></pre>
+<p>Or</p>
+<pre><code class="language-sql">S1 || S2 || S3
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>s</code></td>
+<td align="left">The strings, to be concatenated.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage</strong> <strong>example</strong></p>
+<pre><code class="language-sql">SELECT concat('Hello, ', 'World!')
+</code></pre>
+<p>Returns: Hello World!</p>
+<h2 id="replace">REPLACE</h2>
+<p>Replaces all occurrences of the ‘pattern’ substring of the ‘haystack’ string with the ‘replacement’ substring.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REPLACE (haystack, pattern, replacement)​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>haystack</code></td>
+<td align="left">The entire original string</td>
+</tr>
+<tr>
+<td align="left"><code>pattern</code></td>
+<td align="left">The substring to be searched and replaced in the string.</td>
+</tr>
+<tr>
+<td align="left"><code>replacement</code></td>
+<td align="left">The substring to replace the original substring (the 'pattern').</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT REPLACE('hello world','hello','nice') AS res;
+</code></pre>
+<p>Returns:'nice world'</p>
+<pre><code class="language-sql">SELECT REPLACE('hello world',' world','') AS res;
+</code></pre>
+<p>Returns: 'hello'</p>
+<pre><code class="language-sql">SELECT REPLACE('hello world','hi','something') AS res;
+</code></pre>
+<p>Returns: 'hello world'</p>
+<p>String functions</p>
+<h2 id="regexp_like">REGEXP_LIKE</h2>
+<p>This function holds a regular expression, used to check whether a pattern matches the regular expression string. Returns 0 if it doesn’t match, or 1 if it matches. ​ This is a ​​re2​​ regular expression.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​REGEXP_LIKE(haystack, pattern)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>haystack</code></td>
+<td align="left">The string in which to search for a match.pattern</td>
+</tr>
+<tr>
+<td align="left"><code>pattern</code></td>
+<td align="left">The pattern with which to search for a match in the string.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">​​SELECT REGEXP_LIKE('123','\\[a-z]') AS res;​​
+</code></pre>
+<p>Returns: 0</p>
+<pre><code class="language-sql">SELECT REGEXP_LIKE('123','\\d+') AS res;​
+</code></pre>
+<p>Returns: 1</p>
+<h2 id="strpos">STRPOS</h2>
+<p>Returns the position (in bytes) of the substring found in the string, starting from 1.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​STRPOS(haystack, needle)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>haystack</code></td>
+<td align="left">The string in which to search for the needle.</td>
+</tr>
+<tr>
+<td align="left"><code>needle</code></td>
+<td align="left">The substring to be searched for.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT STRPOS('hello world','hello') AS res
+</code></pre>
+<p>Returns: 1</p>
+<pre><code class="language-sql">SELECT STRPOS('hello world','world') AS res
+</code></pre>
+<p>Returns: 7</p>
+<h2 id="trim">TRIM</h2>
+<p>Removes all specified characters from the start or end of a string. By default removes all consecutive occurrences of common whitespace (ASCII character 32) from both ends of a string.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TRIM([LEADING|TRAILING|default = BOTH] &lt;trim_character&gt; FROM &lt;target_string&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>LEADING</code></td>
+<td align="left">Removes all special characters from the beginning of the specified string.</td>
+</tr>
+<tr>
+<td align="left"><code>TRAILING</code></td>
+<td align="left">Removes all special characters from the end of the specified string.</td>
+</tr>
+<tr>
+<td align="left"><code>BOTH</code></td>
+<td align="left">Removes all special characters from the beginning and the end of the specified string.</td>
+</tr>
+<tr>
+<td align="left"><code>trim_character</code></td>
+<td align="left">The characters to be removed.</td>
+</tr>
+<tr>
+<td align="left"><code>target_string</code></td>
+<td align="left">The string to be trimmed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<pre><code class="language-sql">SELECT TRIM('$' FROM '$Hello world$') AS res;
+</code></pre>
+<p>Returns: ‘ Hello world’</p>
+<h2 id="ltrim">LTRIM</h2>
+<p>Removes all consecutive occurrences of common whitespace (ASCII character 32) from the beginning of a string. It doesn’t remove other kinds of whitespace characters (tab, no-break space, etc.).</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​LTRIM(&lt;target&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>target</code></td>
+<td align="left">The string to be trimmed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<pre><code class="language-sql">SELECT LTRIM('     Hello, world! ')
+</code></pre>
+<p>Returns: Hello, world!</p>
+<h2 id="rtrim">RTRIM</h2>
+<p>Removes all consecutive occurrences of common whitespace (ASCII character 32) from the end of a string. It doesn’t remove other kinds of whitespace characters (tab, no-break space, etc.).</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​RTRIM(&lt;target&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>target</code></td>
+<td align="left">The string to be trimmed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<pre><code class="language-sql">SELECT RTRIM('Hello, world!     ')
+</code></pre>
+<p>Returns: Hello, world!</p>
+<h2 id="btrim">BTRIM</h2>
+<p>Removes all consecutive occurrences of common whitespace (ASCII character 32) from the beginning and the end of a string. It doesn’t remove other kinds of whitespace characters (tab, no-break space, etc).</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​BTRIM(&lt;target&gt;)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>target</code></td>
+<td align="left">The string to be trimmed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<pre><code class="language-sql">SELECT BTRIM('Hello, world!     ')
+</code></pre>
+<p>Returns: Hello, world!</p>
+<h2 id="lpad">LPAD</h2>
+<p>Adds the pad in front of the string repetitively up until the length of the resulting string is equivalent to the indicated length.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​LPAD(&lt;str&gt;, &lt;length&gt; [, &lt;pad&gt;])​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>str</code></td>
+<td align="left">The original string. If the length of the original string is larger than the length parameter, this function removes the overflowing characters from the string. ​ str can be a literal string or the name of a column.</td>
+</tr>
+<tr>
+<td align="left"><code>length</code></td>
+<td align="left">The length of the string as an integer after it has been left-padded. ​ A negative number returns an empty string.</td>
+</tr>
+<tr>
+<td align="left"><code>pad</code></td>
+<td align="left">The string to left-pad to primary string (str).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<p>The following statement adds the string ABC in front of the string Firebolt repetitively until the resulting string is equivalent to 20 characters in length.</p>
+<pre><code class="language-sql">SELECT LPAD(&quot;Firebolt&quot;, 20, &quot;ABC&quot;);
+</code></pre>
+<p>Returns: ABCABCABCABCFirebolt</p>
+<h2 id="rpad">RPAD</h2>
+<p>Adds the pad at the end of the string repetitively up until the length of the resulting string is equivalent to the indicated length.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​RPAD(&lt;str&gt;, &lt;length&gt; [, &lt;pad&gt;])​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>str</code></td>
+<td align="left">The original string. If the length of the original string is larger than the length parameter, this function removes the overflowing characters from the string. ​ str can be a literal string or the name of a column.</td>
+</tr>
+<tr>
+<td align="left"><code>length</code></td>
+<td align="left">The length of the string as an integer after it has been left-padded. ​ A negative number returns an empty string.</td>
+</tr>
+<tr>
+<td align="left"><code>pad</code></td>
+<td align="left">The string to right-pad to primary string (str).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<p>The following statement adds the string ABC to the end of the string Firebolt repetitively until the resulting string is equivalent to 20 characters in length.</p>
+<pre><code class="language-sql">SELECT RPAD(&quot;Firebolt&quot;, 20, &quot;ABC&quot;);
+</code></pre>
+<p>Returns: FireboltABCABCABCABC</p>
+<h2 id="to_date">TO_DATE</h2>
+<p>Converts a string to date.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_DATE(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string format should be: ‘YYYY-MM-DD’</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<pre><code class="language-sql">SELECT TO_DATE('2020-05-31') AS res;
+</code></pre>
+<p>Returns: 2020-05-31</p>
+<h2 id="to_timestamp">TO_TIMESTAMP</h2>
+<p>Converts a string to timestamp.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_TIMESTAMP(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string format should be: ‘YYYY-MM-DD HH:mm:ss’</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<pre><code class="language-sql">SELECT TO_TIMESTAMP('2020-05-31 10:31:14') AS res;
+</code></pre>
+<p>Returns: 2020-05-31 10:31:14</p>
+<h2 id="to_unix_timestamp">TO_UNIX_TIMESTAMP</h2>
+<p>Converts a string to a UNIX timestamp.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_UNIX_TIMESTAMP(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string format should be: ‘YYYY-MM-DD HH:mm:ss’</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage example</strong></p>
+<pre><code class="language-sql">SELECT TO_UNIX_TIMESTAMP('2020-05-31') AS res;
+</code></pre>
+<h2 id="md5">MD5</h2>
+<p>Calculates the MD5 hash of string, returning the result as a string in hexadecimal.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​MD5(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to hash. For NULL, the function returns 0.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT MD5('text') AS res;
+</code></pre>
+<p>Returns: 1cb251ec0d568de6a929b520c4aed8d1</p>
+<h2 id="md5_number_upper64">MD5_NUMBER_UPPER64</h2>
+<p>Represent the upper 64 bits of the MD5 hash value of the input string as BIGINT.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​MD5_NUMBER_UPPER64('string')​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to calculate the MD5 on and represent as BIGINT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT MD5_NUMBER_UPPER64('test') AS res;
+</code></pre>
+<p>Returns: 688887797400064883</p>
+<h2 id="md5_number_lower64">MD5_NUMBER_LOWER64</h2>
+<p>Represent the lower 64 bits of the MD5 hash value of the input string as BIGINT.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​MD5_NUMBER_LOWER64('string')​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to calculate the MD5 on and represent as BIGINT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT MD5_NUMBER_LOWER64('test') AS res;
+</code></pre>
+<p>Returns: 14618207765679027446</p>
+<h2 id="match">MATCH</h2>
+<p>Checks whether the string matches the regular expression pattern. A re2 regular expression. ​ Returns 0 if it doesn’t match, or 1 if it matches.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​MATCH(haystack, pattern)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>haystack</code></td>
+<td align="left">The string in which to search for a match.</td>
+</tr>
+<tr>
+<td align="left"><code>pattern</code></td>
+<td align="left">The pattern with which to search for a match in the string.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT MATCH('123','\\[a-Z|A-Z]') AS res;
+</code></pre>
+<p>Returns: 0</p>
+<pre><code class="language-sql">SELECT MATCH('123','\\d+');
+</code></pre>
+<p>Returns: 1</p>
+<h2 id="match_any">MATCH_ANY</h2>
+<p>The same as <a href="./#match">MATCH</a>, but returns 0 if none of the regular expressions are matched and 1 if any of the patterns matches.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​MATCH_ANY(haystack, [pattern1, pattern2, …, pattern])​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>haystack</code></td>
+<td align="left">The string in which to search for a match.</td>
+</tr>
+<tr>
+<td align="left"><code>pattern</code></td>
+<td align="left">The pattern with which to search for a match in the string.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT MATCH_ANY('123',['\\d+','\\[a-Z|A-Z]']) AS res;
+</code></pre>
+<p>The above query searches for any matches within the string ​<code>123</code> ​​to the pattern <code>​['\d+','\[a-Z|A-Z]']</code>​. ​ Since at least one is found, returns: 1</p>
+<h2 id="split_part">SPLIT_PART</h2>
+<p>Divides a string into substrings separated by a constant string delimiter of multiple characters as the separator. ​ The string in the specified index is returned. If the string separator is empty, the string is divided into an array of single characters.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​SPLIT_PART(string, delimiter, index)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to be split.</td>
+</tr>
+<tr>
+<td align="left"><code>delimiter</code></td>
+<td align="left">Any string within a string</td>
+</tr>
+<tr>
+<td align="left"><code>index</code></td>
+<td align="left">Indicates the index from where to start searching for matches.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT SPLIT_PART('hello#world','#',1) AS res;
+</code></pre>
+<p>Returns: ‘hello’</p>
+<h2 id="to_unixtime">TO_UNIXTIME</h2>
+<p>For ​<code>DATETIME</code> ​​arguments: this function converts the value to its internal numeric representation (Unix Timestamp). ​ For ​<code>TEXT</code> ​​arguments: this function parses ​<code>DATETIME</code> ​​from a string and returns the corresponding Unix timestamp.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​TO_UNIXTIME(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to be converted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT TO_UNIXTIME('2017-11-05 08:07:47'') AS TO_UNIXTIME;
+</code></pre>
+<p>Returns: 1509836867</p>
+<h2 id="length">LENGTH</h2>
+<p>Calculates the String length.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​LENGTH(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string for which to return the length.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage examples</strong></p>
+<pre><code class="language-sql">SELECT LENGTH('abcd') AS length;
+</code></pre>
+<p>Returns: 4</p>
+<h2 id="upper">UPPER</h2>
+<p>Converts the string to upper case format.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​UPPER(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to be converted.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lower">LOWER</h2>
+<p>Converts the string to a lower case format.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​LOWER(string)​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to be converted.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uuid_generate_v4">UUID_GENERATE_V4</h2>
+<p>This function can be used to generate a random unique numeric value for any object in the database.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​UUID_GENERATE_V4()​​
+</code></pre>
+<h2 id="reverse"><strong>REVERSE</strong></h2>
+<p>This function returns a string of the same size as the original string, with the elements in reverse order.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REVERSE(string)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to be reversed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage Example</strong></p>
+<pre><code class="language-sql">SELECT REVERSE('abcd') AS res
+</code></pre>
+<p>Returns: 'dcba'</p>
+<h2 id="split"><strong>SPLIT</strong></h2>
+<p>This function splits a given string by a given separator and returns the result in an array of strings.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SPLIT('seperator',string)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>seperator</code></td>
+<td align="left">The separator to split the string by.</td>
+</tr>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to split.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage Example</strong></p>
+<pre><code class="language-sql">SELECT SPLIT('|','this|is|my|test') AS res
+</code></pre>
+<p>Returns: ["this","is","my","test"]</p>
+<h2 id="repeat"><strong>REPEAT</strong></h2>
+<p>This function repeats the provided string a requested number of times.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">REPEAT('string',repeating_number)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>string</code></td>
+<td align="left">The string to be repeated.</td>
+</tr>
+<tr>
+<td align="left"><code>repeating number</code></td>
+<td align="left">The number of needed repetitions.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage Example</strong></p>
+<pre><code class="language-sql">SELECT REPEAT(‘repeat 3 times ’,3);
+</code></pre>
+<p>Returns: 'repeat 3 times repeat 3 times repeat 3 times '</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

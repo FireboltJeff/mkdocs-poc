@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-reference/functions-reference/numeric-functions/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Numeric functions - Firebolt docs process</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#numeric-functions" class="nav-link">Numeric functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#abs" class="nav-link">ABS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#acos" class="nav-link">ACOS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#asin" class="nav-link">ASIN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#atan" class="nav-link">ATAN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cbrt" class="nav-link">CBRT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ceil-ceiling" class="nav-link">CEIL, CEILING</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cos" class="nav-link">COS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cot" class="nav-link">COT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#degrees" class="nav-link">DEGREES</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#exp" class="nav-link">EXP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#floor" class="nav-link">FLOOR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#log" class="nav-link">LOG</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#mod" class="nav-link">MOD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pi" class="nav-link">PI</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pow-power" class="nav-link">POW, POWER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#radians" class="nav-link">RADIANS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#random" class="nav-link">RANDOM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#round" class="nav-link">ROUND</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sin" class="nav-link">SIN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sqrt" class="nav-link">SQRT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tan" class="nav-link">TAN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#trunc" class="nav-link">TRUNC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="numeric-functions">Numeric functions</h1>
+<p>This page describes the numeric functions supported in Firebolt.</p>
+<h2 id="abs">ABS</h2>
+<p>Calculates the absolute value of a number <code>&lt;val&gt;</code>.&#x20;</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ABS(&lt;val&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    ABS(-200.50)
+</code></pre>
+<p><strong>Returns: </strong><code>200.5</code></p>
+<h2 id="acos">ACOS</h2>
+<p>Calculates the arc cosine of a value <code>&lt;val&gt;</code>. <code>ACOS</code> returns <code>NULL</code> if <code>&lt;val&gt;</code> is higher than 1.&#x20;</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ACOS(&lt;val&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    ACOS(0.5)
+</code></pre>
+<p><strong>Returns: </strong><code>1.0471975511965979</code></p>
+<h2 id="asin">ASIN</h2>
+<p>Calculates the arc sinus. <code>ASIN</code> returns <code>NULL</code> if <code>&lt;val&gt;</code> is higher than 1.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ASIN(&lt;val&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    ASIN(1.0)
+</code></pre>
+<p><strong>Returns: </strong><code>1.5707963267948966</code></p>
+<h2 id="atan">ATAN</h2>
+<p>Calculates the arctangent.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ATAN(&lt;val&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    ATAN(90)
+</code></pre>
+<p><strong>Returns</strong>: <code>1.5596856728972892</code></p>
+<h2 id="cbrt">CBRT</h2>
+<p>Returns the cubic-root of a non-negative numeric expression.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CBRT(&lt;val&gt;);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    CBRT(8);
+</code></pre>
+<p><strong>Returns</strong>: <code>2</code></p>
+<h2 id="ceil-ceiling">CEIL, CEILING</h2>
+<p>Returns the smallest number that is greater than or equal to a specified value <code>&lt;val&gt;</code>. The value is rounded to a decimal range defined by <code>&lt;dec&gt;</code>.&#x20;</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CEIL(&lt;val&gt;[, &lt;dec&gt;]);
+CEILING(&lt;val&gt;[, &lt;dec&gt;]);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+<tr>
+<td><code>&lt;dec&gt;</code></td>
+<td>Optional. An <code>INT</code> constant that defines the decimal range of the returned value. By default, <code>CEIL</code>and <code>CEILING</code> return whole numbers.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    CEIL(2.5549900, 3);
+</code></pre>
+<p><strong>Returns</strong>: <code>2.555</code></p>
+<h2 id="cos">COS</h2>
+<p>Calculates the cosine.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">COS(&lt;exp&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>Any expression that evaluates to a numeric data type.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    COS(180);
+</code></pre>
+<p><strong>Returns: </strong><code>-0.5984600690578581</code></p>
+<h2 id="cot">COT</h2>
+<p>Calculates the cotangent.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">COT(&lt;exp&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>Any expression that evaluates to a numeric data type.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    COT(180)
+</code></pre>
+<p><strong>Returns: </strong><code>0.7469988144140444</code></p>
+<h2 id="degrees">DEGREES</h2>
+<p>Converts a value in radians to degrees.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DEGREES(&lt;exp&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>Any expression that evaluates to a numeric data type.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    DEGREES(3);
+</code></pre>
+<p><strong>Returns</strong>: <code>171.88733853924697</code></p>
+<h2 id="exp">EXP</h2>
+<p>Returns the FLOAT value of the constant <em>e</em> raised to the power of a specified number.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">EXP(&lt;val&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    EXP(2)
+</code></pre>
+<p><strong>Returns: </strong><code>7.389056098924109</code></p>
+<h2 id="floor">FLOOR</h2>
+<p>Returns the largest round number that is less than or equal to <code>&lt;val&gt;</code>. The value is rounded to a decimal range defined by <code>&lt;dec&gt;</code>.&#x20;</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">FLOOR(&lt;val&gt;[, &lt;dec&gt;])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+<tr>
+<td><code>&lt;dec&gt;</code></td>
+<td>Optional. An <code>INT</code> constant that defines the decimal range of the returned value. By default, <code>FLOOR</code>returns whole numbers.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    FLOOR(2.19, 1)
+</code></pre>
+<p><strong>Returns: </strong><code>2.1</code></p>
+<h2 id="log">LOG</h2>
+<p>Returns the natural logarithm of a numeric expression based on the desired base.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">LOG([&lt;base&gt;,] &lt;num&gt;);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;base&gt;</code></td>
+<td>Optional. The base for the logarithm. The default base is 10.</td>
+</tr>
+<tr>
+<td><code>&lt;numeric&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>This example below returns the logarithm of 64.0 with base 2.&#x20;</p>
+<pre><code class="language-sql">SELECT LOG(2, 64.0)
+</code></pre>
+<p><strong>Returns: </strong><code>6</code></p>
+<p>This example below returns the logarithm of 64.0 with the default base 10.</p>
+<pre><code class="language-sql">SELECT LOG(64.0)
+</code></pre>
+<p><strong>Returns</strong>: <code>1.8061799739838869</code></p>
+<h2 id="mod">MOD</h2>
+<p>Calculates the remainder after dividing two values, <code>&lt;num&gt;</code> / <code>&lt;den&gt;.</code></p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">MOD(&lt;num&gt;,&lt;den&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;num&gt;</code></td>
+<td>The numerator of the division equation.</td>
+</tr>
+<tr>
+<td><code>&lt;den&gt;</code></td>
+<td>The denominator of the division equation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    MOD(45, 7)
+</code></pre>
+<p><strong>Returns</strong>: <code>3</code></p>
+<h2 id="pi">PI</h2>
+<p>Calculates π as a FLOAT value.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​PI() ​​
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    PI()
+</code></pre>
+<p><strong>Returns: </strong><code>3.141592653589793</code></p>
+<h2 id="pow-power">POW, POWER</h2>
+<p>Returns a number <code>&lt;val&gt;</code> raised to the specified power <code>&lt;exp&gt;</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">POW(&lt;val&gt;, &lt;exp&gt;)​;
+POWER(&lt;val&gt;, &lt;exp&gt;)​;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+<tr>
+<td><code>&lt;exp&gt;</code></td>
+<td>The exponent value used to raise <code>&lt;val&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    POW(2, 5)
+</code></pre>
+<p><strong>Returns: </strong><code>32</code></p>
+<h2 id="radians">RADIANS</h2>
+<p>Converts degrees to radians as a <code>FLOAT</code> value.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">​​RADIANS(&lt;val&gt;) ​​
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    RADIANS(180)
+</code></pre>
+<p><strong>Returns: </strong><code>3.141592653589793</code></p>
+<h2 id="random">RANDOM</h2>
+<p>Returns a pseudo-random unsigned value greater than 0 and less than 1 of type <code>DOUBLE</code>.&#x20;</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">RANDOM()
+</code></pre>
+<p><strong>Examples</strong></p>
+<p>The example below demonstrates using <code>RANDOM</code> without any other numeric functions. This generates a <code>DOUBLE</code> value less than 1.&#x20;</p>
+<pre><code>SELECT RANDOM()
+</code></pre>
+<p><strong>Returns: </strong><code>0.8544004706537051</code></p>
+<p><strong>Using RANDOM for range of values</strong></p>
+<p>To create a random integer number between two values, you can use <code>RANDOM</code> with the <code>FLOOR</code> function as demonstrated below. <code>a</code> is the lesser value and <code>b</code> is the greater value. &#x20;</p>
+<pre><code>SELECT FLOOR( RANDOM() * ( b - a + 1)) + a;
+</code></pre>
+<p>For example, the formula below generates a random integer between 50 and 100:&#x20;</p>
+<pre><code>SELECT FLOOR( RANDOM() * (100 - 50 + 1)) + 50;
+</code></pre>
+<p><strong>Returns: </strong><code>61</code></p>
+<h2 id="round">ROUND</h2>
+<p>Rounds a value to a specified number of decimal places.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ROUND(&lt;val&gt; [, &lt;dec&gt;])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+<tr>
+<td><code>&lt;dec&gt;</code></td>
+<td>Optional. An <code>INT</code> constant that defines the decimal range of the returned value. By default, <code>ROUND</code> returns whole numbers.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code>SELECT
+    ROUND(5.4)
+</code></pre>
+<p><strong>Returns: </strong><code>5</code></p>
+<pre><code>SELECT
+    ROUND(5.6930, 1)
+</code></pre>
+<p><strong>Returns: </strong><code>5.7</code></p>
+<h2 id="sin">SIN</h2>
+<p>Calculates the sinus.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SIN(&lt;val&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    SIN(90)
+</code></pre>
+<p><strong>Returns: </strong><code>0.8939966636005579</code></p>
+<h2 id="sqrt">SQRT</h2>
+<p>Returns the square root of a non-negative numeric expression.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SQRT(&lt;val&gt;);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values. Returns <code>NULL</code>if a negative value is given.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    SQRT(64)
+</code></pre>
+<p><strong>Returns: </strong><code>8</code></p>
+<h2 id="tan">TAN</h2>
+<p>Calculates the tangent.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">TAN(&lt;val&gt;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code>SELECT
+    TAN(90)
+</code></pre>
+<p><strong>Returns: </strong>-<strong>1.995200412208242</strong></p>
+<h2 id="trunc">TRUNC</h2>
+<p>Returns the rounded absolute value of a numeric value. The returned value will always be rounded to less than the original value.&#x20;</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">TRUNC(&lt;val&gt;[, &lt;dec&gt;])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;val&gt;</code></td>
+<td>Valid values include column names, functions that return a column with numeric values, and constant numeric values.</td>
+</tr>
+<tr>
+<td><code>&lt;dec&gt;</code></td>
+<td>Optional. An <code>INT</code> constant that defines the decimal range of the returned value. By default, <code>TRUNC</code> returns whole numbers.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code>SELECT
+    TRUNC(-20.5)
+</code></pre>
+<p><strong>Returns: </strong><code>-20</code></p>
+<pre><code>SELECT
+    TRUNC(-99.999999, 3)
+</code></pre>
+<p><strong>Returns: </strong><code>-99.999</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

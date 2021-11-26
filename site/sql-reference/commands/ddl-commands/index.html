@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/sql-reference/commands/ddl-commands/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>DDL commands - Firebolt docs process</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ddl-commands" class="nav-link">DDL commands</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#alter" class="nav-link">ALTER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#create" class="nav-link">CREATE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#start-engine" class="nav-link">START ENGINE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#stop-engine" class="nav-link">STOP ENGINE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#attach-engine" class="nav-link">ATTACH ENGINE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#detach-engine-deprecated" class="nav-link">DETACH ENGINE (deprecated)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#describe" class="nav-link">DESCRIBE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#drop" class="nav-link">DROP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#show" class="nav-link">SHOW</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ddl-commands">DDL commands</h1>
+<p>Firebolt supports these DDL (data definition language) commands so that you can create, manipulate, and modify objects in your tables.</p>
+<p>The commands include:</p>
+<ul>
+<li><a href="./#alter">ALTER</a></li>
+<li><a href="./#create">CREATE</a></li>
+<li><a href="./#start-engine">START ENGINE</a></li>
+<li><a href="./#stop-engine">STOP ENGINE</a></li>
+<li><a href="./#attach-engine">ATTACH ENGINE</a></li>
+<li><a href="./#detach-engine">DETACH ENGINE (deprecated)</a></li>
+<li><a href="./#describe">DESCRIBE</a></li>
+<li><a href="./#drop">DROP</a></li>
+<li><a href="./#show">SHOW</a></li>
+</ul>
+<h2 id="alter">ALTER</h2>
+<p>The <code>ALTER</code> command enables you to edit the configuration of an engine, and drop data from a <em>fact</em> table, Read more about these topics:</p>
+<ul>
+<li><a href="./#alter-engine">ALTER ENGINE</a></li>
+<li><a href="./#alter-table-drop-partition">ALTER ENGINE DROP PARTITION</a></li>
+</ul>
+<h3 id="alter-engine">ALTER ENGINE</h3>
+<p>The <code>ALTER ENGINE</code> command enables you to update the engine configuration.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ALTER ENGINE &lt;engine_name&gt; SET
+    [SCALE TO &lt;scale&gt; [ABORT = TRUE|FALSE ]]
+    [SPEC = &lt;spec&gt; [ABORT = TRUE|FALSE]]
+    [AUTO_STOP = &lt;minutes]
+    [RENAME TO &lt;new_name&gt;]
+    [WARMUP = &lt;warmup_method&gt;]
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;engine_name&gt;</code></td>
+<td>Name of the engine to be altered.</td>
+<td>Y</td>
+</tr>
+<tr>
+<td><p><code>SCALE =</code></p><p><code>&#x3C;scale&gt;</code></p></td>
+<td><p>Valid scale numbers include any <code>INT</code> between 1 to 128.</p><p><code>ABORT</code> is an optional parameter (default=false):</p><p><code>ABORT=FALSE</code> means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.</p><p><code>ABORT=TRUE</code> means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><p><code>SPEC =</code></p><p><code>&#x3C;spec&gt;</code></p></td>
+<td><p>Indicates the EC2 instance type, for example, 'm5.xlarge'</p><p><code>ABORT</code> is an optional parameter (default=false):</p><p><code>ABORT=FALSE</code> means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.</p><p><code>ABORT=TRUE</code> means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>AUTO_STOP = &lt;minutes&gt;</code></td>
+<td>The number of minutes after which the engine automatically stops, where 0 indicates that <code>AUTO_STOP</code> is disabled.</td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>RENAME TO &lt;new_name&gt;</code></td>
+<td><p>Indicates the new name for the engine.</p><p>For example:</p><p><code>RENAME TO new_engine_name</code></p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>WARMUP =&lt;warmup_method&gt;</code></td>
+<td><p>The warmup method that should be used, the following options are supported:</p><ul><li><code>MINIMAL</code> On-demand loading (both indexes and tables' data).</li><li><code>PRELOAD_INDEXES</code> Load indexes only (default).</li><li><code>PRELOAD_ALL_DATA</code> Full data auto-load (both indexes and table data - full warmup).</li></ul></td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example: Change engine scale</strong></p>
+<pre><code class="language-sql">ALTER ENGINE my_engine SET SCALE TO 1
+</code></pre>
+<h3 id="alter-table-drop-partition">ALTER TABLE DROP PARTITION</h3>
+<p>The <code>ALTER TABLE DROP PARTITION</code> enables you to delete data from a fact table by dropping a partition.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ALTER TABLE &lt;table_name&gt; DROP PARTITION &lt;partition_expr&gt;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;table_name&gt;</code></td>
+<td>Name of the table to be altered.</td>
+<td>Y</td>
+</tr>
+<tr>
+<td><code>&lt;partition_expr&gt;</code></td>
+<td><p>The partition expression. The following expressions are supported:</p><ul><li>Literal (or a comma-separated list of literals)</li><li>A function applied on a literal.<br>The following functions are supported: <a href="../functions-reference/date-and-time-functions.md#extract">EXTRACT</a>, and <a href="../functions-reference/date-and-time-functions.md#date_format">DATE_FORMAT</a></li><li>A combination of the 2 above</li></ul><p>The partitions that match the provided expression will be dropped. In-case a partition key is composed of multiple values - all the values must be provided to perform the drop.</p></td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<p>For usage examples and additional details read more <a href="../../../concepts/working-with-partitions/">here</a>.</p>
+<h2 id="create">CREATE</h2>
+<p>The <code>CREATE</code> command enables you to create an engine, a database, an <em>external table</em>, a Firebolt <em>fact or a dimension</em> table, view, <em>join index</em>, and <em>aggregating index</em>. <code>GENERATE</code> is used to populate an aggregating index once created. Read more about these topics:</p>
+<ul>
+<li>For engines, read more <a href="./#create-engine">here</a></li>
+<li>For databases, read more <a href="./#create-database">here</a>.</li>
+<li>For external tables, read more <a href="./#create-external-table">here</a>.</li>
+<li>For external tables based on an AWS Glue table, read more <a href="./#create-external-table-based-on-an-aws-glue-table">here</a>.</li>
+<li>For Firebolt tables, read more <a href="./#create-fact-dimension-table">here</a>.</li>
+<li>For views, read more <a href="./#create-view">here</a>.</li>
+<li>For join index, read more <a href="./#create-join-index">here</a>.</li>
+<li>For aggregating index, read more <a href="./#create-aggregating-index">here</a>.</li>
+</ul>
+<h3 id="create-engine">CREATE ENGINE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE ENGINE [IF NOT EXISTS] &lt;engine_name&gt;
+[WITH &lt;properties&gt;]
+</code></pre>
+<p>Where <code>&lt;properties&gt;</code> are:</p>
+<ul>
+<li><code>REGION = '&lt;aws_region&gt;'</code></li>
+<li><code>ENGINE_TYPE = &lt;type&gt;</code></li>
+<li><code>SPEC = '&lt;spec&gt;'</code></li>
+<li><code>SCALE = &lt;scale&gt;</code></li>
+<li><code>AUTO_STOP = &lt;minutes&gt;</code></li>
+<li><code>WARMUP = [ MINIMAL | PRELOAD_INDEXES | PRELOAD_ALL_DATA ]</code></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;engine_name&gt;</code></td>
+<td><p>An identifier that specifies the name of the engine.<br>For example: <code>my_engine</code></p></td>
+<td>Y</td>
+</tr>
+<tr>
+<td><code>REGION = '&lt;aws_region&gt;'</code></td>
+<td><p>The AWS region in which the engine runs.<br>If not specified, <code>'us-west-2'</code> is used as default.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>ENGINE_TYPE = &lt;type&gt;</code></td>
+<td><p>The engine type. The <code>&#x3C;type&gt;</code> can have one of the following values:</p><ol><li><code>GENERAL_PURPOSE</code></li><li><code>DATA_ANALYTICS</code></li></ol><p>If not specified - <code>GENERAL_PURPOSE</code> is used as default.<br></p><p>Usage example:</p><p><code>CREATE ENGINE ... ENGINE_TYPE = GENERAL_PURPOSE</code></p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>SPEC = '&lt;spec&gt;'</code></td>
+<td><p>The AWS EC2 instance type, for example, <code>'m5d.xlarge'</code>.<br>If not specified, <code>'i3.4xlarge'</code> is used as default.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><p><code>SCALE =</code></p><p><code>&#x3C;scale&gt;</code></p></td>
+<td><p>Specifies the scale of the engine.<br>The scale can be any<code>INT</code>between 1 to 128.<br>If not specified, 2 is used as default.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>AUTO_STOP = &lt;minutes&gt;</code></td>
+<td><p>Indicates the amount of time (in minutes) after which the engine automatically stops. The default value is 20.<br>Setting the <code>minutes</code> to 0 indicates that <code>AUTO_STOP</code> is disabled.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><p><code>WARMUP =</code></p><p><code>&#x3C;warmup_method&gt;</code></p></td>
+<td><p>The warmup method that should be used, the following options are supported:</p><ul><li><code>MINIMAL</code> On-demand loading (both indexes and tables' data).</li><li><code>PRELOAD_INDEXES</code> Load indexes only (default).</li><li><code>PRELOAD_ALL_DATA</code> Full data auto-load (both indexes and table data - full warmup).</li></ul></td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example - create an engine with (non-default) properties:</strong></p>
+<pre><code class="language-sql">CREATE ENGINE my_engine
+WITH SPEC = 'c5d.4xlarge' SCALE = 8
+</code></pre>
+<h3 id="create-database">CREATE DATABASE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE DATABASE [IF NOT EXISTS] &lt;database_name&gt;
+[WITH &lt;properties&gt;]
+</code></pre>
+<p>Where <code>&lt;properties&gt;</code> are:</p>
+<ul>
+<li><code>REGION = '&lt;aws_region&gt;</code></li>
+<li><code>ATTACHED_ENGINES = ( '&lt;engine_name&gt;' [, ... ] )</code></li>
+<li><code>DEFAULT_ENGINE = 'engine_name'</code></li>
+<li><code>DESCRIPTION = 'description'</code></li>
+</ul>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;database_name&gt;</code></td>
+<td><p>An identifier that specifies the name of the database.<br>For example: <code>my_database</code></p></td>
+<td>Y</td>
+</tr>
+<tr>
+<td><code>REGION = '&lt;aws_region&gt;'</code></td>
+<td><p>The AWS region in which the database is configured.<br>If not specified, <code>'us-west-2'</code> is being used as default.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>ATTACHED_ENGINES = ( &lt;engine_name&gt; [ ... ] )</code></td>
+<td><p>A list of engine names, for example:</p><p><code>ATTACHED_ENGINES = (my_engine_1 my_engine_2)</code>. The specified engines must be detached from any other databases first.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>DEFAULT_ENGINE = engine_name</code></td>
+<td><p>An identifier that specifies the name of the default engine. If not specified, the first engine in the attached engines list will be used as default.<br>If a default engine is specified without specifying the list of attached engines or if the default engine is not in that list, the default engine will be both attached to the database and used as the default engine.</p></td>
+<td>N</td>
+</tr>
+<tr>
+<td><code>DESCRIPTION = 'description'</code></td>
+<td>The engine's description (up to 64 characters).</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example - create a database with (non-default) properties:</strong></p>
+<pre><code class="language-sql">CREATE DATABASE IF NOT EXISTS my_db
+WITH region = 'us-east-1' description = 'Being used for testing'
+</code></pre>
+<h3 id="create-external-table">CREATE EXTERNAL TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE [IF NOT EXISTS] &lt;external_table_name&gt;
+(
+    &lt;column_name&gt; &lt;column_type&gt; 
+    [, &lt;column_name2&gt; &lt;column_type2&gt; [, ...n] ]
+    [, &lt;partition_column_name&gt; &lt;partition_column_type&gt; PARTITION('&lt;regex&gt;')
+)
+[CREDENTIALS = (&lt;awsCredentials&gt;)]
+URL = 's3://&lt;bucket&gt;[/&lt;folder&gt;][/...]/'
+OBJECT_PATTERN = '&lt;object_pattern&gt;'[, '&lt;object_pattern&gt;'[, ...n]]]
+TYPE = (&lt;type&gt; [typeOptions])
+[COMPRESSION = &lt;compression_type&gt;]
+</code></pre>
+<h4 id="parameters"><strong>Parameters</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;external_table_name&gt;</code></td>
+<td>An ​identifier​​ that specifies the name of the external table. This name should be unique within the database.</td>
+</tr>
+<tr>
+<td><code>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​&lt;column_name&gt;</code></td>
+<td>An identifier that specifies the name of the column. This name should be unique within the table.</td>
+</tr>
+<tr>
+<td><code>&lt;column_type&gt;</code></td>
+<td>Specifies the data type for the column.</td>
+</tr>
+<tr>
+<td><code>&lt;partition_column_name&gt;</code></td>
+<td><a href="./#extract-partition-data">Extract partition data</a></td>
+</tr>
+<tr>
+<td><code>CREDENTIALS</code></td>
+<td><a href="./#credentials">CREDENTIALS</a></td>
+</tr>
+<tr>
+<td><code>URL</code>and <code>OBJECT_PATTERN</code></td>
+<td><a href="./#url-and-object_pattern">URL &amp; OBJECT_PATTERN</a></td>
+</tr>
+<tr>
+<td><code>TYPE</code></td>
+<td><a href="./#type">TYPE</a></td>
+</tr>
+<tr>
+<td><code>COMPRESSION</code></td>
+<td><a href="./#compression">COMPRESSION</a></td>
+</tr>
+</tbody>
+</table>
+<p>All Firebolt identifiers are case insensitive unless double-quotes are used. For more information, please see <a href="../../../general-reference/identifier-requirements/">Identifier requirements</a>.</p>
+<h4 id="extract-partition-data"><strong>Extract partition data</strong></h4>
+<p>When data is partitioned, the partition columns are not stored in the S3 files. Instead, they can be extracted from the file path within the bucket. ​</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">[&lt;column_name&gt; &lt;column_type&gt; PARTITION('&lt;regex&gt;')]
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​&lt;partition_column_name&gt;</code></td>
+<td>An identifier that specifies the name of the column as it would appear in the external table (should match the hive partition name). As with any column name, this name should be unique within the table.</td>
+</tr>
+<tr>
+<td><code>&lt;partition_column_type&gt;</code></td>
+<td>Specifies the data type for the column.</td>
+</tr>
+<tr>
+<td><code>'&lt;regex&gt;'</code></td>
+<td>The regex for extracting the partition value out of the file path in S3.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Guidelines for creating the regex:</strong></p>
+<ul>
+<li>You do not have to reference all the partitions in your data; you can specify only the columns that you wish to include in the external table.</li>
+<li>You can extract the column value from the file name, but not from its path.</li>
+<li>For each column, a regular expression that contains a capturing group must be specified, so Firebolt can treat the captured string as the column value.</li>
+<li>When the column data type is <code>date</code>, Firebolt expects three capturing groups in the order of year, month, and day.</li>
+<li>The regular expression is matched against the file path, not including the <code>s3://bucket_name/</code> prefix.</li>
+<li>Firebolt tries to convert the captured string to the specified type. If the type conversion fails, the value is treated as NULL.</li>
+</ul>
+<p><strong>Tip</strong></p>
+<p>In most cases, the easiest way to build a regular expression is as follows:</p>
+<ol>
+<li>Count the number of folders in the path, not including the bucket name.</li>
+<li>Concatenate the string <code>[^\/]+\/</code> according to the number of folders.</li>
+<li>Prefix the regex with an additional <code>[^\/]+</code> for the file name.</li>
+<li>Wrap the <code>[^\/]+</code> in the right folder with a capturing group parenthesis, i.e <code>([^\/]+).</code> See the examples below for both hive-compatible and non-compatible partitions extractions.</li>
+</ol>
+<p>Here is a good explanation about <a href="https://regexone.com/lesson/capturing_groups">matching groups</a>, and an <a href="https://regex101.com">online tool</a> to test your regular expressions.</p>
+<p><strong>Example 1 - extract hive-compatible partitions:</strong>\
+Consider the following layout of files in a bucket - data is partitioned according to client type, year, and month, with multiple parquet files in each partition. The parquet files don't contain the corresponding columns, but the columns can be extracted, along with their values, by parsing the file paths, as we will see in the next section.</p>
+<pre><code>s3://my_bucket/c_type=xyz/year=2018/month=01/part-00001.parquet
+s3://my_bucket/c_type=xyz/year=2018/month=01/part-00002.parquet
+...
+s3://my_bucket/c_type=abc/year=2018/month=01/part-00001.parquet
+s3://my_bucket/c_type=abc/year=2018/month=01/part-00002.parquet
+</code></pre>
+<p>Creating an external table using the following format:</p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE my_external_table
+(
+    c_id    INT,
+    c_name  TEXT,
+    c_type TEXT PARTITION('[^\/]+\/c_type=([^\/]+)\/[^\/]+\/[^\/]+')
+)
+CREDENTIALS = (AWS_KEY_ID = '*****' AWS_SECRET_KEY = '******')
+URL = 's3://my_bucket/'
+OBJECT_PATTERN= '*.parquet'
+TYPE = (PARQUET)
+</code></pre>
+<p>Results with an external table in the following structure:</p>
+<table>
+<thead>
+<tr>
+<th>c_id</th>
+<th>c_name</th>
+<th>c_type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>name_a</td>
+<td>xyz</td>
+</tr>
+<tr>
+<td>2</td>
+<td>name_b</td>
+<td>xyz</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>100</td>
+<td>name_abc</td>
+<td>xyz</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example 2 - extract non-hive compatible partitions:</strong></p>
+<p>In some cases, your S3 files may be organized in partitions that do not use the = format. For example, consider this layout:</p>
+<pre><code>s3://my_bucket/xyz/2018/01/part-00001.parquet
+s3://my_bucket/xyz/2018/01/part-00002.parquet
+...
+s3://my_bucket/abc/2018/01/part-00001.parquet
+s3://my_bucket/abc/2018/01/part-00002.parquet
+</code></pre>
+<p>In this case, you can use the advanced <code>PARTITION(&lt;regex&gt;)</code> column definition to create the columns and extract their values.</p>
+<p>To create the same external table as we did in the hive-compatible case, use the following command:</p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE my_external_table
+(
+    c_id INT,
+    c_name TEXT,
+    c_type TEXT PARTITION('[^\/]+\/([^\/]+)\/[^\/]+\/[^\/]+')
+)
+CREDENTIALS = (AWS_KEY_ID = '*****' AWS_SECRET_KEY = '******')
+URL = 's3://my_bucket/'
+OBJECT_PATTERN= '*.parquet'
+TYPE = (PARQUET)
+</code></pre>
+<p>As in the previous example, the values for the columns <code>c_id</code> and <code>c_name</code> are extracted from the record in the parquet file, and the values for the <code>c_type</code> column is extracted from the file path, according to the specified type and regular expression.</p>
+<p>The partition values can be extracted during the <code>INSERT INTO</code>command as well. Read more <a href="../dml-commands/#example-extracting-partition-values">here</a>.</p>
+<h4 id="credentials">CREDENTIALS</h4>
+<p>The credentials for accessing your AWS S3. Firebolt enables using either access key &amp; secret or IAM role.</p>
+<h4 id="syntax-authenticating-using-an-access-key-secret"><strong>Syntax - Authenticating using an access key &amp; secret</strong></h4>
+<pre><code class="language-sql">CREDENTIALS = (AWS_KEY_ID = '&lt;aws_key_id&gt;' AWS_SECRET_KEY = '&lt;aws_secret_key&gt;' )
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;aws_key_id&gt;</code></td>
+<td>The AWS access key ID for the authorized app (Firebolt)</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td><code>&lt;aws_secret_key&gt;</code></td>
+<td>The AWS secret access key for the app (Firebolt)</td>
+<td>TEXT</td>
+</tr>
+</tbody>
+</table>
+<p>In case you don't have the access key and secret to access your S3 bucket, read more <a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys">here</a> on how to obtain them.</p>
+<h4 id="syntax-authenticating-using-iam-role"><strong>Syntax - Authenticating using IAM role</strong></h4>
+<p>Read more on how to configure the AWS role <a href="../../../loading-data/configuring-aws-role-to-access-amazon-s3/">here</a>.</p>
+<pre><code class="language-sql">CREDENTIALS = (AWS_ROLE_ARN = '&lt;role_arn&gt;' [AWS_ROLE_EXTERNAL_ID = '&lt;external_id&gt;'])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'&lt;role_arn&gt;'</code></td>
+<td>The arn_role you created in order to enable access to the required bucket.</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td><code>'&lt;external_id&gt;'</code></td>
+<td>Optional. This is an optional external ID that you can configure in AWS when creating the role. Specify this only if you use the external ID.</td>
+<td>TEXT</td>
+</tr>
+</tbody>
+</table>
+<h4 id="url-and-object_pattern">URL and OBJECT_PATTERN</h4>
+<p>The<code>URL</code>and<code>OBJECT_PATTERN</code>parameters are used together, to match the set of files from within the specified bucket that you wish to include as the data for the external table.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">URL = 's3://&lt;bucket&gt;[/&lt;folder&gt;][/...]/'
+OBJECT_PATTERN = '&lt;object_pattern&gt;'[, '&lt;object_pattern&gt;'[, ...n]]]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>URL</code></td>
+<td>This is the URL of the specific bucket and path within the bucket where the relevant files are located (common path prefix).</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td><code>OBJECT_PATTERN</code></td>
+<td>Specify the data patterns to be found in your data source. For example, *.parquet indicates that all parquet files should be found.</td>
+<td>TEXT</td>
+</tr>
+</tbody>
+</table>
+<p>The following wildcards are supported:</p>
+<ul>
+<li><code>'*'</code> matches any sequence of characters</li>
+<li><code>'?'</code> matches any single character</li>
+<li><code>[SET]</code> matches any single character in the specified set</li>
+<li><code>[!SET]</code> matches any character, not in the specified set.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>In the following layout of objects in a bucket, the data is partitioned according to client type, year, and month, with multiple parquet files in each partition. The examples demonstrate how choosing both URL and OBJECT_PATTERN impacts the objects that are retrieved from S3.</p>
+<pre><code>s3://bucket/c_type=c_type=xyz/year=2018/month=01/part-00001.parquet
+s3://bucket/c_type=c_type=xyz/year=2018/month=01/part-00002.parquet
+...
+s3://bucket/c_type=c_type=xyz/year=2018/month=12/part-00001.parquet
+s3://bucket/c_type=c_type=xyz/year=2018/month=12/part-00002.parquet
+...
+s3://bucket/c_type=c_type=xyz/year=2019/month=01/part-00001.parquet
+s3://bucket/c_type=c_type=xyz/year=2019/month=01/part-00002.parquet
+...
+s3://bucket/c_type=c_type=xyz/year=2020/month=01/part-00001.parquet
+s3://bucket/c_type=c_type=xyz/year=2020/month=01/part-00002.parquet
+...
+s3://bucket/c_type=c_type=abc/year=2018/month=01/part-00001.parquet
+s3://bucket/c_type=c_type=abc/year=2018/month=01/part-00002.parquet
+...
+</code></pre>
+<p>Following are some common use cases for URL and object pattern combinations:</p>
+<table>
+<thead>
+<tr>
+<th>Use cases</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get all files for file type xyz</td>
+<td><p><em>URL = 's3://bucket/c_type=xyz/'</em><br><em>OBJECT_PATTERN = '*'</em></p></td>
+</tr>
+<tr>
+<td></td>
+<td><p><em>URL = 's3://bucket/'</em><br><em>OBJECT_PATTERN = 'c_type=xyz/*'</em></p></td>
+</tr>
+<tr>
+<td>Get one specific file: <code>c_type=xyz/year=2018/month=01/part-00001.parquet</code></td>
+<td><p><em>URL = 's3://bucket/c_type=xyz/year=2018/month=01/' OBJECT_PATTERN = 'c_type=xyz/year=2018/month=01/part-00001.parquet'</em></p><p><br><em>URL = 's3://bucket/c_type=xyz/year=2018/month=01/' OBJECT_PATTERN = '*/part-00001.parquet'</em><br></p><p>As can be seen in this example, the ​<code>URL</code>​ is used to get only the minimal set of files (c_type files in the bucket from January 2018), and then from within those matching files, the ​<code>OBJECT_PATTERN</code>​​ is matched against the full path of the file (without the bucket name).</p></td>
+</tr>
+<tr>
+<td>Get all parquet files for type xyz</td>
+<td><p><em>URL = 's3://bucket/c_type=xyz/'</em><br><em>OBJECT_PATTERN = '*.parquet'</em></p></td>
+</tr>
+<tr>
+<td>Get all client data (for all types) from 2018 and 2019</td>
+<td><p>URL = 's3://bucket/'<br>OBJECT_PATTERN =<br>'<em>/year=2018/</em>',<br>'<em>/year=2019/</em>'</p></td>
+</tr>
+<tr>
+<td>Get all files for type xyz, from the past 3 months</td>
+<td><p>URL = 's3://bucket/c_type=xyz/'<br>OBJECT_PATTERN =<br>'<em>/year=2019/month=12/</em>',<br>'<em>/year=2020/month=01/</em>',<br>'<em>/year=2020/month=02/</em>'</p></td>
+</tr>
+<tr>
+<td>No files matched, since the URL parameter does not support wildcards.</td>
+<td><p>URL = 's3://bucket/'<br>OBJECT_PATTERN =<br>'<em>/year=2019/month=12/</em>',<br>'<em>/year=2020/month=01/</em>',<br>'<em>/year=2020/month=02/</em>'</p></td>
+</tr>
+<tr>
+<td>Get all files of type xyz from the first six months of 2019</td>
+<td><p>URL = 's3://bucket/c_type=xyz/'</p><p>OBJECT_PATTERN =</p><p><em>'/year=2019/month=0[1-6]'</em></p></td>
+</tr>
+</tbody>
+</table>
+<h4 id="type">TYPE</h4>
+<p>Specifies the type of the files in S3. The following types and type options are supported.</p>
+<ul>
+<li>
+<p><code>TYPE = (CSV [SKIP_HEADER_ROWS = {1|0}])</code></p>
+<p>With <code>TYPE = (CSV SKIP_HEADER_ROWS = 1)</code>, Firebolt assumes that the first row in each file read from S3 is a header row and skips it when ingesting data. When set to <code>0</code>, which is the default if not specified, Firebolt ingests the first row as data.
+*   <code>TYPE = (JSON [PARSE_AS_TEXT = {'TRUE'|'FALSE'}])</code></p>
+<p>With <code>TYPE = (JSON PARSE_AS_TEXT = 'TRUE')</code>, Firebolt ingests each JSON object literal in its entirety into a single column of type <code>TEXT</code>. With <code>TYPE = (JSON PARSE_AS_TEXT = 'FALSE')</code>, Firebolt expects each key in a JSON object literal to map to a column in the table definition. During ingestion, Firebolt inserts the key's value into the corresponding column.
+* <code>TYPE = (ORC)</code>
+* <code>TYPE = (PARQUET)</code>
+* <code>TYPE = (TSV)</code></p>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Creating an external table that reads parquet files from S3 is being done with the following command:</p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE my_external_table
+(
+    c_id INT,
+    c_name TEXT
+)
+CREDENTIALS = (AWS_KEY_ID = '*****' AWS_SECRET_KEY = '******')
+URL = 's3://bucket/'
+OBJECT_PATTERN= '*.parquet'
+TYPE = (PARQUET)
+</code></pre>
+<h4 id="compression">COMPRESSION</h4>
+<p>Specifies the compression type of the files in S3.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">[COMPRESSION = &lt;compression_type&gt;]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;compression_type&gt;</code></td>
+<td>An identifier specifies the compression type. <code>GZIP</code> is supported.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The example below creates an external table to ingest parquet files from S3 that are compressed using gzip. The credentials for an IAM user with access to the bucket are provided.</p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE my_external_table
+(
+    c_id INT,
+    c_name TEXT
+)
+CREDENTIALS = (AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
+URL = 's3://mybucket/'
+OBJECT_PATTERN= '*.parquet.gz'
+TYPE = (PARQUET)
+COMPRESSION = GZIP
+</code></pre>
+<h3 id="create-external-table-based-on-an-aws-glue-table">CREATE EXTERNAL TABLE based on an AWS Glue table</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE [IF NOT EXISTS] &lt;external_table_name&gt;
+CREDENTIALS = ( AWS_KEY_ID = '&lt;aws_key_id&gt;' AWS_SECRET_KEY = '&lt;aws_secret_key&gt;' )
+META_STORE = (TYPE='Glue' DATABASE_NAME=&lt;db_name&gt; TABLE_NAME=&lt;table_name&gt;)
+</code></pre>
+<p>In order to access Glue, make sure to allow the following actions in the AWS Policy:</p>
+<ul>
+<li><code>"s3:GetObject"</code></li>
+<li><code>"s3:GetObjectVersion"</code></li>
+<li><code>"s3:GetBucketLocation"</code></li>
+<li><code>"s3:ListBucket"</code></li>
+<li><code>"glue:GetTables"</code></li>
+</ul>
+<p>Click <a href="https://firebolt-publishing-public.s3.amazonaws.com/documentationAssets/templated_glue_policy.txt">here</a> to download a templated policy you can use. Make sure to replace:</p>
+<ul>
+<li><code>&lt;bucket&gt;</code>and<code>&lt;prefix&gt;</code>with the actual AWS S3 bucket name path and prefix where the AWS Glue data is stored.</li>
+<li><code>&lt;db_name&gt;</code>with the name of the AWS Glue database.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;external_table_name&gt;</code></td>
+<td>An ​identifier​​ that specifies the name of the external table. This name should be unique within the database.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;db_name&gt;</code></td>
+<td>The name of the database in AWS Glue</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td><code>&lt;table_name&gt;</code></td>
+<td>The name of the table in AWS Glue</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td><code>'&lt;aws_key_id&gt;'</code></td>
+<td>The AWS access key ID for the authorized app (Firebolt)</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td><code>'&lt;aws_secret_key&gt;'</code></td>
+<td>The AWS secret access key for the app (Firebolt)</td>
+<td>TEXT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>An external table based on an AWS Glue table <code>'glue_table'</code> in <code>'glue_db'</code> database:</p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE IF NOT EXISTS my_external_table
+CREDENTIALS = ( AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY' )
+META_STORE = (TYPE='Glue' DATABASE_NAME='glue_db' TABLE_NAME='glue_table')
+</code></pre>
+<h3 id="create-fact-dimension-table">CREATE FACT / DIMENSION TABLE</h3>
+<p>Creates a new FACT/DIMENSION table in the current database.</p>
+<p>Firebolt also supports creating a table as select (also referred to as CTAS) - read more <a href="./#ctas-create-fact-dimension-table-as-select">here</a>.</p>
+<p><strong>Fact table syntax</strong></p>
+<pre><code class="language-sql">CREATE FACT TABLE [IF NOT EXISTS] &lt;table_name&gt;
+(
+    &lt;column_name&gt; &lt;column_type&gt; [constraints]
+    [, &lt;column_name2&gt; &lt;column_type2&gt; [constraints]
+    [, ...n]]
+)
+PRIMARY INDEX &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]
+[PARTITION BY &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]]
+</code></pre>
+<p>Partitions are only supported on FACT tables.</p>
+<p><strong>Dimension table syntax</strong></p>
+<pre><code class="language-sql">CREATE DIMENSION TABLE [IF NOT EXISTS] &lt;table_name&gt;
+(
+    &lt;column_name&gt; &lt;column_type&gt; [constraints]
+    [, &lt;column_name2&gt; &lt;column_type2&gt; [constraints]
+    [, ...n]]
+)
+[PRIMARY INDEX &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;table_name&gt;</code></td>
+<td>An ​identifier​​ that specifies the name of the table. This name should be unique within the database.</td>
+</tr>
+<tr>
+<td><code>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​&lt;column_name&gt;</code></td>
+<td>An identifier that specifies the name of the column. This name should be unique within the table.</td>
+</tr>
+<tr>
+<td><code>&lt;column_type&gt;</code></td>
+<td>Specifies the data type for the column.</td>
+</tr>
+</tbody>
+</table>
+<p>All identifiers are case insensitive unless double-quotes are used. For more information, please see our <a href="../../../general-reference/identifier-requirements/">identifier requirements page</a>.</p>
+<h4 id="read-more-on">Read more on</h4>
+<ol>
+<li><a href="./#column-constraints-and-default-expression">Column constraints &amp; default expression</a></li>
+<li><a href="./#primary-index">PRIMARY INDEX specifier</a></li>
+<li><a href="./#partition-by">PARTITION BY specifier</a></li>
+</ol>
+<h4 id="column-constraints-default-expression">Column constraints &amp; default expression</h4>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">&lt;column_name&gt; &lt;column_type&gt; [UNIQUE] [NULL|NOT NULL] [DEFAULT &lt;expr&gt;]
+</code></pre>
+<p>Firebolt supports the following column constraints:</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DEFAULT &lt;expr&gt;</code></td>
+<td>Determines the default value that is used instead of NULL value is inserted.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>NULL</code> | <code>NOT NULL</code></td>
+<td>Determines if the column may or may not contain NULLs.</td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>UNIQUE</code></td>
+<td>This is an optimization hint to tell Firebolt that this column will be queried for unique values, such as through a <code>COUNT(DISTINCT)</code> function. This will not raise an error if a non-unique value is added to the column.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Note that nullable columns can not be used in Firebolt indexes (Primary, Aggregating, or Join indexes).</p>
+<p><strong>Example - Creating a table with nulls and not nulls:</strong></p>
+<p>This example illustrates different use cases for column definitions and INSERT statements:</p>
+<ul>
+<li>Explicit <code>NULL</code> insert: a direct insertion of a <code>NULL</code> value into a particular column.</li>
+<li>Implicit insert: an <code>INSERT</code> statement with missing values for a particular column.</li>
+</ul>
+<p>The example uses a fact table in which to insert different values. First, we create the fact table as follows:</p>
+<pre><code class="language-sql">CREATE FACT TABLE t1
+(
+    col1 INT  NULL ,
+    col2 INT  NOT NULL UNIQUE,
+    col3 INT  NULL DEFAULT 1,
+    col4 INT  NOT NULL DEFAULT 1,
+    col5 TEXT
+)
+PRIMARY INDEX col2;
+</code></pre>
+<p>Once we've created the table, we can manipulate the values with different INSERT statements. Following are detailed descriptions of different examples of these:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>INSERT statement</strong></td>
+<td><strong>Results and explanation</strong></td>
+</tr>
+<tr>
+<td><code>INSERT INTO t1 VALUES (1,1,1,1,1)</code></td>
+<td>1 is inserted into each column</td>
+</tr>
+<tr>
+<td><code>INSERT INTO t1 VALUES (NULL,1,1,1,1)</code></td>
+<td>col1 is <code>NULL</code>, and this is an explicit NULL insert, so NULL is inserted successfully.</td>
+</tr>
+<tr>
+<td><code>INSERT INTO t1 (col2,col3,col4,col5) VALUES (1,1,1,1)</code></td>
+<td>This is an example of explicit and implicit INSERT statements. col1 is <code>NULL,</code>which is an implicit insert, as a default expression was not specified. In this case, col1 is treated as<code>NULL DEFAULT NULL,</code>so Firebolt inserts NULL.</td>
+</tr>
+<tr>
+<td><p><code>INSERT INTO t1 VALUES (1,NULL,1,1,1)</code></p><p><code>INSERT INTO t1 (col1,col3,col4,col5) VALUES (1,1,1,1)</code></p></td>
+<td><p>The behavior here depends on the column type. For both cases, a “null mismatch” event occurs.</p><p>In the original table creation, col2 receives a <code>NOT NULL</code> value. Since a default expression is not specified, both of these INSERT statements try to insert<code>NOT NULL DEFAULT NULL</code>into col2. This means that there is an implicit attempt to insert<code>NULL</code>in both cases.</p><p>In this particular case, the data type for col4 is INT. Because<code>NOT NULL</code>is configured on col4 as well, it cannot accept<code>NULL</code>values. If the data type for col4 was TEXT, for example, the result would have been an insert of <code>''</code>.</p></td>
+</tr>
+<tr>
+<td><code>INSERT INTO t1 VALUES (1,1,NULL,1,1)</code></td>
+<td>col3 is<code>NULL DEFAULT 1,</code>and this is an explicit insert. <code>NULL</code> is inserted</td>
+</tr>
+<tr>
+<td><code>INSERT INTO t1 (col1,col2,col4,col5) VALUES (1,1,1,1)</code></td>
+<td>col3 is <code>NULL DEFAULT 1</code>. This is an implicit insert, and a default expression is specified, so 1 is inserted</td>
+</tr>
+<tr>
+<td><code>INSERT INTO t1 VALUES (1,1,1,NULL,1)</code></td>
+<td>col4 is <code>NOT NULL DEFAULT 1</code>, and this is an explicit insert. Therefore, a “null mismatch” event occurs. In this particular case, since the data type for col4 is INT, the result is an error. If the data type for col4 was TEXT, for example, the result would have been an insert of <code>''</code>.</td>
+</tr>
+<tr>
+<td><code>INSERT INTO t1 (col1,col2,col3,col5) VALUES (1,1,1,1)</code></td>
+<td>col4 is <code>NOT NULL DEFAULT 1</code>, and this is an implicit insert. Therefore, the default expression is used, and 1 is inserted</td>
+</tr>
+<tr>
+<td><p><code>INSERT INTO t1 VALUES (1,1,1,1,NULL)</code></p><p><code>INSERT INTO t1 (col1,col2,col3,col4) VALUES (1,1,1,1)</code></p></td>
+<td><p>The nullability and default expression for col5 were not specified. In this case, Firebolt treats col5 as <code>NOT NULL DEFAULT NULL</code>.</p><p>For the explicit insert, Firebolt attempts to insert NULL into a NOT NULL int column, and a “null mismatch” event results.</p><p>For the implicit insert, Firebolt resorts to the default, and again, attempts to insert NULL. Similar to the explicit NULL case - an empty value <code>''</code> is inserted.</p></td>
+</tr>
+</tbody>
+</table>
+<h4 id="primary-index">PRIMARY INDEX</h4>
+<p>The <code>PRIMARY INDEX</code> is a sparse index containing sorted data based on the indexed field. This index clusters and sorts data as it is ingested, without affecting data scan performance.</p>
+<p>Notice</p>
+<p>The <code>PRIMARY INDEX</code> is mandatory for <code>FACT</code> tables and optional for <code>DIMENSION</code> tables.</p>
+<p><strong>Primary index syntax</strong></p>
+<pre><code class="language-sql">PRIMARY INDEX &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]
+</code></pre>
+<p>The following table describes the primary index parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter.</th>
+<th>Description</th>
+<th>Mandatory?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;column_name&gt;</code></td>
+<td>Specifies the name of the column in the Firebolt table which composes the index. At least one column must be used for configuring the index.</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h4 id="partition-by">PARTITION BY</h4>
+<p>The <code>PARTITION BY</code> specifier contains the definition of the columns by which the table will be split into physical parts. Those columns are considered to be the partition key of the table. The key can be any of the table columns which is not nullable.</p>
+<p>Only <code>FACT</code> tables can be partitioned.</p>
+<p>When the partition key is set with multiple columns, all will be used as the partition boundaries.</p>
+<p><strong>Partition syntax</strong></p>
+<pre><code class="language-sql">PARTITION BY &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]
+</code></pre>
+<p>Read more on how to work with partitions <a href="../../../concepts/working-with-partitions/">here</a>.</p>
+<h3 id="ctas-create-fact-dimension-table-as-select">CTAS - CREATE FACT / DIMENSION TABLE AS SELECT</h3>
+<p>Creates a table and loads data into it based on the <a href="../query-syntax/">SELECT</a> query. The table column names and types are automatically inferred based on the output columns of the <a href="../query-syntax/">SELECT</a>. When specifying explicit column names those override the column names inferred from the <a href="../query-syntax/">SELECT</a>.</p>
+<p><strong>CREATE FACT TABLE AS SELECT syntax</strong></p>
+<pre><code class="language-sql">CREATE FACT TABLE &lt;table_name&gt;
+[(&lt;column_name&gt;[, ...n] )]
+PRIMARY INDEX &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]
+[PARTITION BY &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]]
+AS &lt;select_query&gt;
+</code></pre>
+<p><strong>CREATE DIMENSION TABLE AS SELECT syntax</strong></p>
+<pre><code class="language-sql">CREATE DIMENSION TABLE &lt;table_name&gt;
+[(&lt;column_name&gt;[, ...n] )]
+[PRIMARY INDEX &lt;column_name&gt;[, &lt;column_name&gt;[, ...n]]]
+AS &lt;select_query&gt;
+</code></pre>
+<h4 id="general-parameters">General parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;table_name&gt;</code></td>
+<td>An ​identifier​​ that specifies the name of the external table. This name should be unique within the database.</td>
+</tr>
+<tr>
+<td><code>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​&lt;column_name&gt;</code></td>
+<td>An identifier that specifies the name of the column. This name should be unique within the table.</td>
+</tr>
+<tr>
+<td><code>&lt;select_query</code>&gt;</td>
+<td>Any valid select query</td>
+</tr>
+</tbody>
+</table>
+<p>Read more on the primary index specifier <a href="./#primary-index">here</a>.</p>
+<h3 id="create-view">CREATE VIEW</h3>
+<p>Views allow you to use a query as if it were a table.</p>
+<p>Views are useful to filter, focus and simplify a database for users. They provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. A view in Firebolt executes its query each time the view is referenced. In other words, the view results are not stored for future usage, and therefore using views does not provide a performance advantage.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE VIEW [IF NOT EXISTS] &lt;name&gt; [(&lt;column_list&gt;)]
+AS SELECT &lt;select_statement&gt;
+</code></pre>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;name&gt;</code></td>
+<td>An ​identifier​​ that specifies the name of the view. This name should be unique within the database.</td>
+</tr>
+<tr>
+<td><code>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​&lt;column_list&gt;</code></td>
+<td>An optional list of column names to be used for columns of the view. If not given, the column names are deduced from the query.</td>
+</tr>
+<tr>
+<td><code>&lt;select_statement&gt;</code></td>
+<td>The select statement for creating the view</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">CREATE VIEW fob_shipments
+AS SELECT   l_shipmode,
+            l_shipdate,
+            l_linestatus,
+            l_orderkey,
+FROM    lineitem
+WHERE   l_shipdate &gt; '1990-01-01'
+AND     l_shipmode = 'FOB'
+</code></pre>
+<h3 id="create-join-index">CREATE JOIN INDEX</h3>
+<p>Join indexes can accelerate queries that use <code>JOIN</code> operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements required to perform a join at query runtime.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">CREATE JOIN INDEX [IF NOT EXISTS] &lt;unique_join_index_name&gt; ON &lt;dimension_table_name&gt;
+(
+  &lt;unique_join_key_column&gt;,
+  &lt;dimension_column&gt;[, ...n]
+)
+</code></pre>
+<p><strong>General parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;unique_join_index_name&gt;</code></td>
+<td>A unique name for the join index.</td>
+</tr>
+<tr>
+<td><code>&lt;dimension_table_name&gt;</code></td>
+<td>The name of the dimension table on which the index is configured.</td>
+</tr>
+<tr>
+<td><code>&lt;unique_join_key_column&gt;</code></td>
+<td>The column name that is used in the join’s <code>ON</code> clause.</td>
+</tr>
+<tr>
+<td><code>&lt;dimension_column&gt;</code></td>
+<td>The column name which is being loaded into memory from the dimension table. More than one column can be specified.</td>
+</tr>
+</tbody>
+</table>
+<p>For better performance, whenever possible, use the <a href="./#column-constraints-and-default-expression">UNIQUE</a> column attribute in the dimension table definition for the column that is used as the join key in queries.</p>
+<p>Since the join index is loaded into engine RAM, make sure to choose only the subset of dimension table columns that appear in queries that use the join.</p>
+<p><strong>Example: Create join index with specific columns</strong></p>
+<p>In the following example, we create a join index on the dimension table <code>my_dim</code>, and store the columns <code>email</code> and <code>country</code> in the index:</p>
+<pre><code class="language-sql">CREATE DIMENSION TABLE my_dim(
+my_dim_id BIGINT UNIQUE,
+email TEXT,
+country TEXT,
+city TEXT,
+cellolar TEXT)
+PRIMARY INDEX my_dim_id;
+
+
+CREATE JOIN INDEX my_dim_join_idx ON my_dim
+(my_dim_id, email, country);
+</code></pre>
+<h3 id="create-aggregating-index">CREATE AGGREGATING INDEX</h3>
+<p>Creating an aggregating index can be done as follows:</p>
+<ol>
+<li>For an empty table - use the following <a href="./#create-an-aggregating-index-on-an-empty-table">syntax</a>.</li>
+<li>For a table already populated with data - use the following <a href="./#create-an-aggregating-index-on-a-populated-table">syntax</a>.</li>
+</ol>
+<h4 id="syntax-for-aggregating-index-on-an-empty-table">Syntax for aggregating index on an empty table</h4>
+<pre><code class="language-sql">CREATE AGGREGATING INDEX &lt;agg_index_name&gt; ON &lt;fact_table_name&gt;
+(
+  &lt;key_column&gt;[, ...n],
+  &lt;aggregation&gt;[, ...n]
+);
+</code></pre>
+<p>Click <a href="./#parameters">here</a> to read about the different parameters.</p>
+<p>The index is being populated automatically as data is being loaded to the table.</p>
+<h4 id="syntax-for-aggregating-index-on-a-populated-table">Syntax for aggregating index on a populated table</h4>
+<pre><code class="language-sql">CREATE AND GENERATE AGGREGATING INDEX &lt;agg_index_name&gt; ON &lt;fact_table_name&gt;
+(
+  &lt;key_column&gt;[, ...n],
+  &lt;aggregation&gt;[, ...n]
+);
+</code></pre>
+<p>Generating the index after data was loaded to the table is a memory-heavy operation.</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;agg_index_name&gt;</code></td>
+<td>Specifies a unique name for the index</td>
+</tr>
+<tr>
+<td><code>&lt;fact_table_name&gt;</code></td>
+<td>Specifies the name of the fact table referenced by this index</td>
+</tr>
+<tr>
+<td><code>&lt;key_column&gt;</code></td>
+<td>Specifies column name from the <code>&lt;fact_table_name&gt;</code> used for the index</td>
+</tr>
+<tr>
+<td><code>&lt;aggregation&gt;</code></td>
+<td>Specifies one or more aggregation functions to be applied on a <code>&lt;key_column&gt;</code>, such as <code>SUM</code>, <code>COUNT</code>, <code>AVG</code>, and more.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example: Create an aggregating index</strong></p>
+<p>In the following example, we create an aggregating index on the fact table <code>my_fact</code>, to be used in the following query:</p>
+<pre><code class="language-sql">SELECT
+    product_name,
+    count(DISTINCT source),
+    sum(amount)
+FROM
+    my_fact
+GROUP BY
+    product_name;
+</code></pre>
+<p>The aggregating index is being created as follows:</p>
+<pre><code class="language-sql">CREATE AGGREGATING INDEX
+  my_fact_agg_idx ON my_fact
+  (
+    product_name,
+    count(distinct source),
+    sum(amount)
+  );
+</code></pre>
+<p>In order to enjoy the performance boost provided by the index - all the columns/measurements in the query should exists in the aggregating index.</p>
+<h2 id="start-engine">START ENGINE</h2>
+<p>The <code>START ENGINE</code> command enables you to start a stopped engine.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">START ENGINE &lt;engine_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;engine_name&gt;</code></td>
+<td>The name of the engine to be started</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stop-engine">STOP ENGINE</h2>
+<p>The <code>STOP ENGINE</code> command enables you to stop a running engine.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">STOP ENGINE &lt;engine_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;engine_name&gt;</code></td>
+<td>The name of the engine to be stopped</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="attach-engine">ATTACH ENGINE</h2>
+<p>The <code>ATTACH ENGINE</code> command enables you to attach an engine to a database.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">ATTACH ENGINE &lt;engine_name&gt; TO &lt;database_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;engine_name&gt;</code></td>
+<td>The name of the engine to attach.</td>
+<td>Y</td>
+</tr>
+<tr>
+<td><code>&lt;database_name&gt;</code></td>
+<td>The name of the database to attach engine <code>&lt;engine_name&gt;</code> to.</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="detach-engine-deprecated">DETACH ENGINE (deprecated)</h2>
+<p>Deprecated. Avoid using this statement and use <code>DROP ENGINE</code> instead. Allows you to detach an engine from a database.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DETACH ENGINE &lt;engine_name&gt; FROM &lt;database_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory? Y/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;engine_name&gt;</code></td>
+<td>The name of the engine to detach.</td>
+<td>Y</td>
+</tr>
+<tr>
+<td><code>&lt;database_name&gt;</code></td>
+<td>The name of the database to detach engine <code>&lt;engine_name&gt;</code> from.</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="describe">DESCRIBE</h2>
+<p>Lists all columns and data types for the table. Once the results are displayed, you can also export them to CSV or JSON.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DESCRIBE &lt;table_name&gt;
+</code></pre>
+<p><strong>Example</strong></p>
+<p>The following lists all columns and data types for the table named <code>prices</code>:</p>
+<pre><code class="language-sql">DESCRIBE prices
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+------------+-------------+-----------+----------+
+| table_name | column_name | data_type | nullable |
++------------+-------------+-----------+----------+
+| prices     | item        | text      |        0 |
+| prices     | num         | int       |        0 |
++------------+-------------+-----------+----------+
+</code></pre>
+<h2 id="drop">DROP</h2>
+<p><code>DROP</code> drops or removes the specified object from Firebolt. Firebolt supports dropping a table and view.</p>
+<p>Read more on these topics:</p>
+<ul>
+<li>For dropping an engine, read <a href="./#drop-engine">here</a>.</li>
+<li>For dropping an index, read <a href="./#drop-index">here</a>.</li>
+<li>For dropping a table, read <a href="./#drop-table">here</a>.</li>
+<li>For dropping a database, read <a href="./#drop-database">here</a></li>
+<li>For dropping a view, read <a href="./#drop-view">here</a>.</li>
+</ul>
+<h3 id="drop-engine">DROP ENGINE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP ENGINE [IF EXISTS] &lt;engine_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;engine_name&gt;</code></td>
+<td>The name of the engine to be deleted.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drop-index">DROP INDEX</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP [AGGREGATING | JOIN] INDEX [IF EXISTS] &lt;index_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;index_name&gt;</code></td>
+<td>The name of the index to be deleted.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drop-table">DROP TABLE</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP TABLE [IF EXISTS] &lt;table_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;table_name&gt;</code></td>
+<td>The name of the table to be deleted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notice</strong></p>
+<p>For external tables, this means that the table is removed from Firebolt, but not from the source.</p>
+<h3 id="drop-database">DROP DATABASE</h3>
+<p><strong>Syntax</strong></p>
+<p>Deletes the database and all of its tables and attached engines.</p>
+<pre><code class="language-sql">DROP DATABASE [IF EXISTS] &lt;database_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;database_name&gt;</code></td>
+<td>The name of the database to be deleted</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drop-view">DROP VIEW</h3>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">DROP VIEW [IF EXISTS] &lt;view_name&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;view_name&gt;</code></td>
+<td>The name of the view to be deleted.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="show">SHOW</h2>
+<p><code>SHOW</code> can list several objects and their details.</p>
+<h3 id="show-cache">SHOW CACHE</h3>
+<p>Returns the current SSD usage (<code>ssd_usage</code>) for the current engine. <code>SHOW CACHE</code> returns values at the engine level, not by each node.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW CACHE;
+</code></pre>
+<p>The results of <code>SHOW CACHE</code> are formatted as follows:</p>
+<p><code>&lt;ssd_used&gt;</code>/<code>&lt;ssd</code>_<code>available&gt;</code> GB (<code>&lt;percent_utilization&gt;</code>%)</p>
+<p>These components are defined as follows:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Component</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;ssd_used&gt;</code></td>
+<td>The amount of storage currently used on your engine. This data includes storage that Firebolt reserves for internal usage.</td>
+</tr>
+<tr>
+<td><code>&lt;ssd</code>_<code>available&gt;</code></td>
+<td>The amount of available storage on your engine.</td>
+</tr>
+<tr>
+<td><code>&lt;percent_utilization&gt;</code></td>
+<td>The percent of used storage as compared to available storage.</td>
+</tr>
+</tbody>
+</table>
+<p>Example returned output is shown below.</p>
+<pre><code>| ssd_usage             |
++-----------------------+
+| 3.82/73.28 GB (5.22%) |
+</code></pre>
+<h3 id="show-columns">SHOW COLUMNS</h3>
+<p>Lists columns and their properties for a specified table. Returns <code>&lt;table_name&gt;</code>, <code>&lt;column_name&gt;</code>, <code>&lt;data_type&gt;</code>, and <code>nullable</code> for each column.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW COLUMNS &lt;table_name&gt;;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;table_name&gt;</code></td>
+<td>The name of the table to be analyzed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW COLUMNS prices;
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<pre><code>------------+-------------+-----------+----------+
+| table_name | column_name | data_type | nullable |
++------------+-------------+-----------+----------+
+| prices     | item        | text      |        0 |
+| prices     | num         | int       |        0 |
++------------+-------------+-----------+----------+
+</code></pre>
+<h3 id="show-databases">SHOW DATABASES</h3>
+<p>Lists databases in the current Firebolt account. Returns <code>name</code>, <code>region</code>, <code>attached_engines</code>, <code>created_on</code>, <code>created_by</code>, and <code>errors</code> for each database.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW DATABASES;
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW DATABASES;
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<pre><code>+---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
+| database_name |  region   |          attached_engines           |         created_on          |  created_by   | errors |
++---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
+| Tutorial1     | us-east-1 | Tutorial1_general_purpose (default) | 2021-09-30T21:25:45.401405Z | someone       |      - |
++---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
+</code></pre>
+<h3 id="show-database">SHOW DATABASE</h3>
+<p>Shows the status for the specified database. These are the same metadata fields as <code>SHOW DATABASES</code>.</p>
+<pre><code class="language-sql">SHOW DATABASE &lt;database_name&gt;;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;<code>database_name&gt;</code></td>
+<td>The name of the database to be analyzed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="show-engines">SHOW ENGINES</h3>
+<p>Lists all engines in the current Firebolt account. Returns <code>engine_name</code>, <code>region</code>, <code>spec</code>, <code>scale</code>, <code>status</code>, and <code>attached_to</code> for each engine.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW ENGINES;
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW ENGINES;
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<pre><code>+--------------------+-----------+-------------+-------+---------+-------------+
+|    engine_name     |  region   |    spec     | scale | status  | attached_to |
++--------------------+-----------+-------------+-------+---------+-------------+
+| Tutorial_analytics | us-east-1 | r5d.4xlarge |     2 | Stopped | Tutorial    |
++--------------------+-----------+-------------+-------+---------+-------------+
+</code></pre>
+<h3 id="show-indexes">SHOW INDEXES</h3>
+<p>Lists all indexes defined in the current database. Returns <code>index_name</code>, <code>table_name</code>, <code>type</code> (primary, aggregating, or join), the index <code>expression</code>, and the <code>size_compressed</code>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW INDEXES;
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW INDEXES;
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code>+------------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------+-----------------+-------------------+-------------------+--------------------+
+|       index_name       |   table_name   |    type     |                                                expression                                                | size_compressed | size_uncompressed | compression_ratio | number_of_segments |
++------------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------+-----------------+-------------------+-------------------+--------------------+
+| primary_lineitem       | lineitem       | primary     | [&quot;l_orderkey&quot;,&quot;l_linenumber&quot;]                                                                            | N/A             | N/A               | N/A               | N/A                |
+| primary_partition_test | partition_test | primary     | [&quot;store_id&quot;,&quot;product_id&quot;]                                                                                | N/A             | N/A               | N/A               | N/A                |
+| agg_lineitem           | lineitem       | aggregating | [&quot;\&quot;l_suppkey\&quot;&quot;,&quot;\&quot;l_partkey\&quot;&quot;,&quot;SUM(\&quot;l_quantity\&quot;)&quot;,&quot;SUM(\&quot;l_extendedprice\&quot;)&quot;,&quot;AVG(\&quot;l_discount\&quot;)&quot;] | N/A             | N/A               | N/A               | 8                  |
++------------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------+-----------------+-------------------+-------------------+--------------------+
+</code></pre>
+<h3 id="show-tables">SHOW TABLES</h3>
+<p>Lists all tables defined in the current database. Returns <code>table_name</code>, <code>state</code>, <code>table_type</code>, <code>column_count</code>, <code>primary_index</code>, and <code>schema</code> (the <code>CREATE [EXTERNAL|FACT|DIMENSION] TABLE</code> statement for the table).</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="language-sql">SHOW TABLES;
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="language-sql">SHOW TABLES;
+</code></pre>
+<p><strong>Returns</strong>:</p>
+<pre><code>+----------------+-------+------------+--------------+----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+------+-------------------+-------------------+--------------------+
+|   table_name   | state | table_type | column_count |       primary_index        |                                                                                                                                                                                                                                                                                                                           schema                                                                                                                                                                                                                                                                                                                            | number_of_rows | size | size_uncompressed | compression_ratio | number_of_segments |
++----------------+-------+------------+--------------+----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+------+-------------------+-------------------+--------------------+
+| ex_lineitem    | Valid | EXTERNAL   |           16 | N/A                        | CREATE EXTERNAL TABLE IF NOT EXISTS &quot;ex_lineitem&quot; (&quot;l_orderkey&quot; long NOT NULL, &quot;l_partkey&quot; long NOT NULL, &quot;l_suppkey&quot; long NOT NULL, &quot;l_linenumber&quot; int NOT NULL, &quot;l_quantity&quot; long NOT NULL, &quot;l_extendedprice&quot; long NOT NULL, &quot;l_discount&quot; long NOT NULL, &quot;l_tax&quot; long NOT NULL, &quot;l_returnflag&quot; text NOT NULL, &quot;l_linestatus&quot; text NOT NULL, &quot;l_shipdate&quot; text NOT NULL, &quot;l_commitdate&quot; text NOT NULL, &quot;l_receiptdate&quot; text NOT NULL, &quot;l_shipinstruct&quot; text NOT NULL, &quot;l_shipmode&quot; text NOT NULL, &quot;l_comment&quot; text NOT NULL) &quot;URL&quot; = 's3://firebolt-publishing-public/samples/tpc-h/parquet/lineitem/' &quot;OBJECT_PATTERN&quot; = '*.parquet' &quot;TYPE&quot; = (&quot;PARQUET&quot;) | N/A            | N/A  | N/A               | N/A               | N/A                |
+| lineitem       | Valid | FACT       |           16 | [l_orderkey, l_linenumber] | CREATE FACT TABLE IF NOT EXISTS &quot;lineitem&quot; (&quot;l_orderkey&quot; long NOT NULL, &quot;l_partkey&quot; long NOT NULL, &quot;l_suppkey&quot; long NOT NULL, &quot;l_linenumber&quot; int NOT NULL, &quot;l_quantity&quot; long NOT NULL, &quot;l_extendedprice&quot; long NOT NULL, &quot;l_discount&quot; long NOT NULL, &quot;l_tax&quot; long NOT NULL, &quot;l_returnflag&quot; text NOT NULL, &quot;l_linestatus&quot; text NOT NULL, &quot;l_shipdate&quot; text NOT NULL, &quot;l_commitdate&quot; text NOT NULL, &quot;l_receiptdate&quot; text NOT NULL, &quot;l_shipinstruct&quot; text NOT NULL, &quot;l_shipmode&quot; text NOT NULL, &quot;l_comment&quot; text NOT NULL) PRIMARY INDEX &quot;l_orderkey&quot;, &quot;l_linenumber&quot;                                                                                           | N/A            | N/A  | N/A               | N/A               | 6                  |
+| partition_test | Valid | FACT       |            5 | [store_id, product_id]     | CREATE FACT TABLE IF NOT EXISTS &quot;partition_test&quot; (&quot;transaction_id&quot; long NOT NULL, &quot;transaction_date&quot; timestamp NOT NULL, &quot;store_id&quot; int NOT NULL, &quot;product_id&quot; int NOT NULL, &quot;units_sold&quot; int NOT NULL) PRIMARY INDEX &quot;store_id&quot;, &quot;product_id&quot; PARTITION BY EXTRACT(YEAR FROM &quot;transaction_date&quot;)                                                                                                                                                                                                                                                                                                                                                           | N/A            | N/A  | N/A               | N/A               | N/A                |
+| Insert_test    | Valid | DIMENSION  |            3 | N/A                        | CREATE DIMENSION TABLE IF NOT EXISTS &quot;Insert_test&quot; (&quot;name&quot; long NOT NULL, &quot;number&quot; int NOT NULL, &quot;other_name&quot; long NOT NULL)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A            | N/A  | N/A               | N/A               | 2                  |
++----------------+-------+------------+--------------+----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+------+-------------------+-------------------+--------------------+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

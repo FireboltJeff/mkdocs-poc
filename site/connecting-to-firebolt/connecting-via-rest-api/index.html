@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/connecting-to-firebolt/connecting-via-rest-api/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Firebolt REST API - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#firebolt-rest-api" class="nav-link">Firebolt REST API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#in-this-topic" class="nav-link">In this topic:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#authentication" class="nav-link">Authentication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ingesting-data-using-the-rest-api" class="nav-link">Ingesting data using the REST API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-queries-using-the-rest-api" class="nav-link">Running queries using the REST API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="firebolt-rest-api">Firebolt REST API</h1>
+<p>Firebolt provides several endpoints that enable you to interact with Firebolt programmatically. This topic contains an overview of the usage details when using the public REST endpoints to ingest data into Firebolt and run analytic queries.</p>
+<h2 id="in-this-topic">In this topic:</h2>
+<ol>
+<li><a href="./#authentication">Authentication</a></li>
+<li><a href="./#ingesting-data-using-the-rest-api">Ingest data using the REST API</a></li>
+<li><a href="./#running-queries-using-the-rest-api">Running queries using the REST API</a></li>
+</ol>
+<h2 id="authentication">Authentication</h2>
+<p>Authenticating with Firebolt REST API requires to retrieve authentication token using the <code>auth</code> endpoint.</p>
+<h3 id="retrieve-authentication-token">Retrieve authentication token</h3>
+<p>The authentication token is a secret string that identifies your user. Perform the following request to get an authentication token:</p>
+<pre><code class="language-bash">curl --request POST 'https://api.app.firebolt.io/auth/v1/login' \
+  --header 'Content-Type: application/json;charset=UTF-8' \
+  --data-binary '{&quot;username&quot;:&quot;YOUR_USER_EMAIL&quot;,&quot;password&quot;:&quot;YOUR_PASSWORD&quot;}'
+</code></pre>
+<p>In response you will get a JSON with similar contents:</p>
+<pre><code class="language-javascript">{
+  &quot;access_token&quot;: &quot;YOUR_ACCESS_TOKEN_VALUE&quot;,
+  &quot;expires_in&quot;: 86400,
+  &quot;refresh_token&quot;: &quot;YOUR_REFRESH_TOKEN_VALUE&quot;,
+  &quot;scope&quot;: &quot;offline_access&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;
+}
+</code></pre>
+<p>Extract the <code>access_token</code> value since it will be required in the following requests and will be used as your authentication token.</p>
+<h3 id="notice">Notice</h3>
+<p>The <code>access_token</code> is valid for 24 hours</p>
+<h3 id="refreshing-access-tokens">Refreshing access tokens</h3>
+<p>When the <code>access_token</code> expires and you start getting 401 HTTP errors from our API, you can either just repeat the login process or use <code>refresh-token</code> endpoint:</p>
+<pre><code class="language-bash">curl --request POST 'https://api.app.firebolt.io/auth/v1/refresh' \
+  --header 'Content-Type: application/json;charset=UTF-8' \
+  --data-binary '{&quot;refresh_token&quot;:&quot;YOUR_REFRESH_TOKEN_VALUE&quot;}'
+</code></pre>
+<p>The response from this endpoint will be the same as from the login endpoint.</p>
+<h2 id="ingesting-data-using-the-rest-api">Ingesting data using the REST API</h2>
+<p>Data ingestion into Firebolt using REST API requires the following steps:</p>
+<ol>
+<li><a href="./#get-your-engines-url">Get you engine's URL</a></li>
+<li><a href="./#create-an-external-table">Create an external table</a></li>
+<li><a href="./#create-fact-table-and-import-data">Create a fact table and import data</a></li>
+</ol>
+<h3 id="get-your-engines-url">Get your engine's URL</h3>
+<p>When you create a database in Firebolt the next step is creating an engine and attach it to the database. The engine is composed of a physical cluster of machines that will serve requests for this database and a load balancer in front of this cluster. Each database can have many engines attached to it and one engine configured as a default engine. You need to query our API to retrieve the URL of the default engine.</p>
+<p><strong>Retrieving the URL of the default engine in your database:</strong></p>
+<pre><code class="language-bash">curl --request GET 'https://api.app.firebolt.io/core/v1/account/engines:getURLByDatabaseName?database_name=YOUR_DATABASE_NAME' \
+--header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE'
+</code></pre>
+<p>Which results with:</p>
+<pre><code class="language-javascript">{ 
+    &quot;engineUrl&quot;: &quot;YOUR_ENGINE_URL&quot;
+}
+</code></pre>
+<p><strong>Retrieving the URL of your engine by its name:</strong></p>
+<pre><code class="language-bash">curl --request GET 'https://api.app.firebolt.io/core/v1/account/engines?filter.name_contains=YOUR_ENGINE_NAME' \
+--header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE'
+</code></pre>
+<p>Which results with:</p>
+<pre><code class="language-sql">{
+  &quot;page&quot;: {
+    ...
+  },
+  &quot;edges&quot;: [
+    {
+      ...
+        &quot;endpoint&quot;: &quot;YOUR_ENGINE_URL&quot;,
+      ...
+      }
+    }
+  ]
+}
+</code></pre>
+<h3 id="create-an-external-table">Create an external table</h3>
+<p>Use the following request to create an external table:</p>
+<pre><code class="language-bash">echo &quot;CREATE_EXTERNAL_TABLE_SCRIPT&quot; | curl 'https://YOUR_ENGINE_URL/?database=YOUR_DATABASE_NAME' --header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE' --data-binary @-
+</code></pre>
+<p>Make sure to replace the following params:</p>
+<p><code>URL_TO_CONNECT</code> with the value of "engineUrl" in the result JSON of the query run in the "Exchange your database name to engine URL" section</p>
+<p><code>YOUR_DATABASE_NAME</code> with the name of the database</p>
+<p><code>CREATE_EXTERNAL_TABLE_SCRIPT</code> with the following SQL script:</p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE [ IF NOT EXISTS ] &lt;external_table&gt; 
+  ( &lt;col_name&gt; &lt;col_type&gt; [ , ... ]) 
+  URL = 's3://&lt;path_to_s3_objects&gt;'
+  [ CREDENTIALS = ( AWS_KEY_ID = '******' AWS_SECRET_KEY = '******' ) ]
+  OBJECT_PATTERN = &lt;pattern_regex&gt;
+  TYPE = ( { CSV | JSON | PARQUET } );
+</code></pre>
+<p>In the above script replace the following:</p>
+<p><code>&lt;external_table&gt;</code> with the desired external table name you would like to create</p>
+<p><code>&lt;col_name&gt;</code> <code>&lt;col_type&gt;</code> with the relevant column names and types</p>
+<p><code>&lt;path_to_s3_objects&gt;</code> with the path to the new files</p>
+<p><code>&lt;pattern_regex&gt;</code> with a pattern that identifies the files inside the bucket</p>
+<p>For example - for the following file name: “filename.parquet” - the following should be used as <code>&lt;pattern_regex&gt;</code>: ‘*.parquet’</p>
+<h3 id="create-fact-table-and-import-data">Create FACT Table and Import Data</h3>
+<p><strong>Create FACT table</strong></p>
+<p>Use the following request to create a fact table:</p>
+<pre><code class="language-bash">echo &quot;CREATE_FACT_TABLE_SCRIPT&quot; | curl 'https://YOUR_ENGINE_URL/?database=YOUR_DATABASE_NAME' --header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE' --data-binary @-
+</code></pre>
+<p>Make sure to replace the following params:</p>
+<p><code>URL_TO_CONNECT</code> with the value of "engineUrl" in the result JSON of the query run in the “Exchange your database name to engine URL” section</p>
+<p><code>YOUR_DATABASE_NAME</code> with the name of the database</p>
+<p><code>CREATE_FACT_TABLE_SCRIPT</code> with the following SQL script:</p>
+<pre><code class="language-sql">CREATE FACT TABLE [IF NOT EXISTS] &lt;fact_table&gt;
+(
+    &lt;column_name&gt; &lt;column_type&gt;
+    [ ,... ]  
+)
+PRIMARY INDEX &lt;column_list&gt;
+</code></pre>
+<p>In the above script, replace the following:</p>
+<p><code>&lt;fact_table&gt;</code> with the desired fact table name you would like to create</p>
+<p><code>&lt;column_name&gt;</code> <code>&lt;column_type&gt;</code> with the relevant column names and types</p>
+<p><code>&lt;column_list&gt;</code> with a list (column names separated by commas, for example: column1, column2) of columns which should be used as a primary index (read more about primary indexes here).</p>
+<h3 id="notice_1">Notice</h3>
+<p>It is worth considering configuring an aggregating index as well before importing the data to the fact table to boost performance even further (it is also possible to create the aggregating index in a later stage). Read more about aggregating indexes <a href="../../concepts/get-instant-query-response-time/#get-sub-second-query-response-time-using-aggregating-indexes">here</a>.</p>
+<p><strong>Import Data into the FACT TABLE</strong></p>
+<p>Use the following request to import data into your fact table:</p>
+<pre><code class="language-bash">echo &quot;IMPORT_SCRIPT&quot; | curl 'https://YOUR_ENGINE_URL/?database=YOUR_DATABASE_NAME' --header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE' --data-binary @-
+</code></pre>
+<p>Make sure to replace the following params:</p>
+<p><code>URL_TO_CONNECT</code> with the value of <code>"engineUrl"</code> in the result JSON of the query run in the “Exchange your database name to engine URL” section.</p>
+<p><code>YOUR_DATABASE_NAME</code> with the name of the database</p>
+<p><code>IMPORT_SCRIPT</code> with the following SQL script:</p>
+<pre><code class="language-sql">INSERT INTO &lt;fact_table&gt; SELECT * FROM &lt;external_table&gt;
+</code></pre>
+<p>In the above script, replace:</p>
+<p><code>&lt;fact_table&gt;</code> with your Firebolt table name</p>
+<p><code>&lt;external_table&gt;</code> with your external table name from which you’d like to ingest</p>
+<h2 id="running-queries-using-the-rest-api">Running queries using the REST API</h2>
+<p>Running queries using REST API requires the following steps:</p>
+<ol>
+<li><a href="./#get-your-engines-url-1">Get your engine's URL</a></li>
+<li><a href="./#run-your-queries">Run your queries</a></li>
+</ol>
+<h3 id="get-your-engines-url_1">Get your engine's URL</h3>
+<p>When you create a database in Firebolt the next step is creating an engine and attach it to the database. The engine is composed of a physical cluster of machines that will serve requests for this database and a load balancer in front of this cluster. Each database can have many engines attached to it and one engine configured as a default engine. You need to query our API to retrieve the URL of the default engine.</p>
+<p><strong>Retrieving the URL of the default engine in your database:</strong></p>
+<pre><code class="language-bash">curl --request GET 'https://api.app.firebolt.io/core/v1/account/engines:getURLByDatabaseName?database_name=YOUR_DATABASE_NAME' \
+--header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE'
+</code></pre>
+<p>Which results with:</p>
+<pre><code class="language-javascript">{ 
+    &quot;engine_url&quot;: &quot;YOUR_ENGINE_URL&quot;
+}
+</code></pre>
+<p><strong>Retrieving the URL of your engine by it's name:</strong></p>
+<pre><code class="language-bash">curl --request GET 'https://api.app.firebolt.io/core/v1/account/engines?filter.name_contains=YOUR_ENGINE_NAME' \
+--header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE'
+</code></pre>
+<p>Which results with:</p>
+<pre><code class="language-sql">{
+  &quot;page&quot;: {
+    ...
+  },
+  &quot;edges&quot;: [
+    {
+      ...
+        &quot;endpoint&quot;: &quot;YOUR_ENGINE_URL&quot;,
+      ...
+      }
+    }
+  ]
+}
+</code></pre>
+<h3 id="run-your-queries">Run your Queries</h3>
+<p>Use the following request to run your queries:</p>
+<pre><code class="language-bash">echo &quot;SELECT_QUERY&quot; | curl 'https://YOUR_ENGINE_URL/?database=YOUR_DATABASE_NAME' --header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE' --data-binary @-
+</code></pre>
+<p>Make sure to replace the following params:</p>
+<p><code>URL_TO_CONNECT</code> with the value of <code>"engineUrl"</code> in the result JSON of the query run in the “Exchange your database name to engine URL” section</p>
+<p><code>YOUR_DATABASE_NAME</code> with the name of the database</p>
+<p><code>SELECT_QUERY</code> with any select query, you would like to run. It is possible to have multiple queries run at the same time. Just add “;” after each query - for example, replace <code>SELECT_QUERY</code> with the following:</p>
+<pre><code class="language-sql">SELECT_QUERY_1;
+SELECT_QUERY_2;
+--more queries...
+SELECT_QUERY_N;
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

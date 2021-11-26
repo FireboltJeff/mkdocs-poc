@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/working-with-engines/tuning-engine-performance/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Tuning engine performance - Firebolt docs process</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Firebolt docs process</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Getting started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../architecture-overview/" class="nav-link">Architecture overview</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Working with engines <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-engines/understanding-engine-fundamentals.md" class="dropdown-item">Understanding engine fundamentals</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-ddl.md" class="dropdown-item">Working with engines using DDL</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-rest-api.md" class="dropdown-item">Working with engines using the REST API</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/working-with-engines-using-the-firebolt-manager.md" class="dropdown-item">Working with engines using the Firebolt Manager</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-engines/tuning-engine-performance.md" class="dropdown-item">Tuning engine performance</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Concepts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/concepts/working-with-tables.md" class="dropdown-item">Working with tables</a>
+</li>
+                                    
+<li>
+    <a href="/concepts/get-instant-query-response-time.md" class="dropdown-item">Using indexes</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Working with semi-structured data</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/README.md" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-arrays.md" class="dropdown-item">Working with arrays</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/ingesting-semi-structured-data.md" class="dropdown-item">Ingesting semi-structured data</a>
+</li>
+            
+<li>
+    <a href="/concepts/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md" class="dropdown-item">Working with Parquet arrays and maps</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Writing, editing, and running SQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/README.md" class="dropdown-item">Working with the SQL workspace</a>
+</li>
+                                    
+<li>
+    <a href="/working-with-our-sql-editor/keyboard-shortcuts-for-sql-workspace.md" class="dropdown-item">Keyboard shortcuts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Loading data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/loading-data/loading-data-into-firebolt.md" class="dropdown-item">-Working with external tables</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/continuously-loading-data.md" class="dropdown-item">-Incrementally loading data tutorial</a>
+</li>
+                                    
+<li>
+    <a href="/loading-data/configuring-aws-role-access-amazon-s3.md" class="dropdown-item">-Using AWS roles to access Amazon S3</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="/integrations/integration-overview.md" class="nav-link">Integrations overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#tuning-engine-performance" class="nav-link">Tuning engine performance</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#understanding-performance-factors" class="nav-link">Understanding performance factors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tuning-ingestion-engines" class="nav-link">Tuning ingestion engines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tuning-analytics-engines" class="nav-link">Tuning analytics engines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="tuning-engine-performance">Tuning engine performance</h1>
+<p>We recommend that you experiment and tune different engine configurations on pre-production data workflows before you deploy to production. Firebolt's decoupled compute and storage architecture makes that easy. You can play with configurations in pre-production with little effort and low cost.</p>
+<p>Firebolt chose default engine configurations for databases because they work well in most scenarios, providing significant performance gains and cost savings “out of the box.” We recommend that you start with the default ingest and analytics engine configurations to see how they perform. If you want to increase performance or lower cost even further, the guidance in this topic can help you identify tuning opportunities.</p>
+<h2 id="understanding-performance-factors">Understanding performance factors</h2>
+<p>The engine specification (the node type) and scale (the number of nodes) are the fundamental configurations that you use to tune engine performance. Another configuration parameter, the warmup method, affects engine start times. For information about warmup choices, see <a href="../understanding-engine-fundamentals/#warmup-method">Warmup method</a>.</p>
+<p>For ingestion engines, tuning considerations include the source data to be ingested, the complexity of the data structures, and the response time that your application demands. For analytics engines, considerations include the complexity of aggregations and joins that you use in your queries. We explore these performance aspects and how they affect your tuning adjustments in more detail below.</p>
+<h2 id="tuning-ingestion-engines">Tuning ingestion engines</h2>
+<p>The first consideration for ingestion engines is the size of individual files and the entire file payload. Large files place different demands on an engine than small files. If your files are between 100 MB and 32 GB, the default ingestion engine specification and size is usually an excellent fit.</p>
+<p>Consider tuning adjustments in any of the following situations:</p>
+<ul>
+<li>Individual files or your total ingestion payload are outside the 100 MB – 32 GB range.</li>
+<li>You ingest complex data structures found in Parquet, JSON, and other nested and semi-structured formats.</li>
+<li>You ingest many files, especially small files.</li>
+</ul>
+<h3 id="choose-ram-based-on-file-and-payload-size">Choose RAM based on file and payload size</h3>
+<p>Firebolt caches files in RAM when processing them for ingestion. You want enough RAM available to each node, and to the entire engine, to accommodate caching. The more completely your engine can cache files during this process, the faster the engine performs.</p>
+<p>The size of the ingestion payload should never exceed the total amount of RAM available to the engine. This may cause an out of memory condition and cause ingestion to fail.</p>
+<h3 id="adjust-node-ram-using-the-engine-specification-and-then-use-scale-to-increase-overall-engine-ram">Adjust node RAM using the engine specification, and then use scale to increase overall engine RAM</h3>
+<p>For large files and payloads, choose an engine specification that provides each node with enough RAM for your largest individual file. Aim for RAM that is 1.5x to 2x the size of the largest file. If node RAM can’t cover the size of the entire payload, adjust engine scale to add nodes. When you scale, aim for engine-wide RAM to exceed the size of the entire payload by the same 1.5x to 2x ratio. This same guidance to add nodes applies to a large file that exceeds any available node capacity.</p>
+<p>If you ingest smaller files, a single node engine is often enough. Increase the engine specification so that node RAM can cover the payload using the 1.5x to 2x guidance from above. With small files, it’s often possible to decrease the engine specification without a significant impact to performance.</p>
+<p>For improving the ingestion time of small files, it’s especially important to increase node RAM using the engine specification before you add nodes. Adding nodes may actually diminish performance. This is because additional nodes and many files will amplify the inherent overhead of establishing a connection to Amazon S3 and accessing objects. In addition, if you have many files with a single S3 prefix, AWS throttling limits might become a factor. More on that below.</p>
+<h3 id="cpu-can-help-relieve-ram-demands-especially-for-complex-data-structures">CPU can help relieve RAM demands, especially for complex data structures</h3>
+<p>Firebolt holds heavily compressed or complex data structures in RAM longer during ingestion processing than simple structures. Parquet files and nested JSON are examples of more complex file types with high processing demands.</p>
+<p>For these file types and data structures, aim for the high end of the 2x RAM ratio mentioned above to begin with. You may even want to exceed it. Also, you may find that increasing the engine specification to improve the CPU or number of cores yields performance gains. This is because files are processed quicker, freeing up RAM for subsequent caching.</p>
+<h3 id="with-many-files-file-structure-in-s3-can-help">With many files, file structure in S3 can help</h3>
+<p>Access time to Amazon S3 and the limits that AWS imposes on the number of requests allowed per second (called throttling) play a role in engine configuration. You can add nodes to make requests across your data set more quickly, but you want to be mindful that there is a limit of 3.5K requests per second, per S3 prefix (folder). AWS may update these values occasionally. If you need to scale out to improve ingestion performance for a large number of files, save files at the source in different folders. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html">Performance Design Patterns for Amazon S3</a> in Amazon S3 documentation.</p>
+<p>For example, if you have 10,000 files to ingest, and you specify a <code>URL</code> like <code>s3://samplecorp/sampledata</code> in your external table definition, avoid placing too many files in that folder (or bucket). Instead, divide the files into sub-folders like <code>s3://samplecorp/sampledata/trancheA</code>, <code>s3://samplecorp/sampledata/trancheB</code>, <code>s3://samplecorp/sampledata/trancheC</code>, and so on, so that requests to each folder remain under the S3 throttling limit.</p>
+<h2 id="tuning-analytics-engines">Tuning analytics engines</h2>
+<p>After data is ingested into Firebolt, your analytics engines process fact and dimension tables for insight. With analytics engines, the complexity of data structures and the queries that you perform are essential considerations. As with ingestion engines, the default configuration is a good place to begin as you seek to improve performance or lower cost. With simple queries that have limited joins and aggregations, you can often keep a single-node engine and use a less powerful engine specification than the default, and still maintain a performance standard to meet application requirements.</p>
+<h3 id="good-indexes-help-engines">Good indexes help engines</h3>
+<p>Indexes are to Firebolt analytics engines what the suspension and transmission are to a car engine. They help deliver the engine’s power efficiently for top performance. Developing excellent indexes can help to mitigate the demands on an engine, improving performance and lowering cost. Tuning indexes is a topic of its own. For more information, see <a href="../../concepts/get-instant-query-response-time/">Using Indexes for faster queries</a>.</p>
+<h3 id="mix-and-match-engines-for-different-query-types">Mix and match engines for different query types</h3>
+<p>You can run as many analytics engines on a database at the same time as you need, using different engines for different queries. Because analytics engines don’t write data, you don’t need to be concerned about issues with locked data or data inconsistency.</p>
+<p>Queries that perform complex aggregations and multiple joins are likely to place greater demands on an analytics engine, requiring more processing power, RAM, or both. For these engines, consider modifying the engine specification to add RAM or increase the CPU of nodes according to the guidance below.</p>
+<ul>
+<li><strong>Join queries benefit from increased RAM</strong> - Join queries tend to be memory intensive, with large data sets cached in RAM during join operations. Try increasing the engine specification with more RAM per node. Aim for the memory of each node to be enough to contain all the join indexes fully in memory. Next, add nodes for additional RAM when running large and complex joins.</li>
+<li><strong>Aggregation queries benefit from increased CPU</strong> - Aggregation queries tend to be computationally intensive. Using an engine specification with more CPU power per node is likely to improve performance.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
